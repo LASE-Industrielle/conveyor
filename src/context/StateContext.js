@@ -19,4 +19,9 @@ export const initialState = {
     profile: {
         username: '',
     },
+    conveyors: {
+        data: [],
+        errorMessage: '',
+        loading: false,
+    }
 };

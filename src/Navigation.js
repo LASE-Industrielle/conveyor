@@ -3,22 +3,30 @@ import {createAppContainer, createBottomTabNavigator, createStackNavigator,} fro
 
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import ConveyorsListScreen from './screens/ConveyorsListScreen';
 
 
 const AppTabNavigator = createBottomTabNavigator(
     {
+        ConveyorsList: {
+            screen: ConveyorsListScreen,
+            path: 'ConveyorsList',
+            navigationOptions: {
+            },
+        },
         Profile: {
             screen: ProfileScreen,
             path: 'Profile',
             navigationOptions: {
             },
         },
+
     },
     {
         tabBarOptions: {
             showLabel: true,
         },
-        initialRouteName: 'Profile',
+        initialRouteName: 'ConveyorsList',
     },
 );
 
