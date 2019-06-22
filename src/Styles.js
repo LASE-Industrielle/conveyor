@@ -57,6 +57,9 @@ export default StyleSheet.create({
     icons: {
         color: primary
     },
+    arrow: {
+      color: '#606060'
+    },
     buttonAnalyticsStyle: {
         flex: 1,
         justifyContent: 'center',
