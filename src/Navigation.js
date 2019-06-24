@@ -51,7 +51,7 @@ const AppStackNavigator = createStackNavigator(
         tabBarOptions: {
             showLabel: true,
         },
-        initialRouteName: 'ConveyorsList',
+        initialRouteName: 'ConveyorDetails',
     },
 );
 
@@ -69,7 +69,7 @@ const AppNavigator = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'Login',
+        initialRouteName: 'App',
     },
 );
 
