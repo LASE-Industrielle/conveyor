@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 
 
-import {Body, Button, Container, Header, Icon, Left, Right, Tab, Tabs, Text, Title} from 'native-base';
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Tab, Tabs, Text, Title} from 'native-base';
 import getConveyors from '../services/ConveyorsService';
 import {useStateValue} from '../context/StateContext';
 import styles from '../Styles';
 import NotificationIcon from '../icons/NotificationIcon';
 import {TouchableOpacity} from "react-native";
+import {inactiveText, primary, primaryText, secondaryText} from "../Colors";
 
 const ScannersAnalyticScreen = (props) => {
 
@@ -14,9 +15,9 @@ const ScannersAnalyticScreen = (props) => {
 
     const [{conveyors}, dispatch] = useStateValue();
 
-    useEffect(()=> {
+    useEffect(() => {
         getConveyors(dispatch);
-    },[]);
+    }, []);
 
     return (
         <Container>
@@ -27,30 +28,36 @@ const ScannersAnalyticScreen = (props) => {
                     </Button>
                 </Left>
                 <Body>
-                    <Title style={{color:'black'}}>SCANNERS ANALYTIC</Title>
+                    <Title style={{color: primaryText, fontSize: 16}}>Scanners analytics</Title>
                 </Body>
                 <Right>
                     <TouchableOpacity onPress={() => (props.navigation.navigate('Notifications'))}>
                         <NotificationIcon style={{marginRight: 8}}/>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => (props.navigation.navigate('Profile'))}>
-                        <Icon name="person" style={{marginLeft: 8, height: 27, width: 27}}></Icon>
+                        <Icon name="person" style={{color: secondaryText, marginLeft: 8, height: 27, width: 27}}></Icon>
                     </TouchableOpacity>
                 </Right>
             </Header>
-
-                <Tabs>
-                    <Tab heading="Tab1">
+            <Content>
+                <Tabs tabBarUnderlineStyle={{backgroundColor: primary, height: 2}}>
+                    <Tab heading="Tab1" tabStyle={{backgroundColor: 'white', paddingLeft: 16}}
+                         textStyle={{color: inactiveText}} activeTabStyle={{backgroundColor: 'white'}}
+                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
                         <Text>Tab 1</Text>
                     </Tab>
-                    <Tab heading="Tab2">
+                    <Tab heading="Tab2" tabStyle={{backgroundColor: 'white'}} textStyle={{color: inactiveText}}
+                         activeTabStyle={{backgroundColor: 'white'}}
+                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
                         <Text>Tab 2</Text>
                     </Tab>
-                    <Tab heading="Tab3">
+                    <Tab heading="Tab3" tabStyle={{backgroundColor: 'white', paddingRight: 16}}
+                         textStyle={{color: inactiveText}} activeTabStyle={{backgroundColor: 'white'}}
+                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
                         <Text>Tab 3</Text>
                     </Tab>
                 </Tabs>
-
+            </Content>
         </Container>
     );
 };

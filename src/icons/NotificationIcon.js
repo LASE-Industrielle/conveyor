@@ -1,6 +1,7 @@
 import React from 'react'
 import {G, Path} from "react-native-svg";
 import SvgIcon from "react-native-svg-icon";
+import {secondaryText} from "../Colors";
 
 const icon = {
     icon: {
@@ -21,7 +22,7 @@ const icon = {
     }
 };
 
-const NotificationIcon = props => <SvgIcon fill="black" height={22} width={22} name={'icon'} {...props}
+const NotificationIcon = props => <SvgIcon fill={secondaryText} height={22} width={22} name={'icon'} {...props}
                                         svgs={icon}>{props.children}</SvgIcon>;
 
 export default NotificationIcon;

@@ -1,6 +1,6 @@
 import {Platform, StatusBar, StyleSheet} from 'react-native';
 
-import {primary} from './Colors';
+import {primary, primaryText} from './Colors';
 
 export default StyleSheet.create({
     default: {
@@ -58,7 +58,7 @@ export default StyleSheet.create({
         color: primary
     },
     arrow: {
-      color: '#606060'
+      color: primaryText
     },
     buttonAnalyticsStyle: {
         flex: 1,
