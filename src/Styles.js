@@ -2,6 +2,16 @@ import {Platform, StatusBar, StyleSheet} from 'react-native';
 
 import {primary} from './Colors';
 
+export const elevationShadowStyle = (elevation) => (
+    {
+        elevation,
+        shadowColor: '#000000',
+        shadowOffset: { width: 0, height: 3 * elevation },
+        shadowOpacity: 0.12,
+        shadowRadius: 6 * elevation
+    }
+);
+
 export default StyleSheet.create({
     default: {
         flex: 1,
