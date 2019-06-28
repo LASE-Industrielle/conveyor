@@ -3,5 +3,6 @@ const secondary = '#01A000';
 const primaryText = '#606060';
 const secondaryText = '#969696';
 const inactiveText = '#C5C5C5';
+const iconColor = '#fff';
 
-export { primary, secondary, primaryText, secondaryText, inactiveText };
+export { primary, secondary, primaryText, secondaryText, inactiveText, iconColor };

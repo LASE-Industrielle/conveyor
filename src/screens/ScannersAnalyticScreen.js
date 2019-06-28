@@ -1,66 +1,65 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 
+import {
+  Body,
+  Button,
+  Container,
+  Header,
+  Icon,
+  Left,
+  Right,
+  Tab,
+  Tabs,
+  Text,
+  Title,
+  Content
+} from "native-base";
+import getConveyors from "../services/ConveyorsService";
+import { useStateValue } from "../context/StateContext";
+import styles, {elevationShadowStyle} from "../Styles";
+import NotificationIcon from "../icons/NotificationIcon";
+import { TouchableOpacity, View } from "react-native";
+import GraphComponent from "../components/GraphComponent";
+import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
+import ConveyorStatusForm from "../components/ConveyorStatusForm";
 
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Tab, Tabs, Text, Title} from 'native-base';
-import getConveyors from '../services/ConveyorsService';
-import {useStateValue} from '../context/StateContext';
-import styles from '../Styles';
-import NotificationIcon from '../icons/NotificationIcon';
-import {TouchableOpacity} from "react-native";
-import {inactiveText, primary, primaryText, secondaryText} from "../Colors";
+const ScannersAnalyticScreen = props => {
+  const conveyorId = props.navigation.getParam("id");
 
-const ScannersAnalyticScreen = (props) => {
+  const [{ conveyors }, dispatch] = useStateValue();
 
-    const conveyorId = props.navigation.getParam('id');
+  useEffect(() => {
+    getConveyors(dispatch);
+  }, []);
 
-    const [{conveyors}, dispatch] = useStateValue();
-
-    useEffect(() => {
-        getConveyors(dispatch);
-    }, []);
-
-    return (
-        <Container>
-            <Header transparent>
-                <Left>
-                    <Button transparent onPress={() => props.navigation.goBack()}>
-                        <Icon name='arrow-back' style={styles.arrow}/>
-                    </Button>
-                </Left>
-                <Body>
-                    <Title style={{color: primaryText, fontSize: 16}}>Scanners analytics</Title>
-                </Body>
-                <Right>
-                    <TouchableOpacity onPress={() => (props.navigation.navigate('Notifications'))}>
-                        <NotificationIcon style={{marginRight: 8}}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => (props.navigation.navigate('Profile'))}>
-                        <Icon name="person" style={{color: secondaryText, marginLeft: 8, height: 27, width: 27}}></Icon>
-                    </TouchableOpacity>
-                </Right>
-            </Header>
-            <Content>
-                <Tabs tabBarUnderlineStyle={{backgroundColor: primary, height: 2}}>
-                    <Tab heading="Tab1" tabStyle={{backgroundColor: 'white', paddingLeft: 16}}
-                         textStyle={{color: inactiveText}} activeTabStyle={{backgroundColor: 'white'}}
-                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
-                        <Text>Tab 1</Text>
-                    </Tab>
-                    <Tab heading="Tab2" tabStyle={{backgroundColor: 'white'}} textStyle={{color: inactiveText}}
-                         activeTabStyle={{backgroundColor: 'white'}}
-                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
-                        <Text>Tab 2</Text>
-                    </Tab>
-                    <Tab heading="Tab3" tabStyle={{backgroundColor: 'white', paddingRight: 16}}
-                         textStyle={{color: inactiveText}} activeTabStyle={{backgroundColor: 'white'}}
-                         activeTextStyle={{color: secondaryText, fontWeight: '500'}}>
-                        <Text>Tab 3</Text>
-                    </Tab>
-                </Tabs>
-            </Content>
-        </Container>
-    );
+  return (
+    <Container style={{
+        backgroundColor: "#F2F2F2"
+    }}>
+      <Content
+        contentContainerStyle={{
+          backgroundColor: "#F2F2F2"
+        }}
+      >
+        <View
+          style={{
+            paddingHorizontal: 5,
+            justifyContent: "center",
+            flexDirection: "row",
+            borderRadius: 6,
+            marginHorizontal: 15,
+            marginTop: 15,
+            backgroundColor: "white",
+            ...elevationShadowStyle(2),
+            marginBottom: 18,
+          }}
+        >
+          <GraphComponent />
+        </View>
+        <ConveyorStatusForm style={{ borderRadius: 5 }} />
+      </Content>
+    </Container>
+  );
 };
-
 
 export default ScannersAnalyticScreen;

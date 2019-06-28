@@ -1,71 +1,102 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
+import { Text, TouchableOpacity, View, StyleSheet, Platform } from "react-native";
+import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
+import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
+import { elevationShadowStyle } from "../Styles";
 
-import {Body, Button, Container, Content, Footer, FooterTab, Header, Icon, Left, Right, Text, Title} from 'native-base';
-import getConveyors from '../services/ConveyorsService';
-import {useStateValue} from '../context/StateContext';
-import styles from '../Styles';
-import NotificationIcon from "../icons/NotificationIcon";
-import {TouchableOpacity} from "react-native";
+const ConveyorDetailsScreen = ({ navigation }) => {
+  const [percentage, setProgress] = useState(0);
 
-const ConveyorDetailsScreen = (props) => {
+  // useEffect(() => {
+  //     navigation.getParam('id', 1) == 1 ? navigation.setParams({title: 'Conveyor 1'}) : navigation.setParams({title: 'Conveyor 2'})
+  // }, []);
 
-    const conveyorId = props.navigation.getParam('id');
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (percentage < 100) {
+        setProgress(percentage + 10);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  });
 
-    const [{conveyors}, dispatch] = useStateValue();
-
-    useEffect(()=> {
-        getConveyors(dispatch);
-    },[]);
-
-    return (
-        <Container>
-            <Header transparent>
-                <Left>
-                    <Button transparent onPress={() => props.navigation.goBack()}>
-                        <Icon name='arrow-back' style={styles.arrow}/>
-                    </Button>
-                </Left>
-                <Body>
-                <Title style={{color:'black'}}>CONVEYOR #{conveyorId}</Title>
-                </Body>
-                <Right>
-                    <TouchableOpacity onPress={() => (props.navigation.navigate('Notifications'))}>
-                        <NotificationIcon style={{marginRight: 8}}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => (props.navigation.navigate('Profile'))}>
-                        <Icon name="person" style={{marginLeft: 8, height: 27, width: 27}}></Icon>
-                    </TouchableOpacity>
-                </Right>
-            </Header>
-            <Content>
-
-            </Content>
-            <Footer style={{
-                borderTopWidth: 0,
-                marginBottom:12,
-                shadowOffset: {height: 0, width: 0},
-                shadowOpacity: 0,
-                elevation: 0
-            }}>
-                <FooterTab style={{ backgroundColor: 'white'}}>
-                    <Button
-                        block
-                        primary
-                        onPress={() => props.navigation.navigate('ScannersAnalytic', { id: conveyorId })}
-                        style={styles.buttonAnalyticsStyle}
-                    >
-                        <Text style={{
-                            color: 'white',
-                            fontSize: 14,
-                            marginLeft: -15,
-                        }}>SCANNERS ANALYTIC</Text>
-                    </Button>
-                </FooterTab>
-            </Footer>
-        </Container>
-    );
+  return (
+    <View
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        //backgroundColor: "#F2F2F2",
+        fontFamily: "HelveticaNeue"
+      }}
+    >
+      <View
+        style={{
+          position: "absolute",
+          top: Platform.OS === 'ios' ? 0 :32,
+          zIndex: 1,
+          backgroundColor: "#F2F2F2",
+          flex: 1,
+          width: "100%",
+          height: "100%"
+        }}
+      />
+      <ConveyorDetailsForm />
+      <View
+        style={{
+          flex: 1.25,
+          justifyContent: "center",
+          flexDirection: "column",
+          marginVertical: 1,
+          zIndex: 2
+        }}
+      >
+        <View
+          style={{
+            alignItems: "center",
+            flex: 1,
+            backgroundColor: "white",
+            shadowColor: "#000000",
+            justifyContent: "center",
+            flexDirection: "column"
+          }}
+        >
+          <ConveyorProgresSvg percentage={percentage.toString()} />
+        </View>
+      </View>
+      <View
+        style={{
+          backgroundColor: "white",
+          flex: 1.11,
+          justifyContent: "center",
+          flexDirection: "column",
+          zIndex: 2,
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            marginVertical: 26,
+            marginHorizontal: 16,
+            paddingVertical: Platform.OS === 'ios' ? 0 : 21,
+            alignItems: "center",
+            flex: Platform.OS === 'ios' ? 0.7 : 1,
+            backgroundColor: "#02A04E",
+            justifyContent: "center",
+            flexDirection: "column",
+            borderRadius: 5,
+            ...elevationShadowStyle(2)
+          }}
+          onPress={() => {
+            navigation.navigate("ScannersAnalytic");
+          }}
+        >
+          <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>
+            SCANNER ANALYTICS
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 };
-
 
 export default ConveyorDetailsScreen;
