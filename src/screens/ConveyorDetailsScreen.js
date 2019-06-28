@@ -36,7 +36,7 @@ const ConveyorDetailsScreen = () => {
         }}
       >
         <Text style={{ color: "#606060", paddingLeft: 20.5 }}>{"<"}</Text>
-        <Text style={{ fontFamily: "HelveticaNeueMedium", fontSize: 18 }}>
+        <Text style={{ fontFamily: "HelveticaNeue", fontSize: 18 }}>
           Conveyor 1
         </Text>
         <Text style={{ color: "#606060", paddingRight: 20.5 }}>2</Text>

@@ -14,7 +14,8 @@ const ConveyorDetailsFormHeader = props => {
       <Text
         style={{
           color: "#262626",
-          fontFamily: "HelveticaNeueBold"
+          fontFamily: "HelveticaNeue",
+          fontWeight: "bold"
         }}
       >
         {props.item1}
