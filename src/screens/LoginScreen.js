@@ -16,7 +16,8 @@ import authCall from "../services/AuthService";
 
 import styles from "../Styles";
 import laseLogo from "../../assets/img/lase.jpeg";
-import { NavigationActions, StackActions } from "react-navigation";
+import {Header, NavigationActions, StackActions} from "react-navigation";
+import LinearGradient from "react-native-linear-gradient";
 
 const appAction = StackActions.reset({
   index: 0,
@@ -72,7 +73,9 @@ const LoginScreen = props => {
   }
 
   return (
-    <Container style={{ backgroundColor: "green" }}>
+    <Container style={{ backgroundColor: "transparent" }}>
+      <LinearGradient style={{flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+          colors={["#83CEA7", "#3A7F78"]}/>
       <Content contentContainerStyle={styles.default}>
         <Item style={{ borderColor: "transparent" }}>
           <Left style={{ marginTop: 20, marginLeft: 20 }}>
@@ -124,7 +127,7 @@ const LoginScreen = props => {
             </Text>
           </Right>
         </Item>
-        <Button block primary onPress={login} style={styles.buttonStyle}>
+        <Button block primary onPress={login} style={styles.loginButtonStyle}>
           <Text
             style={{
               color: "white",

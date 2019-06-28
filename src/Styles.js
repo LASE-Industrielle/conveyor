@@ -21,7 +21,8 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
-    borderRadius: 8
+    borderRadius: 8,
+    ...(Platform.OS === 'android') && {paddingTop: 30}
   },
   image: {
     width: 100,
@@ -36,6 +37,14 @@ export default StyleSheet.create({
     elevation: 2,
     padding: 30
   },
+    loginButtonStyle: {
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 50,
+        backgroundColor: '#02A04E',
+        elevation: 2,
+        padding: 30
+    },
   inputItem: {
     borderColor: "#797979",
     marginTop: 10,

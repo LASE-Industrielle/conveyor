@@ -24,6 +24,8 @@ import { primary } from "../Colors";
 import { LOGOUT_USER } from "../Actions";
 import styles from "../Styles";
 import NotificationIcon from "../icons/NotificationIcon";
+import SynchronizationIcon from "../icons/SynchronizationIcon";
+import LogoutIcon from "../icons/LogoutIcon";
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStateValue();
@@ -38,31 +40,6 @@ const ProfileScreen = props => {
 
   return (
     <Container style={{ backgroundColor: "#F2F2F2" }}>
-      <Header transparent>
-        <Left>
-          <Button transparent onPress={() => props.navigation.goBack()}>
-            <Icon name="arrow-back" style={styles.arrow} />
-          </Button>
-        </Left>
-        <Body>
-          <Title style={{ color: "black" }}>PROFILE</Title>
-        </Body>
-        <Right>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate("Notifications")}
-          >
-            <NotificationIcon style={{ marginRight: 8 }} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate("Profile")}
-          >
-            <Icon
-              name="person"
-              style={{ marginLeft: 8, height: 27, width: 27 }}
-            />
-          </TouchableOpacity>
-        </Right>
-      </Header>
       <Content
         style={{
           margin: 20,
@@ -88,12 +65,13 @@ const ProfileScreen = props => {
           <Left>
             <Button
               style={{
-                backgroundColor: primary
+                backgroundColor: '#02A04E',
+                opacity: 0.08
               }}
               textStyle={{}}
             >
-              <Icon active name="sync" />
             </Button>
+            <SynchronizationIcon fill={'#02A04E'} style={{opacity: 1, zIndex: 100, position: 'absolute', left: 8}}/>
           </Left>
           <Body>
             <Text style={{ fontFamily: "HelveticaNeue", color: "#797979" }}>
@@ -106,9 +84,12 @@ const ProfileScreen = props => {
         </ListItem>
         <ListItem icon>
           <Left>
-            <Button style={{ backgroundColor: primary }}>
-              <Icon active name="ios-notifications" />
+            <Button style={{
+              backgroundColor: '#02A04E',
+              opacity: 0.08
+            }}>
             </Button>
+            <NotificationIcon fill={'#02A04E'} height={14} width={12} style={{opacity: 1, zIndex: 100, position: 'absolute', left: 8}}/>
           </Left>
           <Body>
             <Text style={{ fontFamily: "HelveticaNeue", color: "#797979" }}>
@@ -121,9 +102,12 @@ const ProfileScreen = props => {
         </ListItem>
         <ListItem icon onPress={logout}>
           <Left>
-            <Button style={{ backgroundColor: primary }}>
-              <Icon active name="ios-log-out" />
+            <Button style={{
+              backgroundColor: '#F19B93',
+              opacity: 0.1
+            }}>
             </Button>
+            <LogoutIcon fill={'#F19B93'} height={14} width={12} style={{opacity: 1, zIndex: 100, position: 'absolute', left: 8}}/>
           </Left>
           <Body>
             <Text

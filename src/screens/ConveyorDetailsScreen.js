@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, View, StyleSheet, Platform } from "react-native";
 import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
 import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
 import { elevationShadowStyle } from "../Styles";
@@ -33,7 +33,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
       <View
         style={{
           position: "absolute",
-          top: 32,
+          top: Platform.OS === 'ios' ? 0 :32,
           zIndex: 1,
           backgroundColor: "#F2F2F2",
           flex: 1,
@@ -70,16 +70,16 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           flex: 1.11,
           justifyContent: "center",
           flexDirection: "column",
-          zIndex: 2
+          zIndex: 2,
         }}
       >
         <TouchableOpacity
           style={{
             marginVertical: 26,
             marginHorizontal: 16,
-            paddingVertical: 21,
+            paddingVertical: Platform.OS === 'ios' ? 0 : 21,
             alignItems: "center",
-            flex: 1,
+            flex: Platform.OS === 'ios' ? 0.7 : 1,
             backgroundColor: "#02A04E",
             justifyContent: "center",
             flexDirection: "column",

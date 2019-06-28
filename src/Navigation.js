@@ -61,7 +61,7 @@ const navigationOptions = (backArrowExists, title) => (
                         alignSelf: 'stretch', flex: 1, width: '100%', flexDirection: 'row', borderBottomWidth: 1}}/>
                 </View>,
             //Heading/title of the header
-            headerTitle: <Text style={{marginLeft: 26,
+            headerTitle: <Text style={{marginLeft: Platform.OS === 'ios' ? 0 :26,
                 fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium",
                 fontSize: 18,
                 color: iconColor}}>{navigation.getParam('title', title !== null ? title : '')}</Text>,
@@ -110,16 +110,12 @@ const AppStackNavigator = createStackNavigator(
         Profile: {
             screen: ProfileScreen,
             path: 'Profile',
-            navigationOptions: {
-                header: null,
-            },
+            navigationOptions: navigationOptions(true, 'Profile'),
         },
         Notifications: {
             screen: NotificationsScreen,
             path: 'Notifications',
-            navigationOptions: {
-                header: null,
-            },
+            navigationOptions: navigationOptions(true, 'Notifications'),
         },
         ConveyorDetails: {
             screen: ConveyorDetailsScreen,
@@ -129,9 +125,7 @@ const AppStackNavigator = createStackNavigator(
         ScannersAnalytic: {
             screen: ScannersAnalyticScreen,
             path: 'ScannersAnalytic',
-            navigationOptions: {
-                header: null,
-            },
+            navigationOptions: navigationOptions(true, 'Scanner Analytic'),
         },
     },
     {

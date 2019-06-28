@@ -107,7 +107,7 @@ const ConveyorsListScreen = (props) => {
     return (
         Platform.OS === 'ios' ?
         <View style={{ height: '100%'}}>
-            <View style={{position:'absolute', top: 32, zIndex: 1, backgroundColor: '#F2F2F2', flex: 1, width: '100%', height: '100%'}}/>
+            <View style={{position:'absolute', zIndex: 1, backgroundColor: '#F2F2F2', flex: 1, width: '100%', height: '100%'}}/>
             <FlatList
                 style={{zIndex: 2}}
                 data={conveyors.data}
