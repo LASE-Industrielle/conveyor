@@ -19,12 +19,13 @@ const ConveyorDetailsForm = props => {
     <View
       style={{
         flex: 4,
-        margin: 5,
+        zIndex: 2,
         paddingVertical: 15,
         paddingHorizontal: 5,
         justifyContent: "space-between",
         borderRadius: 6,
         margin: 16,
+        marginTop: 0,
         backgroundColor: "white"
       }}
     >

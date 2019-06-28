@@ -3,9 +3,14 @@ import React, { useState, useEffect } from "react";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
 import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
+import { elevationShadowStyle } from "../Styles";
 
-const ConveyorDetailsScreen = () => {
+const ConveyorDetailsScreen = ({ navigation }) => {
   const [percentage, setProgress] = useState(0);
+
+  // useEffect(() => {
+  //     navigation.getParam('id', 1) == 1 ? navigation.setParams({title: 'Conveyor 1'}) : navigation.setParams({title: 'Conveyor 2'})
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,33 +26,29 @@ const ConveyorDetailsScreen = () => {
       style={{
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "#F2F2F2",
+        //backgroundColor: "#F2F2F2",
         fontFamily: "HelveticaNeue"
       }}
     >
       <View
         style={{
-          flex: 0.7,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "white",
-          shadowColor: "#000000"
+          position: "absolute",
+          top: 32,
+          zIndex: 1,
+          backgroundColor: "#F2F2F2",
+          flex: 1,
+          width: "100%",
+          height: "100%"
         }}
-      >
-        <Text style={{ color: "#606060", paddingLeft: 20.5 }}>{"<"}</Text>
-        <Text style={{ fontFamily: "HelveticaNeue", fontSize: 18 }}>
-          Conveyor 1
-        </Text>
-        <Text style={{ color: "#606060", paddingRight: 20.5 }}>2</Text>
-      </View>
+      />
       <ConveyorDetailsForm />
       <View
         style={{
           flex: 1.25,
           justifyContent: "center",
           flexDirection: "column",
-          marginVertical: 1
+          marginVertical: 1,
+          zIndex: 2
         }}
       >
         <View
@@ -68,7 +69,8 @@ const ConveyorDetailsScreen = () => {
           backgroundColor: "white",
           flex: 1.11,
           justifyContent: "center",
-          flexDirection: "column"
+          flexDirection: "column",
+          zIndex: 2
         }}
       >
         <TouchableOpacity
@@ -81,10 +83,12 @@ const ConveyorDetailsScreen = () => {
             backgroundColor: "#02A04E",
             justifyContent: "center",
             flexDirection: "column",
-            borderRadius: 5.0,
-            elevation: 2 // to be done cross platform
+            borderRadius: 5,
+            ...elevationShadowStyle(2)
           }}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate("ScannersAnalytic");
+          }}
         >
           <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>
             SCANNER ANALYTICS

@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { tsPropertySignature } from "@babel/types";
+import {Platform} from 'react-native';
 
 const ConveyorDetailsFormHeader = props => {
   return (
@@ -14,8 +15,7 @@ const ConveyorDetailsFormHeader = props => {
       <Text
         style={{
           color: "#262626",
-          fontFamily: "HelveticaNeue",
-          fontWeight: "bold"
+          fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Bold" : "HelveticaNeueBold"
         }}
       >
         {props.item1}
