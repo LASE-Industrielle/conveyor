@@ -2,27 +2,27 @@ import { Platform, StatusBar, StyleSheet } from "react-native";
 
 import { primary } from "./Colors";
 
-export const elevationShadowStyle = (elevation) => (
+export const elevationShadowStyle = (elevation = 2, shadowOpacity = 0.12) => (
     {
         elevation,
         shadowColor: '#000000',
         shadowOffset: { width: 0, height: 3 * elevation },
-        shadowOpacity: 0.12,
-        shadowRadius: 6 * elevation
+        shadowOpacity: shadowOpacity,
+        shadowRadius: 6 * elevation,
     }
 );
 
 export default StyleSheet.create({
   default: {
-    marginTop: 250,
-    marginBottom: 50,
+    marginTop: Platform.OS === 'ios' ? 250 : 142,
+    marginBottom: Platform.OS === 'ios' ? 50 : 34,
     marginHorizontal: 10,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
     borderRadius: 8,
-    ...(Platform.OS === 'android') && {paddingTop: 30}
+    ...(Platform.OS === 'android') && {paddingTop: 30, paddingBottom: 44},
   },
   image: {
     width: 100,
@@ -40,9 +40,9 @@ export default StyleSheet.create({
     loginButtonStyle: {
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 50,
+        marginTop: Platform.OS === 'ios' ? 50 : 40,
         backgroundColor: '#02A04E',
-        elevation: 2,
+        ...elevationShadowStyle(2, 0.16),
         padding: 30
     },
   inputItem: {

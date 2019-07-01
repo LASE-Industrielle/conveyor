@@ -22,7 +22,7 @@ import resetAction from "../utils/NavigationUtils";
 
 import { primary } from "../Colors";
 import { LOGOUT_USER } from "../Actions";
-import styles from "../Styles";
+import styles, {elevationShadowStyle} from "../Styles";
 import NotificationIcon from "../icons/NotificationIcon";
 import SynchronizationIcon from "../icons/SynchronizationIcon";
 import LogoutIcon from "../icons/LogoutIcon";
@@ -46,7 +46,8 @@ const ProfileScreen = props => {
           backgroundColor: "white",
           borderRadius: 8,
           padding: 10,
-          fontSize: 13
+          fontSize: 13,
+          ...elevationShadowStyle(2, 0.12)
         }}
       >
         <View

@@ -139,11 +139,10 @@ const LoginScreen = props => {
           </Text>
         </Button>
         <Item style={{ borderColor: "transparent", marginTop: 30 }}>
-          <Text style={{ color: "#02A04E" }}>Don't have an account.</Text>
+          <Text style={{ color: "#AAA9A9" }}>Don't have an account?</Text>
           <Text
             style={{
               color: "#02A04E",
-              fontWeight: "bold"
             }}
           >
             &nbsp;Sign in
