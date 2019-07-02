@@ -7,7 +7,7 @@ const ConveyorDetailsFormRow = props => {
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
-        margin: 10
+        margin: 10,
       }}
     >
       <Text style={{ flex: 1 }}>{props.title}</Text>

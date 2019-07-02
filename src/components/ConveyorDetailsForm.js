@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import ConveyorDetailsFormRow from "../components/ConveyorDetailsFormRow";
 import ConveyorDetailsFormHeader from "../components/ConveyorDetailsFormHeader";
 import {elevationShadowStyle} from "../Styles";
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   line: {
     marginHorizontal: 15,
     borderBottomColor: "#E8E6EA",
-    borderBottomWidth: 0.4
+    borderBottomWidth: 0.4,
   },
   formText: {
     fontFamily: "HelveticaNeue"
@@ -21,12 +21,12 @@ const ConveyorDetailsForm = props => {
       style={{
         flex: 4,
         zIndex: 2,
-        paddingVertical: 15,
+        paddingVertical: 30,
         paddingHorizontal: 5,
         justifyContent: "space-between",
         borderRadius: 6,
         margin: 16,
-        marginTop: 0,
+        marginTop: Platform.OS === 'ios' ? 102: 0,
         backgroundColor: "white",
         ...elevationShadowStyle(2),
       }}

@@ -25,7 +25,7 @@ const ConveyorStatusForm = props => {
                 paddingHorizontal: 5,
                 justifyContent: "space-between",
                 borderRadius: 6,
-                margin: 16,
+                //margin: 16,
                 marginTop: 0,
                 backgroundColor: "white",
                 ...elevationShadowStyle(2),

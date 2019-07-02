@@ -32,11 +32,7 @@ const navigationOptions = (backArrowExists, title) => (
                     <View
                     >
                         <StatusBar translucent={true} backgroundColor={'transparent'}/>
-                        <LinearGradient
-                            colors={["#84CFA8", "#539A88"]}
-                        >
-                            <Header {...props} />
-                        </LinearGradient>
+                        <Header {...props} />
                     </View>
                     <View style={{position: 'absolute', top: 88, opacity: 0.4, borderBottomColor: '#3A7F78',
                         alignSelf: 'stretch', flex: 1, width: '100%', flexDirection: 'row', borderBottomWidth: 1}}/>
@@ -96,6 +92,7 @@ const navigationOptions = (backArrowExists, title) => (
                     <BackArrowIcon/>
                 </TouchableOpacity>
             ) : null,
+            headerTransparent: Platform.OS === 'ios' ? true : false
         };
     }
 )

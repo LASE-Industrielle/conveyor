@@ -1,24 +1,41 @@
 import React from 'react';
-
-
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Title, Text} from 'native-base';
-import styles from '../Styles';
-import NotificationIcon from "../icons/NotificationIcon";
-import {TouchableOpacity} from "react-native";
+import {Platform, Text, View} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 const NotificationsScreen = (props) => {
 
     return (
-        <Container>
-            <Content contentContainerStyle={{
+        <View style={{backgroundColor: 'transparent', width: '100%', height: '100%'}}>
+            <View
+                style={{
+                    position: "absolute",
+                    top: Platform.OS === 'ios' ? 0 : 32,
+                    zIndex: 1,
+                    backgroundColor: "#F2F2F2",
+                    flex: 1,
+                    width: "100%",
+                    height: '100%'
+                }}
+            >
+                {Platform.OS === 'ios' ?
+                    <LinearGradient style={{height: 134}}
+                                    colors={["#84CFA8", "#539A88"]}
+                    />
+                    :
+                    null
+                }
+            </View>
+            <View style={{
                 backgroundColor: "#F2F2F2",
                 flex: 1,
                 justifyContent: "center",
                 alignItems: 'center',
+                zIndex: 2,
+                marginTop: Platform.OS === 'ios' ? 134 : 32
             }}>
                 <Text style={{color: '#AAA9A9'}}>0 notifications</Text>
-            </Content>
-        </Container>
+            </View>
+        </View>
     );
 };
 

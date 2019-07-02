@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Alert } from "react-native";
-import {
-  Button,
-  Container,
-  Content,
-  Input,
-  Item,
-  Spinner,
-  Text,
-  Left,
-  Right
-} from "native-base";
-import { useStateValue } from "../context/StateContext";
+import React, {useEffect, useState} from "react";
+import {Alert} from "react-native";
+import {Button, Container, Content, Input, Item, Left, Right, Spinner, Text} from "native-base";
+import {useStateValue} from "../context/StateContext";
 import authCall from "../services/AuthService";
 
 import styles from "../Styles";
-import laseLogo from "../../assets/img/lase.jpeg";
-import {Header, NavigationActions, StackActions} from "react-navigation";
+import {NavigationActions, StackActions} from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 
 const appAction = StackActions.reset({

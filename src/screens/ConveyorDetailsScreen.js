@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
-import { Text, TouchableOpacity, View, StyleSheet, Platform } from "react-native";
+import {Platform, Text, TouchableOpacity, View} from "react-native";
 import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
 import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
-import { elevationShadowStyle } from "../Styles";
+import {elevationShadowStyle} from "../Styles";
+import LinearGradient from "react-native-linear-gradient";
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [percentage, setProgress] = useState(0);
@@ -40,7 +41,15 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           width: "100%",
           height: "100%"
         }}
-      />
+      >
+          {Platform.OS === 'ios' ?
+              <LinearGradient style={{height: 134}}
+                              colors={["#84CFA8", "#539A88"]}
+              />
+              :
+              null
+          }
+      </View>
       <ConveyorDetailsForm />
       <View
         style={{

@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 
 
-import {Body, Container, Content, Header, Icon, Left, List, ListItem, Right, Text, Title} from 'native-base';
+import {Text} from 'native-base';
 import getConveyors from '../services/ConveyorsService';
 import {useStateValue} from '../context/StateContext';
-import NotificationIcon from "../icons/NotificationIcon";
-import {TouchableOpacity, FlatList, View, Platform} from "react-native";
-import {Svg, Circle, Rect} from "react-native-svg";
+import {FlatList, Platform, TouchableOpacity, View} from "react-native";
+import {Circle, Svg} from "react-native-svg";
 import {elevationShadowStyle} from "../Styles";
+import LinearGradient from "react-native-linear-gradient";
 
 const ConveyorsListScreen = (props) => {
 
@@ -107,9 +107,13 @@ const ConveyorsListScreen = (props) => {
     return (
         Platform.OS === 'ios' ?
         <View style={{ height: '100%'}}>
-            <View style={{position:'absolute', zIndex: 1, backgroundColor: '#F2F2F2', flex: 1, width: '100%', height: '100%'}}/>
+            <View style={{position:'absolute', zIndex: 1, backgroundColor: '#F2F2F2', flex: 1, width: '100%', height: '100%'}}>
+                <LinearGradient style={{height:134}}
+                    colors={["#84CFA8", "#539A88"]}
+                />
+            </View>
             <FlatList
-                style={{zIndex: 2}}
+                style={{zIndex: 2, marginTop: 102}}
                 data={conveyors.data}
                 keyExtractor={item => String(item.id)}
                 //extraData={conveyors}
