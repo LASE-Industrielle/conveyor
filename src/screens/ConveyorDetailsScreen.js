@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
 
-import {Platform, Text, TouchableOpacity, View} from "react-native";
+import {Platform, Text, TouchableOpacity, View, ScrollView} from "react-native";
 import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
 import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
 import {elevationShadowStyle} from "../Styles";
 import LinearGradient from "react-native-linear-gradient";
+import VolumeStreamComponent from "../components/VolumeStreamComponent";
+import GraphComponent from "../components/GraphComponent";
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [percentage, setProgress] = useState(0);
@@ -50,14 +52,46 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               null
           }
       </View>
+        <ScrollView style={{
+            //flex: 4,
+            zIndex: 2,
+            //paddingVertical: 15,
+            //paddingHorizontal: 5,
+            //justifyContent: "space-between",
+            //borderRadius: 6,
+            //margin: 16,
+            marginTop: Platform.OS === 'ios' ? 102 : 0,
+            backgroundColor: "transparent",
+            //...elevationShadowStyle(2),
+            //marginHorizontal: 15,
+
+        }}>
+            <View
+                style={{
+                    paddingHorizontal: 5,
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    borderRadius: 6,
+                    marginHorizontal: 15,
+                    //marginTop: 15,
+                    backgroundColor: "white",
+                    ...elevationShadowStyle(2),
+                    marginBottom: 4,
+                    paddingVertical: 15,
+                    //paddingLeft:
+                    alignItems: 'center'
+                }}
+            >
+                <VolumeStreamComponent/>
+            </View>
       <ConveyorDetailsForm />
       <View
         style={{
           flex: 1.25,
           justifyContent: "center",
           flexDirection: "column",
-          marginVertical: 1,
-          zIndex: 2
+          //marginVertical: 1,
+          zIndex: 2,
         }}
       >
         <View
@@ -67,7 +101,9 @@ const ConveyorDetailsScreen = ({ navigation }) => {
             backgroundColor: "white",
             shadowColor: "#000000",
             justifyContent: "center",
-            flexDirection: "column"
+            flexDirection: "column",
+              paddingVertical: 20,
+
           }}
         >
           <ConveyorProgresSvg percentage={percentage.toString()} />
@@ -86,24 +122,25 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           style={{
             marginVertical: 26,
             marginHorizontal: 16,
-            paddingVertical: Platform.OS === 'ios' ? 0 : 21,
+            paddingVertical: Platform.OS === 'ios' ? 0 : 17,
             alignItems: "center",
             flex: Platform.OS === 'ios' ? 0.7 : 1,
             backgroundColor: "#02A04E",
             justifyContent: "center",
             flexDirection: "column",
             borderRadius: 5,
-            ...elevationShadowStyle(2)
+            ...elevationShadowStyle(2),
+              marginTop: 0
           }}
           onPress={() => {
             navigation.navigate("ScannersAnalytic");
           }}
         >
-          <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>
-            SCANNER ANALYTICS
+          <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>ANALYTICS
           </Text>
         </TouchableOpacity>
       </View>
+        </ScrollView>
     </View>
   );
 };

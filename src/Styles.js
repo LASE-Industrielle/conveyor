@@ -55,7 +55,7 @@ export default StyleSheet.create({
   },
   placeholder: {
     fontSize: 14,
-    marginLeft: 12
+    marginLeft: 12,
   },
   footer: { padding: 10 },
   homeImage: {

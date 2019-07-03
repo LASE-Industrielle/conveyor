@@ -78,17 +78,17 @@ const navigationOptions = (backArrowExists, title) => (
             //Heading text color
             headerTintColor: navigation.getParam('HeaderTintColor', '#fff'),
             headerRight: (
-                <View style={{flexDirection: 'row', marginRight: 22}}>
-                    <TouchableOpacity style={{marginRight: 10}} onPress={() => (navigation.navigate('Notifications'))}>
+                <View style={{flexDirection: 'row', marginRight: 14}}>
+                    <TouchableOpacity style={{paddingRight: 5, paddingLeft: 8}} onPress={() => (navigation.navigate('Notifications'))}>
                         <NotificationIcon />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => (navigation.navigate('Profile'))}>
+                    <TouchableOpacity style={{paddingRight: 8, paddingLeft: 5}} onPress={() => (navigation.navigate('Profile'))}>
                         <ProfileIcon />
                     </TouchableOpacity>
                 </View>
             ),
             headerLeft: backArrowExists ? (
-                <TouchableOpacity style={{marginLeft: 20}} onPress={() => navigation.goBack()}>
+                <TouchableOpacity style={{marginLeft: 12, padding: 8, paddingTop: 0, paddingBottom: 0}} onPress={() => navigation.goBack()}>
                     <BackArrowIcon/>
                 </TouchableOpacity>
             ) : null,
@@ -122,7 +122,7 @@ const AppStackNavigator = createStackNavigator(
         ScannersAnalytic: {
             screen: ScannersAnalyticScreen,
             path: 'ScannersAnalytic',
-            navigationOptions: navigationOptions(true, 'Scanner Analytic'),
+            navigationOptions: navigationOptions(true, 'Analytics'),
         },
     },
     {

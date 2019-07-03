@@ -1,8 +1,9 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import {View, StyleSheet, Text, Platform} from "react-native";
 import ConveyorDetailsFormRow from "../components/ConveyorDetailsFormRow";
 import ConveyorDetailsFormHeader from "../components/ConveyorDetailsFormHeader";
 import {elevationShadowStyle} from "../Styles";
+import {Circle, Svg} from "react-native-svg";
 
 const styles = StyleSheet.create({
     line: {
@@ -31,40 +32,34 @@ const ConveyorStatusForm = props => {
                 ...elevationShadowStyle(2),
             }}
         >
-            <ConveyorDetailsFormHeader item1="STATUS" />
+            <ConveyorDetailsFormHeader item1="DETAILS" />
             <View style={styles.line} />
-            <ConveyorDetailsFormRow title="Conveyor Velocity" item1="0.2" item2="m/s" />
-            <View style={styles.line} />
-            <ConveyorDetailsFormRow
-                title="Volume Sum"
-                item1="568"
-                item2={"m\u00B3"}
-            />
-            <View style={styles.line} />
-            <ConveyorDetailsFormRow title="Volume Flow Rate" item1="0.5" item2={"m\u00B3/s"} />
-            <View style={styles.line} />
-            <ConveyorDetailsFormRow
-                title="Mass Sum"
-                item1="3570"
-                item2="kg"
-            />
-            <View style={styles.line} />
-            <ConveyorDetailsFormRow
-                title="Mass Flow Rate"
-                item1="1.2"
-                item2="kg/s"
-            />
-            <View style={styles.line} />
-            <ConveyorDetailsFormRow
-                title="Material Density"
-                item1="89"
-                item2={"kg/m\u00B3"}
-            />
-            <ConveyorDetailsFormRow
-                title="Conveyor Deviation"
-                item1="0.1"
-                item2={"m"}
-            />
+            <View
+                style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    margin: 10,
+                }}
+            >
+                <Svg
+                    height="9"
+                    width="9"
+                    viewBox="0 0 100 100"
+                    style={{alignSelf: 'center', marginLeft: 10, marginRight: 12}}
+                >
+                    <Circle
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        stroke="blue"
+                        strokeWidth="2.5"
+                        fill={"#6CC799"}
+                    />
+                </Svg>
+                <Text style={{ flex: 1, color: '#AAA9A9', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{'Status: '}
+                    <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Ok</Text>
+                </Text>
+            </View>
         </View>
     );
 };

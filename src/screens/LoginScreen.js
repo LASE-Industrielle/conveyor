@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Alert} from "react-native";
+import {Alert, KeyboardAvoidingView, ScrollView, Dimensions} from "react-native";
 import {Button, Container, Content, Input, Item, Left, Right, Spinner, Text} from "native-base";
 import {useStateValue} from "../context/StateContext";
 import authCall from "../services/AuthService";
@@ -62,10 +62,19 @@ const LoginScreen = props => {
   }
 
   return (
-    <Container style={{ backgroundColor: "transparent" }}>
+      <ScrollView >
+        <KeyboardAvoidingView enabled>
+    <Container style={{ backgroundColor: "red", height: Dimensions.get('window').height }}>
       <LinearGradient style={{flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
           colors={["#83CEA7", "#3A7F78"]}/>
       <Content contentContainerStyle={styles.default}>
+        <Item style={{ borderColor: "transparent" }}>
+          <Left style={{ marginTop: 20, marginLeft: 20 }}>
+            <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9", fontSize: 24 }}>
+              Log In
+            </Text>
+          </Left>
+        </Item>
         <Item style={{ borderColor: "transparent" }}>
           <Left style={{ marginTop: 20, marginLeft: 20 }}>
             <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9" }}>
@@ -80,8 +89,9 @@ const LoginScreen = props => {
             onChangeText={text => {
               setUsername(text);
             }}
-            placeholder="Username"
+            placeholder="xyz@gmail.com"
             style={styles.placeholder}
+            placeholderTextColor={'#AAA9A9'}
           />
         </Item>
         <Item style={{ borderColor: "transparent" }}>
@@ -98,13 +108,15 @@ const LoginScreen = props => {
         </Item>
         <Item rounded style={styles.inputItem}>
           <Input
+            autoCapitalize="none"
             secureTextEntry
             value={password}
             onChangeText={text => {
               setPassword(text);
             }}
-            placeholder="Password"
+            placeholder={"\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A"}
             style={styles.placeholder}
+            placeholderTextColor={'#AAA9A9'}
           />
         </Item>
         <Item
@@ -134,11 +146,13 @@ const LoginScreen = props => {
               color: "#02A04E",
             }}
           >
-            &nbsp;Sign in
+            &nbsp;Sign up
           </Text>
         </Item>
       </Content>
     </Container>
+        </KeyboardAvoidingView>
+      </ScrollView>
   );
 };
 
