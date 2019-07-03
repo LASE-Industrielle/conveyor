@@ -78,17 +78,17 @@ const navigationOptions = (backArrowExists, title) => (
             //Heading text color
             headerTintColor: navigation.getParam('HeaderTintColor', '#fff'),
             headerRight: (
-                <View style={{flexDirection: 'row', marginRight: 14}}>
-                    <TouchableOpacity style={{paddingRight: 5, paddingLeft: 8}} onPress={() => (navigation.navigate('Notifications'))}>
+                <View style={{flexDirection: 'row', marginRight: 8}}>
+                    <TouchableOpacity style={{paddingRight: 5, paddingLeft: 14}} onPress={() => (navigation.navigate('Notifications'))}>
                         <NotificationIcon />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{paddingRight: 8, paddingLeft: 5}} onPress={() => (navigation.navigate('Profile'))}>
+                    <TouchableOpacity style={{paddingRight: 14, paddingLeft: 5}} onPress={() => (navigation.navigate('Profile'))}>
                         <ProfileIcon />
                     </TouchableOpacity>
                 </View>
             ),
             headerLeft: backArrowExists ? (
-                <TouchableOpacity style={{marginLeft: 12, padding: 8, paddingTop: 0, paddingBottom: 0}} onPress={() => navigation.goBack()}>
+                <TouchableOpacity style={{marginLeft: 6, padding: 14, paddingTop: 0, paddingBottom: 0}} onPress={() => navigation.goBack()}>
                     <BackArrowIcon/>
                 </TouchableOpacity>
             ) : null,

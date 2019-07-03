@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Alert, KeyboardAvoidingView, ScrollView, Dimensions} from "react-native";
+import {Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar} from "react-native";
 import {Button, Container, Content, Input, Item, Left, Right, Spinner, Text} from "native-base";
 import {useStateValue} from "../context/StateContext";
 import authCall from "../services/AuthService";
@@ -63,6 +63,7 @@ const LoginScreen = props => {
 
   return (
       <ScrollView >
+        <StatusBar translucent={true} backgroundColor={'transparent'}/>
         <KeyboardAvoidingView enabled>
     <Container style={{ backgroundColor: "red", height: Dimensions.get('window').height }}>
       <LinearGradient style={{flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
