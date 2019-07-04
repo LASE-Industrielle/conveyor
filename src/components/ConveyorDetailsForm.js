@@ -43,8 +43,10 @@ const ConveyorDetailsForm = ({conveyor}) => {
         //...elevationShadowStyle(2),
         //marginHorizontal: 15,
         //height: 200
-      }}>
-      <ConveyorDetailsFormHeader item1="JOB: #0001243" />
+      }}
+      >
+        <View style={{ paddingBottom: 50 }}>
+      <ConveyorDetailsFormHeader item1={"JOB: " + conveyor.mac_address} />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Customer Name"
@@ -59,78 +61,65 @@ const ConveyorDetailsForm = ({conveyor}) => {
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Material Density"
-            item1="1.866"
-            item2={"t\u00B3/s"}
+            title="Bulk Density"
+            item1={conveyor.latest_measurement.bulk_density}
+            item2={"kg/m\u00B3"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Conveyor Speed"
             item1={conveyor.latest_measurement.conveyor_speed}
-            item2={"m/s"}
+            item2={"mm/s"}
         />
-      <View style={styles.line} />
-      <ConveyorDetailsFormRow title="Belt Speed" item1="0.1" item2="m/s" />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Area"
+            title="Calculated Area"
             item1={conveyor.latest_measurement.calculated_area}
-            item2={"m\u00B2"}
-        />
-        <View style={styles.line} />
-        <ConveyorDetailsFormRow
-            title="Total Area"
-            item1="0.363"
-            item2={"m\u00B2"}
+            item2={"cm\u00B2"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Volume Sum"
             item1={conveyor.latest_measurement.volume_sum}
-            item2={"m\u00B3/h"}
+            item2={"dm\u00B3"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Volume Stream"
-            item1="1434.35"
-            item2={"m\u00B3/h"}
+            title="Volume Flow Per Hour"
+            item1={conveyor.latest_measurement.avg_volume_flow_per_hour}
+            item2={"dm\u00B3/h"}
         />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Volume Flow Rate"
+            title="Volume Flow"
             item1={conveyor.latest_measurement.avg_volume_flow}
-            item2={"m\u00B3/s"}
+            item2={"dm\u00B3/h"}
         />
-      <View style={styles.line} />
-      <ConveyorDetailsFormRow
-        title="Target Volume"
-        item1={conveyor.latest_measurement.limit_volume_sum}
-        item2={"m\u00B3"}
-      />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Mass Sum"
             item1={conveyor.latest_measurement.mass_sum}
-            item2={"t"}
+            item2={"kg"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Mass Stream"
+            title="Mass Flow"
             item1={conveyor.latest_measurement.avg_mass_flow}
-            item2={"t/h"}
+            item2={"kg/h"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Cons. Deviation"
-            item1="66"
+            title="Barycenter"
+            item1={conveyor.latest_measurement.barycenter}
             item2={"mm"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
-            title="Count Valid Pts"
+            title="Valid Points"
             item1={conveyor.latest_measurement.valid_points}
             item2={"%"}
         />
+        </View>
       </ScrollView>
     </View>
   );
