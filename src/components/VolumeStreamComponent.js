@@ -16,7 +16,7 @@ const VolumeStreamComponent = props => (
             <ClipPath id="prefix__a">
                 <Rect
                     data-name="Rectangle 1526"
-                    width={59}
+                    width={props.percentage * 296 /100}
                     height={8}
                     rx={4}
                     transform="translate(32 174)"
@@ -56,7 +56,7 @@ const VolumeStreamComponent = props => (
                 //fontWeight={700}
             >
                 <TSpan x={0} y={0}>
-                    {'19%'}
+                    {props.percentage + '%'}
                 </TSpan>
                 <TSpan
                     y={0}
@@ -68,7 +68,7 @@ const VolumeStreamComponent = props => (
                     fontFamily="HelveticaNeue, Helvetica Neue"
                     //fontWeight={400}
                 >
-                    {'full'}
+                    {' full'}
                 </TSpan>
             </Text>
             <G
@@ -135,7 +135,7 @@ const VolumeStreamComponent = props => (
                 >
                     <Text data-name="Upper limit 7500" transform="translate(0 116)">
                         <TSpan x={0} y={0} letterSpacing=".02em">
-                            {'Upper limit'}
+                            {'Upper limit '}
                         </TSpan>
                         <TSpan y={0} fill="#aaa9a9" letterSpacing=".02em" />
                         <TSpan
@@ -144,7 +144,7 @@ const VolumeStreamComponent = props => (
                             fontFamily="HelveticaNeue-Bold, Helvetica Neue"
                             //fontWeight={700}
                         >
-                            {'7500'}
+                            {props.upperLimit}
                         </TSpan>
                     </Text>
                     <Text data-name="Lower limit 0" transform="translate(119 116)">
@@ -157,7 +157,7 @@ const VolumeStreamComponent = props => (
                             fontFamily="HelveticaNeue-Bold, Helvetica Neue"
                             //fontWeight={700}
                         >
-                            {'0'}
+                            {props.lowerLimit}
                         </TSpan>
                     </Text>
                 </G>
