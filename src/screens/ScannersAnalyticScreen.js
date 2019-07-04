@@ -2,19 +2,32 @@ import React, {useEffect} from "react";
 import getConveyors from "../services/ConveyorsService";
 import {useStateValue} from "../context/StateContext";
 import {elevationShadowStyle} from "../Styles";
-import {Platform, ScrollView, View} from "react-native";
+import {Platform, ScrollView, Text, View, RefreshControl, ActivityIndicator} from "react-native";
 import GraphComponent from "../components/GraphComponent";
 import ConveyorStatusForm from "../components/ConveyorStatusForm";
 import LinearGradient from "react-native-linear-gradient";
+import {blueGraph, orangeGraph, redGraph} from "../Colors";
 
 const ScannersAnalyticScreen = props => {
     const conveyorId = props.navigation.getParam("id");
 
     const [{conveyors}, dispatch] = useStateValue();
+    const latestMeasurement = conveyors.data[0].latest_measurement;
+    const chartData = conveyors.data[0].chart_data;
+    const {conveyor_speed, volume_sum, avg_volume_flow, scanner_status} = latestMeasurement;
+    const volumeSumMeasurements = chartData.volume_sum;
+    const volumeFlowMeasurements = chartData.volume_flow;
+    const conveyorSpeedMeasurements = chartData.conveyor_speed;
+
 
     useEffect(() => {
         getConveyors(dispatch);
+
     }, []);
+
+    const onRefresh = () => {
+        getConveyors(dispatch);
+    }
 
     return (
         <View style={{backgroundColor: 'transparent', width: '100%', height: '100%'}}>
@@ -29,32 +42,19 @@ const ScannersAnalyticScreen = props => {
                     height: '100%'
                 }}
             >
-                {Platform.OS === 'ios' ?
-                    <LinearGradient style={{height: 134}}
-                                    colors={["#84CFA8", "#539A88"]}
-                    />
-                    :
-                    null
-                }
+                {Platform.OS === 'ios' &&
+                    <LinearGradient style={{height: 134}} colors={["#84CFA8", "#539A88"]}/>}
             </View>
-
-            <ScrollView
+            <ScrollView refreshControl={<RefreshControl refreshing={conveyors.loading} onRefresh={onRefresh}
+            />}
                 style={{
-                    //flex: 4,
                     zIndex: 2,
-                    //paddingVertical: 15,
-                    //paddingHorizontal: 5,
-                    //justifyContent: "space-between",
-                    //borderRadius: 6,
-                    //margin: 16,
                     marginTop: Platform.OS === 'ios' ? 102 : 0,
-                    backgroundColor: "transparent",
-                    //...elevationShadowStyle(2),
-                    //marginHorizontal: 15,
-
+                    backgroundColor: "transparent"
                 }}
-            >
+                >
                 <View
+                    pointerEvents="none"
                     style={{
                         paddingHorizontal: 5,
                         justifyContent: "center",
@@ -67,14 +67,17 @@ const ScannersAnalyticScreen = props => {
                         marginBottom: 18,
                     }}
                 >
-                    <GraphComponent/>
+
+                    <GraphComponent lineColor={orangeGraph} loading={conveyors.loading} label={'Volume Sum'} data={volumeSumMeasurements} value={volume_sum} units={'dm\u00B3'}/>
+                    <GraphComponent lineColor={blueGraph} loading={conveyors.loading}  label={'Volume Flow Rate'} data={volumeFlowMeasurements} value={avg_volume_flow} units={'dm\u00B3/h'}/>
+                    <GraphComponent lineColor={redGraph} loading={conveyors.loading}  label={'Conveyor Speed'} data={conveyorSpeedMeasurements} value={conveyor_speed} units={'mm/s'}/>
 
                 </View>
-                <View style={{marginHorizontal: 0}}>
-                <ConveyorStatusForm/>
-                </View>
+
             </ScrollView>
-
+            <View style={{height:60}}>
+                <ConveyorStatusForm status={scanner_status}/>
+            </View>
 
         </View>
     );

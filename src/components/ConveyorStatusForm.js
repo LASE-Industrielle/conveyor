@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
 });
 
 const ConveyorStatusForm = props => {
+    const { status } = props;
+    const color = status === 'OK'?'#6CC799':'#F19B93'
     return (
         <View
             style={{
@@ -32,8 +34,8 @@ const ConveyorStatusForm = props => {
                 ...elevationShadowStyle(2),
             }}
         >
-            <ConveyorDetailsFormHeader item1="DETAILS" />
-            <View style={styles.line} />
+            {/*<ConveyorDetailsFormHeader item1="DETAILS" />*/}
+            {/*<View style={styles.line} />*/}
             <View
                 style={{
                     flexDirection: "row",
@@ -53,11 +55,11 @@ const ConveyorStatusForm = props => {
                         r="45"
                         stroke="blue"
                         strokeWidth="2.5"
-                        fill={"#6CC799"}
+                        fill={color}
                     />
                 </Svg>
                 <Text style={{ flex: 1, color: '#AAA9A9', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{'Status: '}
-                    <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Ok</Text>
+                    <Text style={{color: color, fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{status}</Text>
                 </Text>
             </View>
         </View>
