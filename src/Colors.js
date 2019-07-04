@@ -21,7 +21,6 @@ const bgGradientEnd = "#539A88";
 const statusColorGreen = "#6CC799";
 const statusColorRed = "#F19B93";
 
-
 export {
   primary,
   secondary,

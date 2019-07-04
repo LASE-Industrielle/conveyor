@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import {
   Platform,
@@ -8,12 +8,10 @@ import {
   ScrollView,
   RefreshControl
 } from "react-native";
-import ConveyorProgresSvg from "../components/ConveyorProgressSvg";
 import ConveyorDetailsForm from "../components/ConveyorDetailsForm";
 import { elevationShadowStyle } from "../Styles";
 import LinearGradient from "react-native-linear-gradient";
 import VolumeStreamComponent from "../components/VolumeStreamComponent";
-import GraphComponent from "../components/GraphComponent";
 import { useStateValue } from "../context/StateContext";
 import { getConveyorById } from "../services/ConveyorsService";
 import { bgColor } from "../Colors";
@@ -75,7 +73,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           //borderRadius: 6,
           //margin: 16,
           marginTop: Platform.OS === "ios" ? 102 : 0,
-          backgroundColor: "transparent",
+          backgroundColor: "transparent"
           //...elevationShadowStyle(2),
           //marginHorizontal: 15,
         }}
@@ -93,7 +91,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
             marginBottom: 4,
             paddingVertical: 15,
             //paddingLeft:
-            alignItems: "center",
+            alignItems: "center"
           }}
         >
           <VolumeStreamComponent

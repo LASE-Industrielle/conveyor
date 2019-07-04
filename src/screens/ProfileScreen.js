@@ -20,7 +20,8 @@ import {
   bgGradientStart,
   bgGradientEnd,
   blackTextColor,
-  greenIconColor
+  greenIconColor,
+  statusColorRed
 } from "../Colors";
 
 const ProfileScreen = props => {
