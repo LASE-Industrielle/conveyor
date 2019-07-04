@@ -23,5 +23,14 @@ export const initialState = {
         data: [],
         errorMessage: '',
         loading: false,
-    }
+    },
+    conveyor: {
+        details: {
+            material: {},
+            customer: {},
+            latest_measurement: {}
+        },
+        loading: false,
+        errorMessage: '',
+    },
 };

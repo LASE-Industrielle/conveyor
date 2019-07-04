@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Platform } from "react-native";
+import {View, StyleSheet, Platform, ScrollView} from "react-native";
 import ConveyorDetailsFormRow from "../components/ConveyorDetailsFormRow";
 import ConveyorDetailsFormHeader from "../components/ConveyorDetailsFormHeader";
 import {elevationShadowStyle} from "../Styles";
@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
   }
 });
 
-const ConveyorDetailsForm = props => {
+const ConveyorDetailsForm = ({conveyor}) => {
   return (
     <View
       style={{
         flex: 4,
         zIndex: 2,
-        paddingVertical: 30,
+        //paddingVertical: 30,
         paddingHorizontal: 5,
         justifyContent: "space-between",
         borderRadius: 6,
@@ -31,17 +31,31 @@ const ConveyorDetailsForm = props => {
         ...elevationShadowStyle(2),
       }}
     >
+      <ScrollView style={{
+        //flex: 4,
+        zIndex: 2,
+        paddingVertical: 30,
+        //paddingHorizontal: 5,
+        //justifyContent: "space-between",
+        //borderRadius: 6,
+        //margin: 16,
+        //marginTop: Platform.OS === 'ios' ? 102 : 0,
+        backgroundColor: "transparent",
+        //...elevationShadowStyle(2),
+        //marginHorizontal: 15,
+        //height: 200
+      }}>
       <ConveyorDetailsFormHeader item1="JOB: #0001243" />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Customer Name"
-            item1="Maveric Earth Moves"
+            item1={conveyor.customer.name}
             item2=""
         />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Material Name"
-            item1="Scoria (Sap 7)"
+            item1={conveyor.material.name}
             item2=""
         />
         <View style={styles.line} />
@@ -53,7 +67,7 @@ const ConveyorDetailsForm = props => {
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Conveyor Speed"
-            item1="1.080"
+            item1={conveyor.latest_measurement.conveyor_speed}
             item2={"m/s"}
         />
       <View style={styles.line} />
@@ -61,7 +75,7 @@ const ConveyorDetailsForm = props => {
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Area"
-            item1="0.363"
+            item1={conveyor.latest_measurement.calculated_area}
             item2={"m\u00B2"}
         />
         <View style={styles.line} />
@@ -73,39 +87,37 @@ const ConveyorDetailsForm = props => {
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Volume Sum"
-            item1="1.20"
+            item1={conveyor.latest_measurement.volume_sum}
             item2={"m\u00B3/h"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Volume Stream"
             item1="1434.35"
-            item2={"m\u00B3/s"}
+            item2={"m\u00B3/h"}
         />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Volume Flow Rate"
-            item1="0.26"
+            item1={conveyor.latest_measurement.avg_volume_flow}
             item2={"m\u00B3/s"}
         />
       <View style={styles.line} />
-        <ConveyorDetailsFormRow title="Volume Sum" item1="2134.54" item2="m" />
-      <View style={styles.line} />
       <ConveyorDetailsFormRow
         title="Target Volume"
-        item1="2500.00"
+        item1={conveyor.latest_measurement.limit_volume_sum}
         item2={"m\u00B3"}
       />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Mass Sum"
-            item1="2.24"
+            item1={conveyor.latest_measurement.mass_sum}
             item2={"t"}
         />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Mass Stream"
-            item1="0.49"
+            item1={conveyor.latest_measurement.avg_mass_flow}
             item2={"t/h"}
         />
         <View style={styles.line} />
@@ -117,9 +129,10 @@ const ConveyorDetailsForm = props => {
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Count Valid Pts"
-            item1="75"
+            item1={conveyor.latest_measurement.valid_points}
             item2={"%"}
         />
+      </ScrollView>
     </View>
   );
 };

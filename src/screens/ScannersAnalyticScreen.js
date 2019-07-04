@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import getConveyors from "../services/ConveyorsService";
+import {getConveyors} from "../services/ConveyorsService";
 import {useStateValue} from "../context/StateContext";
 import {elevationShadowStyle} from "../Styles";
 import {Platform, ScrollView, View} from "react-native";

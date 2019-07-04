@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 
 import {Text} from 'native-base';
-import getConveyors from '../services/ConveyorsService';
+import {getConveyors} from '../services/ConveyorsService';
 import {useStateValue} from '../context/StateContext';
 import {FlatList, Platform, TouchableOpacity, View} from "react-native";
 import {Circle, Svg} from "react-native-svg";
@@ -17,7 +17,7 @@ const ConveyorsListScreen = (props) => {
         getConveyors(dispatch);
     },[]);
 
-    const renderListItem = ({item, index}) => (
+    const renderListItem = ({item}) => (
         Platform.OS === 'ios' ?
         <View style={{
             //height: 68,
@@ -43,7 +43,7 @@ const ConveyorsListScreen = (props) => {
                         r="45"
                         stroke="blue"
                         strokeWidth="2.5"
-                        fill={index % 2 === 0 ? "#6CC799" : "#F19B93"}
+                        fill={item.latest_measurement.scanner_status.toUpperCase() === "OK" ? "#6CC799" : "#F19B93"}
                     />
                 </Svg>
                 <Text style={{marginTop: -5, marginLeft: 18, fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Bold" : "HelveticaNeueBold", fontSize: 13}}>
@@ -52,10 +52,10 @@ const ConveyorsListScreen = (props) => {
                 <Text style={{
                     marginLeft: 18, marginTop: 4, color: '#AAA9A9', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13
                 }}>
-                    Status: {index % 2 === 0 ?
-                    <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Ok</Text>
+                    Status: {item.latest_measurement.scanner_status.toUpperCase() === "OK" ?
+                    <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{item.latest_measurement.scanner_status}</Text>
                     :
-                    <Text style={{color: '#F19B93', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Case of malfunction</Text>
+                    <Text style={{color: '#F19B93', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{item.latest_measurement.scanner_status}</Text>
                 }
                 </Text>
             </TouchableOpacity>
@@ -85,7 +85,7 @@ const ConveyorsListScreen = (props) => {
                             r="45"
                             stroke="blue"
                             strokeWidth="2.5"
-                            fill={index % 2 === 0 ? "#6CC799" : "#F19B93"}
+                            fill={item.latest_measurement.scanner_status.toUpperCase() === "OK" ? "#6CC799" : "#F19B93"}
                         />
                     </Svg>
                     <Text style={{marginTop: -5, marginLeft: 18, fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Bold" : "HelveticaNeueBold", fontSize: 13}}>
@@ -94,10 +94,10 @@ const ConveyorsListScreen = (props) => {
                     <Text style={{
                         marginLeft: 18, marginTop: 4, color: '#AAA9A9', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13
                     }}>
-                        Status: {index % 2 === 0 ?
-                        <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Ok</Text>
+                        Status: {item.latest_measurement.scanner_status.toUpperCase() === "OK" ?
+                        <Text style={{color: '#6CC799', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{item.latest_measurement.scanner_status}</Text>
                         :
-                        <Text style={{color: '#F19B93', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>Case of malfunction</Text>
+                        <Text style={{color: '#F19B93', fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Medium" : "HelveticaNeueMedium", fontSize: 13}}>{item.latest_measurement.scanner_status}</Text>
                     }
                     </Text>
                 </TouchableOpacity>
