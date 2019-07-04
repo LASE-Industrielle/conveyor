@@ -48,7 +48,7 @@ const ConveyorDetailsForm = ({ conveyor }) => {
         //height: 200
       }}
       >
-        <View style={{ paddingBottom: 50 }}>
+        <View style={{ paddingBottom: 0 }}>
       <ConveyorDetailsFormHeader item1={"JOB: " + conveyor.mac_address} />
       <View style={styles.line} />
         <ConveyorDetailsFormRow

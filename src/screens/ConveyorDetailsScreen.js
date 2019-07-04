@@ -75,7 +75,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           //borderRadius: 6,
           //margin: 16,
           marginTop: Platform.OS === "ios" ? 102 : 0,
-          backgroundColor: "transparent"
+          backgroundColor: "transparent",
           //...elevationShadowStyle(2),
           //marginHorizontal: 15,
         }}
@@ -87,13 +87,13 @@ const ConveyorDetailsScreen = ({ navigation }) => {
             flexDirection: "column",
             borderRadius: 6,
             marginHorizontal: 15,
-            marginTop: 15,
+            marginTop: 0,
             backgroundColor: "white",
             ...elevationShadowStyle(2),
             marginBottom: 4,
             paddingVertical: 15,
             //paddingLeft:
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <VolumeStreamComponent
