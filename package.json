@@ -15,7 +15,8 @@
     "react-native-linear-gradient": "^2.5.4",
     "react-native-svg": "^9.5.1",
     "react-native-svg-icon": "^0.8.1",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "victory-native": "^32.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
