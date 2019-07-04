@@ -9,6 +9,7 @@ import Svg, {
     Text,
     TSpan,
 } from 'react-native-svg'
+import { bgColor } from '../Colors';
 
 const VolumeStreamComponent = props => (
     <Svg width={296} height={119} {...props}>
@@ -108,7 +109,7 @@ const VolumeStreamComponent = props => (
                         height={8}
                         rx={4}
                         transform="translate(0 46)"
-                        fill="#f2f2f2"
+                        fill={bgColor}
                     />
                 </G>
                 <G

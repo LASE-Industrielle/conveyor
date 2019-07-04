@@ -1,6 +1,7 @@
 import React from 'react';
 import {Platform, Text, View} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { bgGradientStart, bgGradientEnd, bgColor } from '../Colors';
 
 const NotificationsScreen = (props) => {
 
@@ -11,7 +12,7 @@ const NotificationsScreen = (props) => {
                     position: "absolute",
                     top: Platform.OS === 'ios' ? 0 : 32,
                     zIndex: 1,
-                    backgroundColor: "#F2F2F2",
+                    backgroundColor: bgColor,
                     flex: 1,
                     width: "100%",
                     height: '100%'
@@ -19,14 +20,14 @@ const NotificationsScreen = (props) => {
             >
                 {Platform.OS === 'ios' ?
                     <LinearGradient style={{height: 134}}
-                                    colors={["#84CFA8", "#539A88"]}
+                                    colors={[bgGradientStart, bgGradientEnd]}
                     />
                     :
                     null
                 }
             </View>
             <View style={{
-                backgroundColor: "#F2F2F2",
+                backgroundColor: bgColor,
                 flex: 1,
                 justifyContent: "center",
                 alignItems: 'center',

@@ -1,21 +1,22 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { orange, inactiveText } from "../Colors";
 
-const ConveyorDetailsFormRow = props => {
+const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
   return (
     <View
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
-        margin: 10,
+        margin: 10
       }}
     >
-      <Text style={{ flex: 1 }}>{props.title}</Text>
+      <Text style={{ flex: 1 }}>{title}</Text>
       <View
         style={{
           flex: 0.1,
           borderLeftWidth: 1,
-          borderLeftColor: "#F1B950"
+          borderLeftColor: orange
         }}
       />
       <View
@@ -31,15 +32,15 @@ const ConveyorDetailsFormRow = props => {
             color: "#3A7F78"
           }}
         >
-          {props.item1}
+          {item1}
         </Text>
         <Text
           style={{
             fontFamily: "HelveticaNeue",
-            color: "#C5C5C5"
+            color: inactiveText
           }}
         >
-          {props.item2}
+          {item2}
         </Text>
       </View>
     </View>

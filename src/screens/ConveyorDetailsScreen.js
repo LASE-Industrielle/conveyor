@@ -16,6 +16,7 @@ import VolumeStreamComponent from "../components/VolumeStreamComponent";
 import GraphComponent from "../components/GraphComponent";
 import { useStateValue } from "../context/StateContext";
 import { getConveyorById } from "../services/ConveyorsService";
+import { bgColor } from "../Colors";
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStateValue();
@@ -33,7 +34,6 @@ const ConveyorDetailsScreen = ({ navigation }) => {
       style={{
         flex: 1,
         flexDirection: "column",
-        //backgroundColor: "#F2F2F2",
         fontFamily: "HelveticaNeue"
       }}
     >
@@ -42,7 +42,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           position: "absolute",
           top: Platform.OS === "ios" ? 0 : 32,
           zIndex: 1,
-          backgroundColor: "#F2F2F2",
+          backgroundColor: bgColor,
           flex: 1,
           width: "100%",
           height: "100%"
@@ -126,7 +126,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
             ...elevationShadowStyle(2)
           }}
           onPress={() => {
-            navigation.navigate("ScannersAnalytic");
+            navigation.navigate("ScannerAnalytics");
           }}
         >
           <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>

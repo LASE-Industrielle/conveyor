@@ -1,6 +1,7 @@
 import React from "react";
 import {Text, View} from 'react-native';
 import {VictoryAxis, VictoryChart, VictoryLine, VictoryTheme} from "victory-native";
+import { bgColor } from "../Colors";
 
 const GraphComponent = props => {
 
@@ -17,9 +18,9 @@ const GraphComponent = props => {
             <Text style={{fontSize:16, color: lineColor,paddingLeft:15}}>{value} {units}</Text>
             {values && <VictoryChart domainPadding={20} padding={{left: 50, right: 50, bottom: 20, top: 20}} height={300} theme={VictoryTheme.material}>
                 <VictoryAxis dependentAxis orientation="left" style={{
-                    axis: {stroke: "#F2F2F2"},
-                    ticks: {stroke: "#F2F2F2"},
-                    grid: {stroke: "#F2F2F2"},
+                    axis: {stroke: bgColor},
+                    ticks: {stroke: bgColor},
+                    grid: {stroke: bgColor},
                 }}/>
 
                 <VictoryAxis
@@ -27,9 +28,9 @@ const GraphComponent = props => {
                     tickValues={values.map(item => item.x)}
                     tickFormat={values.map(item => '')}
                     style={{
-                        axis: {stroke: "#F2F2F2"},
-                        ticks: {stroke: "#F2F2F2"},
-                        grid: {stroke: "#F2F2F2"},
+                        axis: {stroke: bgColor},
+                        ticks: {stroke: bgColor},
+                        grid: {stroke: bgColor},
                     }}
                 />
                 {!loading &&

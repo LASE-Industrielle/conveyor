@@ -1,27 +1,26 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { tsPropertySignature } from "@babel/types";
-import {Platform} from 'react-native';
+import { View, Text, Platform } from "react-native";
 
-const ConveyorDetailsFormHeader = props => {
-  return (
-    <View
+import { black } from "../Colors";
+
+const ConveyorDetailsFormHeader = props => (
+  <View
+    style={{
+      margin: 10,
+      justifyContent: "space-between",
+      flexDirection: "row"
+    }}
+  >
+    <Text
       style={{
-        margin: 10,
-        justifyContent: "space-between",
-        flexDirection: "row"
+        color: black,
+        fontFamily:
+          Platform.OS === "ios" ? "HelveticaNeue-Bold" : "HelveticaNeueBold"
       }}
     >
-      <Text
-        style={{
-          color: "#262626",
-          fontFamily: Platform.OS === "ios" ? "HelveticaNeue-Bold" : "HelveticaNeueBold"
-        }}
-      >
-        {props.item1}
-      </Text>
-    </View>
-  );
-};
+      {props.formHeader}
+    </Text>
+  </View>
+);
 
 export default ConveyorDetailsFormHeader;

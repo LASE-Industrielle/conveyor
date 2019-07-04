@@ -63,7 +63,6 @@ const LoginScreen = props => {
 
   return (
       <ScrollView >
-        <StatusBar translucent={true} backgroundColor={'transparent'}/>
         <KeyboardAvoidingView enabled>
     <Container style={{ backgroundColor: "red", height: Dimensions.get('window').height }}>
       <LinearGradient style={{flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}

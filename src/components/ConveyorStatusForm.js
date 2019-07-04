@@ -4,6 +4,7 @@ import ConveyorDetailsFormRow from "../components/ConveyorDetailsFormRow";
 import ConveyorDetailsFormHeader from "../components/ConveyorDetailsFormHeader";
 import {elevationShadowStyle} from "../Styles";
 import {Circle, Svg} from "react-native-svg";
+import { statusColorGreen } from "../Colors";
 
 const styles = StyleSheet.create({
     line: {
@@ -16,9 +17,8 @@ const styles = StyleSheet.create({
     }
 });
 
-const ConveyorStatusForm = props => {
-    const { status } = props;
-    const color = status === 'OK'?'#6CC799':'#F19B93'
+const ConveyorStatusForm = ({ status }) => {
+    const color = status === 'OK'? statusColorGreen : statusColorRed;
     return (
         <View
             style={{
@@ -28,14 +28,11 @@ const ConveyorStatusForm = props => {
                 paddingHorizontal: 5,
                 justifyContent: "space-between",
                 borderRadius: 6,
-                //margin: 16,
                 marginTop: 0,
                 backgroundColor: "white",
                 ...elevationShadowStyle(2),
             }}
         >
-            {/*<ConveyorDetailsFormHeader item1="DETAILS" />*/}
-            {/*<View style={styles.line} />*/}
             <View
                 style={{
                     flexDirection: "row",

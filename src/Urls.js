@@ -1,9 +1,5 @@
-const herokuUrl = 'https://conveyor-be.herokuapp.com';
-const loginUrl = `${herokuUrl}/auth/`;
-const conveyorsUrl = `${herokuUrl}/conveyor/`
+const baseUrl = 'https://conveyor-be.herokuapp.com';
+const loginUrl = `${baseUrl}/auth/`;
+const conveyorsUrl = `${baseUrl}/conveyor/`;
 
-export {
-    herokuUrl,
-    loginUrl,
-    conveyorsUrl
-};
+export { baseUrl, loginUrl, conveyorsUrl };

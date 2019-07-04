@@ -7,6 +7,7 @@ import { FlatList, Platform, TouchableOpacity, View } from "react-native";
 import { Circle, Svg } from "react-native-svg";
 import { elevationShadowStyle } from "../Styles";
 import LinearGradient from "react-native-linear-gradient";
+import { bgColor } from "../Colors";
 
 const ConveyorsListScreen = props => {
   const [{ conveyors }, dispatch] = useStateValue();
@@ -224,7 +225,7 @@ const ConveyorsListScreen = props => {
         style={{
           position: "absolute",
           zIndex: 1,
-          backgroundColor: "#F2F2F2",
+          backgroundColor: bgColor,
           flex: 1,
           width: "100%",
           height: "100%"
@@ -252,7 +253,7 @@ const ConveyorsListScreen = props => {
           position: "absolute",
           top: 32,
           zIndex: 1,
-          backgroundColor: "#F2F2F2",
+          backgroundColor: bgColor,
           flex: 1,
           width: "100%",
           height: "100%"
