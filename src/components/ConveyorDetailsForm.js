@@ -26,7 +26,6 @@ const ConveyorDetailsForm = ({conveyor}) => {
         justifyContent: "space-between",
         borderRadius: 6,
         margin: 16,
-        marginTop: Platform.OS === 'ios' ? 102: 0,
         backgroundColor: "white",
         ...elevationShadowStyle(2),
       }}
