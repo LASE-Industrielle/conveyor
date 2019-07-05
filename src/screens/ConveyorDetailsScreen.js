@@ -81,32 +81,32 @@ const ConveyorDetailsScreen = ({ navigation }) => {
         }}
       >
           {conveyor.loading ? null :
-              <View>
-        <View
-          style={{
-            paddingHorizontal: 5,
-            justifyContent: "center",
-            flexDirection: "column",
-            borderRadius: 6,
-            marginHorizontal: 15,
-            marginTop: 0,
-            backgroundColor: "white",
-            ...elevationShadowStyle(2),
-            marginBottom: 4,
-            paddingVertical: 15,
-            //paddingLeft:
-            alignItems: "center",
-          }}
-        >
-          <VolumeStreamComponent
-            percentage={conveyor.details.latest_measurement.percentage_full === undefined ?
-                0 : conveyor.details.latest_measurement.percentage_full}
-            upperLimit={conveyor.details.latest_measurement.upper_limit_flow}
-            lowerLimit={conveyor.details.latest_measurement.lower_limit_flow}
-          />
-        </View>
-        <ConveyorDetailsForm conveyor={conveyor.details} />
+              <View
+                  style={{
+                      paddingHorizontal: 5,
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      borderRadius: 6,
+                      marginHorizontal: 15,
+                      marginTop: 0,
+                      backgroundColor: "white",
+                      ...elevationShadowStyle(2),
+                      marginBottom: 4,
+                      paddingVertical: 15,
+                      //paddingLeft:
+                      alignItems: "center",
+                  }}
+              >
+                  <VolumeStreamComponent
+                      percentage={conveyor.details.latest_measurement.percentage_full === undefined ?
+                          0 : conveyor.details.latest_measurement.percentage_full}
+                      upperLimit={conveyor.details.latest_measurement.upper_limit_flow}
+                      lowerLimit={conveyor.details.latest_measurement.lower_limit_flow}
+                  />
               </View>
+          }
+          {conveyor.loading ? null :
+        <ConveyorDetailsForm conveyor={conveyor.details} />
           }
       </ScrollView>
         {conveyor.loading ? null :
