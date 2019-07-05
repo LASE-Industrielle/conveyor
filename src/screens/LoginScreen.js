@@ -70,22 +70,22 @@ const LoginScreen = props => {
             colors={["#83CEA7", "#3A7F78"]} />
 
           <Content contentContainerStyle={styles.default}>
-            {auth.loading ? <Spinner /> : null}
-            {!auth.loading ? <Item style={{ borderColor: "transparent" }}>
+            {auth.loading || (!auth.loading && auth.token !== '') ? <Spinner /> : null}
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9", fontSize: 24 }}>
                   Log In
                 </Text>
               </Left>
             </Item> : null}
-            {!auth.loading ? <Item style={{ borderColor: "transparent" }}>
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9" }}>
                   Email
             </Text>
               </Left>
             </Item> : null}
-            {!auth.loading ? <Item rounded style={styles.inputItem}>
+            {!auth.loading && auth.token === '' ? <Item rounded style={styles.inputItem}>
               <Input
                 autoCapitalize="none"
                 value={username}
@@ -97,7 +97,7 @@ const LoginScreen = props => {
                 placeholderTextColor={'#AAA9A9'}
               />
             </Item> : null}
-            {!auth.loading ? <Item style={{ borderColor: "transparent" }}>
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text
                   style={{
@@ -109,7 +109,7 @@ const LoginScreen = props => {
             </Text>
               </Left>
             </Item> : null}
-            {!auth.loading ? <Item rounded style={styles.inputItem}>
+            {!auth.loading && auth.token === '' ? <Item rounded style={styles.inputItem}>
               <Input
                 autoCapitalize="none"
                 secureTextEntry
@@ -122,7 +122,7 @@ const LoginScreen = props => {
                 placeholderTextColor={'#AAA9A9'}
               />
             </Item> : null}
-            {!auth.loading ? <Item
+            {!auth.loading && auth.token === '' ? <Item
               style={{ justifyContent: "flex-end", borderColor: "transparent" }}
             >
               <Right style={{ marginHorizontal: 15, padding: 7 }}>
@@ -131,7 +131,7 @@ const LoginScreen = props => {
             </Text>
               </Right>
             </Item> : null}
-            {!auth.loading ? <Button block primary onPress={login} style={styles.loginButtonStyle}>
+            {!auth.loading && auth.token === '' ? <Button block primary onPress={login} style={styles.loginButtonStyle}>
               <Text
                 style={{
                   color: "white",
@@ -142,7 +142,7 @@ const LoginScreen = props => {
                 LOG IN
           </Text>
             </Button> : null}
-            {!auth.loading ? <Item style={{ borderColor: "transparent", marginTop: 30 }}>
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent", marginTop: 30 }}>
               <Text style={{ color: "#AAA9A9" }}>Don't have an account?</Text>
               <Text
                 style={{
