@@ -49,7 +49,7 @@ const ConveyorDetailsForm = ({ conveyor }) => {
       }}
       >
         <View style={{ paddingBottom: 0 }}>
-      <ConveyorDetailsFormHeader item1={"JOB: " + conveyor.mac_address} />
+      <ConveyorDetailsFormHeader item1={"Conveyor Mac Address: " + conveyor.mac_address} />
       <View style={styles.line} />
         <ConveyorDetailsFormRow
           title="Material Name"
@@ -68,8 +68,6 @@ const ConveyorDetailsForm = ({ conveyor }) => {
             item1={conveyor.latest_measurement.bulk_density}
             item2={"kg/m\u00B3"}
         />
-        <View style={styles.line} />
-        <ConveyorDetailsFormRow title="Belt Speed" item1="0.1" item2="m/s" />
         <View style={styles.line} />
         <ConveyorDetailsFormRow
             title="Conveyor Speed"

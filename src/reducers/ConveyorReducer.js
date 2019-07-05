@@ -11,7 +11,7 @@ const conveyorReducer = (state, action) => {
             return {
                 ...state,
                 details: action.payload,
-                loading: false
+                loading: false,
             };
         case CONVEYOR_LOAD_ERROR:
             return {

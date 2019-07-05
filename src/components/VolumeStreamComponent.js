@@ -50,13 +50,13 @@ const VolumeStreamComponent = props => (
             <Text
                 data-name="19% full"
                 transform="translate(0 35)"
-                fill="#6cc799"
+                fill={props.percentage === -1 ? "#F19B93" : "#6cc799"}
                 fontSize={14}
                 fontFamily="HelveticaNeue-Bold, Helvetica Neue"
                 //fontWeight={700}
             >
                 <TSpan x={0} y={0}>
-                    {props.percentage + '%'}
+                    {props.percentage === -1 ? 'Error calculating value' : props.percentage + '%'}
                 </TSpan>
                 <TSpan
                     y={0}
@@ -68,7 +68,7 @@ const VolumeStreamComponent = props => (
                     fontFamily="HelveticaNeue, Helvetica Neue"
                     //fontWeight={400}
                 >
-                    {' full'}
+                    {props.percentage === -1 ? '' : ' full'}
                 </TSpan>
             </Text>
             <G
@@ -144,7 +144,7 @@ const VolumeStreamComponent = props => (
                             fontFamily="HelveticaNeue-Bold, Helvetica Neue"
                             //fontWeight={700}
                         >
-                            {props.upperLimit}
+                            {props.upperLimit + 'm\u00B3/h'}
                         </TSpan>
                     </Text>
                     <Text data-name="Lower limit 0" transform="translate(119 116)">
@@ -157,7 +157,7 @@ const VolumeStreamComponent = props => (
                             fontFamily="HelveticaNeue-Bold, Helvetica Neue"
                             //fontWeight={700}
                         >
-                            {props.lowerLimit}
+                            {props.lowerLimit + 'm\u00B3/h'}
                         </TSpan>
                     </Text>
                 </G>
