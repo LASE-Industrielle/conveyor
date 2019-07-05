@@ -95,7 +95,7 @@ const navigationOptions = (backArrowExists, title) => (
                 </View>
             ),
             headerLeft: backArrowExists ? (
-                <TouchableOpacity style={{ marginLeft: 6, padding: 14, paddingTop: 0, paddingBottom: 0 }} onPress={() => navigation.goBack()}>
+                <TouchableOpacity style={{ padding: 20, paddingTop: 15, paddingBottom: 15 }} onPress={() => navigation.goBack()}>
                     <BackArrowIcon />
                 </TouchableOpacity>
             ) : null,
