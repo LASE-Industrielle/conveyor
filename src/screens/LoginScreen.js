@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar } from "react-native";
+import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar, View } from "react-native";
 import { Button, Container, Content, Input, Item, Left, Right, Spinner, Text } from "native-base";
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -22,29 +22,11 @@ const LoginScreen = props => {
   const [password, setPassword] = useState("");
   const [{ auth }, dispatch] = useStateValue();
 
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     if (__DEV__ === true) {
       setUsername("demo");
       setPassword("codecentriccclabs2");
     }
-  }, []);
-
-  useEffect(() => {
-    AsyncStorage.getItem('token')
-      .then((token) => {
-        if(token !== null) {
-          axios.defaults.headers.common.Authorization = `Token ${token}`;
-          props.navigation.navigate('App');
-        }
-        else {
-          setLoading(false);
-        }
-      })
-      .catch(() => {
-        console.log('something went wrong');
-      });
   }, []);
 
   useEffect(() => {
@@ -79,16 +61,6 @@ const LoginScreen = props => {
     authCall(dispatch, username, password);
   };
 
-  if (auth.loading || loading) {
-    return (
-      <Container>
-        <Content contentContainerStyle={styles.default}>
-          <Spinner />
-        </Content>
-      </Container>
-    );
-  }
-
   return (
     <ScrollView >
       <StatusBar translucent={true} backgroundColor={'transparent'} />
@@ -96,22 +68,24 @@ const LoginScreen = props => {
         <Container style={{ backgroundColor: "red", height: Dimensions.get('window').height }}>
           <LinearGradient style={{ flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
             colors={["#83CEA7", "#3A7F78"]} />
+
           <Content contentContainerStyle={styles.default}>
-            <Item style={{ borderColor: "transparent" }}>
+            {auth.loading || (!auth.loading && auth.token !== '') ? <Spinner /> : null}
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9", fontSize: 24 }}>
                   Log In
-            </Text>
+                </Text>
               </Left>
-            </Item>
-            <Item style={{ borderColor: "transparent" }}>
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text style={{ fontFamily: "HelveticaNeue", color: "#AAA9A9" }}>
                   Email
             </Text>
               </Left>
-            </Item>
-            <Item rounded style={styles.inputItem}>
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Item rounded style={styles.inputItem}>
               <Input
                 autoCapitalize="none"
                 value={username}
@@ -122,8 +96,8 @@ const LoginScreen = props => {
                 style={styles.placeholder}
                 placeholderTextColor={'#AAA9A9'}
               />
-            </Item>
-            <Item style={{ borderColor: "transparent" }}>
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent" }}>
               <Left style={{ marginTop: 20, marginLeft: 20 }}>
                 <Text
                   style={{
@@ -134,8 +108,8 @@ const LoginScreen = props => {
                   Password
             </Text>
               </Left>
-            </Item>
-            <Item rounded style={styles.inputItem}>
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Item rounded style={styles.inputItem}>
               <Input
                 autoCapitalize="none"
                 secureTextEntry
@@ -147,8 +121,8 @@ const LoginScreen = props => {
                 style={styles.placeholder}
                 placeholderTextColor={'#AAA9A9'}
               />
-            </Item>
-            <Item
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Item
               style={{ justifyContent: "flex-end", borderColor: "transparent" }}
             >
               <Right style={{ marginHorizontal: 15, padding: 7 }}>
@@ -156,8 +130,8 @@ const LoginScreen = props => {
                   Forgot Password
             </Text>
               </Right>
-            </Item>
-            <Button block primary onPress={login} style={styles.loginButtonStyle}>
+            </Item> : null}
+            {!auth.loading && auth.token === '' ? <Button block primary onPress={login} style={styles.loginButtonStyle}>
               <Text
                 style={{
                   color: "white",
@@ -167,8 +141,8 @@ const LoginScreen = props => {
               >
                 LOG IN
           </Text>
-            </Button>
-            <Item style={{ borderColor: "transparent", marginTop: 30 }}>
+            </Button> : null}
+            {!auth.loading && auth.token === '' ? <Item style={{ borderColor: "transparent", marginTop: 30 }}>
               <Text style={{ color: "#AAA9A9" }}>Don't have an account?</Text>
               <Text
                 style={{
@@ -177,7 +151,7 @@ const LoginScreen = props => {
               >
                 &nbsp;Sign up
           </Text>
-            </Item>
+            </Item> : null}
           </Content>
         </Container>
       </KeyboardAvoidingView>
