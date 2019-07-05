@@ -80,60 +80,67 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           //marginHorizontal: 15,
         }}
       >
-        <View
-          style={{
-            paddingHorizontal: 5,
-            justifyContent: "center",
-            flexDirection: "column",
-            borderRadius: 6,
-            marginHorizontal: 15,
-            marginTop: 0,
-            backgroundColor: "white",
-            ...elevationShadowStyle(2),
-            marginBottom: 4,
-            paddingVertical: 15,
-            //paddingLeft:
-            alignItems: "center",
-          }}
-        >
-          <VolumeStreamComponent
-            percentage={50}
-            upperLimit={conveyor.details.latest_measurement.upper_limit_flow}
-            lowerLimit={conveyor.details.latest_measurement.lower_limit_flow}
-          />
-        </View>
+          {conveyor.loading ? null :
+              <View
+                  style={{
+                      paddingHorizontal: 5,
+                      justifyContent: "center",
+                      flexDirection: "column",
+                      borderRadius: 6,
+                      marginHorizontal: 15,
+                      marginTop: 0,
+                      backgroundColor: "white",
+                      ...elevationShadowStyle(2),
+                      marginBottom: 4,
+                      paddingVertical: 15,
+                      //paddingLeft:
+                      alignItems: "center",
+                  }}
+              >
+                  <VolumeStreamComponent
+                      percentage={conveyor.details.latest_measurement.percentage_full === undefined ?
+                          0 : conveyor.details.latest_measurement.percentage_full}
+                      upperLimit={conveyor.details.latest_measurement.upper_limit_flow}
+                      lowerLimit={conveyor.details.latest_measurement.lower_limit_flow}
+                  />
+              </View>
+          }
+          {conveyor.loading ? null :
         <ConveyorDetailsForm conveyor={conveyor.details} />
+          }
       </ScrollView>
-      <View
-        style={{
-          backgroundColor: "white",
-          flex: 0.17,
-          justifyContent: "center",
-          flexDirection: "column",
-          zIndex: 2
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            margin: 22,
-            paddingVertical: Platform.OS === "ios" ? 0 : 5,
-            alignItems: "center",
-            flex: Platform.OS === "ios" ? 0.7 : 0.8,
-            backgroundColor: "#02A04E",
-            justifyContent: "center",
-            flexDirection: "column",
-            borderRadius: 5,
-            ...elevationShadowStyle(2)
-          }}
-          onPress={() => {
-            navigation.navigate("ScannersAnalytic");
-          }}
-        >
-          <Text style={{ color: "white", fontFamily: "HelveticaNeue" }}>
-            ANALYTICS
-          </Text>
-        </TouchableOpacity>
-      </View>
+        {conveyor.loading ? null :
+            <View
+                style={{
+                    backgroundColor: "white",
+                    flex: 0.17,
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    zIndex: 2
+                }}
+            >
+                <TouchableOpacity
+                    style={{
+                        margin: 22,
+                        paddingVertical: Platform.OS === "ios" ? 0 : 5,
+                        alignItems: "center",
+                        flex: Platform.OS === "ios" ? 0.7 : 0.8,
+                        backgroundColor: "#02A04E",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        borderRadius: 5,
+                        ...elevationShadowStyle(2)
+                    }}
+                    onPress={() => {
+                        navigation.navigate("ScannersAnalytic");
+                    }}
+                >
+                    <Text style={{color: "white", fontFamily: "HelveticaNeue"}}>
+                        ANALYTICS
+                    </Text>
+                </TouchableOpacity>
+            </View>
+        }
     </View>
   );
 };
