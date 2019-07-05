@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {getConveyors} from "../services/ConveyorsService";
 import {useStateValue} from "../context/StateContext";
 import {elevationShadowStyle} from "../Styles";
-import {Platform, ScrollView, Text, View, RefreshControl, ActivityIndicator} from "react-native";
+import {Platform, ScrollView, Text, View, RefreshControl} from "react-native";
 import GraphComponent from "../components/GraphComponent";
 import ConveyorStatusForm from "../components/ConveyorStatusForm";
 import LinearGradient from "react-native-linear-gradient";
