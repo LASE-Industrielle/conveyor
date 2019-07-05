@@ -21,11 +21,16 @@ const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStateValue();
 
   useEffect(() => {
-    getConveyorById(dispatch, navigation.getParam("id", ""));
+    getConveyorById(dispatch, navigation.getParam("id", ""), true);
+
+    let timer = setInterval(() => getConveyorById(dispatch, navigation.getParam("id", ""), false), 1000)
+    return () => {
+      clearInterval(timer);
+    }
   }, []);
 
   const reload = () => {
-    getConveyorById(dispatch, navigation.getParam("id", ""));
+    getConveyorById(dispatch, navigation.getParam("id", ""), true);
   };
 
   return (
