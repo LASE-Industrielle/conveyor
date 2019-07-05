@@ -19,7 +19,7 @@ const GraphComponent = props => {
             <Text style={{paddingLeft: 15, paddingTop: 20}}>{label}</Text>
             <Text style={{fontSize: 16, color: lineColor, paddingLeft: 15}}>{value} {units}</Text>
             {data && loader ?
-                <VictoryChart domainPadding={20} padding={{left: 55, right: 50, bottom: 20, top: 20}} height={300}
+                <VictoryChart domainPadding={30} padding={{left: 55, right: 50, bottom: 20, top: 20}} height={250}
                               theme={VictoryTheme.material}>
                     <VictoryAxis
                         dependentAxis
@@ -46,10 +46,10 @@ const GraphComponent = props => {
                     <VictoryLine
                         style={{data: {stroke: lineColor}}}
                         data={data}
-                        interpolation='natural'
+                        interpolation='catmullRom'
                     />
                 </VictoryChart> :
-                <View style={{height: 300, alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{height: 250, alignItems: 'center', justifyContent: 'center'}}>
                     <ActivityIndicator animating={true}/>
                 </View>}
         </View>
