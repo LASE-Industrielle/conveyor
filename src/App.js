@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import AppContainer from './Navigation';
-import {StateProvider, initialState} from './context/StateContext';
-import {mainReducer} from './reducers/MainReducer';
-import {StatusBar, Platform} from 'react-native';
+import { StateProvider, initialState, useStateValue } from './context/StateContext';
+import { mainReducer } from './reducers/MainReducer';
+import { StatusBar, Platform } from 'react-native';
 
 const App = () => {
 
-
+  
 
   return (
-      <StateProvider initialState={initialState} reducer={mainReducer}>
-        {Platform.OS === 'ios' ? <StatusBar  barStyle="light-content" translucent={true}/> : null}
-        <AppContainer/>
-      </StateProvider>
+    <StateProvider initialState={initialState} reducer={mainReducer}>
+      {Platform.OS === 'ios' ? <StatusBar barStyle="light-content" translucent={true} /> : null}
+      <AppContainer />
+    </StateProvider>
   );
 };
 
