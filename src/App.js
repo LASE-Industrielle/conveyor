@@ -4,10 +4,9 @@ import AppContainer from "./Navigation";
 import { StateProvider, initialState } from "./context/StateContext";
 import { mainReducer } from "./reducers/MainReducer";
 
-const App = () => (
+const App = () =>
   <StateProvider initialState={initialState} reducer={mainReducer}>
     <AppContainer />
-  </StateProvider>
-);
+  </StateProvider>;
 
 export default App;
