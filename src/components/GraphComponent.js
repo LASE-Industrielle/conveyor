@@ -44,7 +44,7 @@ const GraphComponent = props => {
                     tickFormat={values.map(item => '')}
                     style={{
                         axis: {stroke: "#F2F2F2"},
-                        ticks: {stroke: "#F2F2F2"},
+                        ticks: {stroke: "none"},
                         grid: {stroke: "none"},
                     }}
                 />
