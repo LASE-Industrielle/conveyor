@@ -7,3 +7,4 @@
 - configure the editors
 - eslint
 - cross platform font names
+- integrate flow
