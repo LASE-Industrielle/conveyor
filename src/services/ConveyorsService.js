@@ -10,42 +10,24 @@ import {
 } from '../Actions';
 import { conveyorsUrl } from '../Urls';
 
-const getConveyors = dispatch => {
-  dispatch({ type: CONVEYORS_LOAD_START });
-  axios
-    .get(conveyorsUrl)
-    .then(response =>
-      dispatch({
-        type: CONVEYORS_LOAD_SUCCESS,
-        payload: response.data
-      })
-    )
-    .catch(err => {
-      dispatch({
-        type: CONVEYORS_LOAD_ERROR,
-        error: err
-      });
-    });
+const handleError = (dispatch, err, type) => {
+  dispatch({ type, error: err });
 };
 
-const getConveyorById = (dispatch, id, reloadPage = true) => {
+const getConveyors = async dispatch => {
+  dispatch({ type: CONVEYORS_LOAD_START });
+  const response = await axios.get(conveyorsUrl).catch(err => handleError(dispatch, err, CONVEYORS_LOAD_ERROR));
+  dispatch({ type: CONVEYORS_LOAD_SUCCESS, payload: response.data });
+};
+
+const getConveyorById = async (dispatch, id, reloadPage = true) => {
   if (reloadPage) {
     dispatch({ type: CONVEYOR_LOAD_START });
   }
-  axios
+  const response = await axios
     .get(`${conveyorsUrl + id}/`)
-    .then(response =>
-      dispatch({
-        type: CONVEYOR_LOAD_SUCCESS,
-        payload: response.data
-      })
-    )
-    .catch(err => {
-      dispatch({
-        type: CONVEYOR_LOAD_ERROR,
-        error: err
-      });
-    });
+    .catch(err => handleError(dispatch, err, CONVEYOR_LOAD_ERROR));
+  dispatch({ type: CONVEYOR_LOAD_SUCCESS, payload: response.data });
 };
 
 export { getConveyors, getConveyorById };

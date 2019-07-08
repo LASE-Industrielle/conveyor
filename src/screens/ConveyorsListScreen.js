@@ -9,6 +9,7 @@ import { useStore } from '../context/StateContext';
 
 import { elevationShadowStyle } from '../Styles';
 import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed, greyText } from '../Colors';
+import fontStyles from '../utils/FontUtils';
 
 const ConveyorsListScreen = props => {
   const [{ conveyors }, dispatch] = useStore();
@@ -63,7 +64,7 @@ const ConveyorsListScreen = props => {
             style={{
               marginTop: -5,
               marginLeft: 18,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
+              ...fontStyles.fontBold,
               fontSize: 13
             }}
           >
@@ -74,7 +75,7 @@ const ConveyorsListScreen = props => {
               marginLeft: 18,
               marginTop: 4,
               color: greyText,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+              ...fontStyles.fontMedium,
               fontSize: 13
             }}
           >
@@ -83,7 +84,7 @@ const ConveyorsListScreen = props => {
               <Text
                 style={{
                   color: statusColorGreen,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+                  ...fontStyles.fontMedium,
                   fontSize: 13
                 }}
               >
@@ -93,7 +94,7 @@ const ConveyorsListScreen = props => {
               <Text
                 style={{
                   color: statusColorRed,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+                  ...fontStyles.fontMedium,
                   fontSize: 13
                 }}
               >
@@ -144,7 +145,7 @@ const ConveyorsListScreen = props => {
             style={{
               marginTop: -5,
               marginLeft: 18,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
+              ...fontStyles.fontBold,
               fontSize: 13
             }}
           >
@@ -155,7 +156,7 @@ const ConveyorsListScreen = props => {
               marginLeft: 18,
               marginTop: 4,
               color: greyText,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+              ...fontStyles.fontMedium,
               fontSize: 13
             }}
           >
@@ -164,7 +165,7 @@ const ConveyorsListScreen = props => {
               <Text
                 style={{
                   color: statusColorGreen,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+                  ...fontStyles.fontMedium,
                   fontSize: 13
                 }}
               >
@@ -174,7 +175,7 @@ const ConveyorsListScreen = props => {
               <Text
                 style={{
                   color: statusColorRed,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+                  ...fontStyles.fontMedium,
                   fontSize: 13
                 }}
               >

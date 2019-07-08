@@ -14,6 +14,7 @@ import NotificationsScreen from './screens/NotificationsScreen';
 import BackArrowIcon from './icons/BackArrowIcon';
 import NotificationIcon from './icons/NotificationIcon';
 import ProfileIcon from './icons/ProfileIcon';
+import fontStyles from './utils/FontUtils';
 import { iconColor, bgGradientStart, bgGradientEnd, bottomBorder } from './Colors';
 
 const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
@@ -83,7 +84,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
       <Text
         style={{
           marginLeft: Platform.OS === 'ios' ? 0 : 26,
-          fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+          ...fontStyles.fontMedium,
           fontSize: 18,
           color: iconColor
         }}

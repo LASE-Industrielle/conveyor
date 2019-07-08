@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text } from 'react-native';
 
+import fontStyles from '../utils/FontUtils';
 import { black } from '../Colors';
 
 const ConveyorDetailsFormHeader = props => (
@@ -14,7 +15,7 @@ const ConveyorDetailsFormHeader = props => (
     <Text
       style={{
         color: black,
-        fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold'
+        ...fontStyles.fontBold
       }}
     >
       {props.formHeader}

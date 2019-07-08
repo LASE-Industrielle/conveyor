@@ -1,17 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, Platform } from 'react-native';
+import { View, Text } from 'react-native';
 import { Circle, Svg } from 'react-native-svg';
 
 import { elevationShadowStyle } from '../Styles';
-import { greyText, statusColorGreen, statusColorRed, whiteBorder } from '../Colors';
+import fontStyles from '../utils/FontUtils';
+import { greyText, statusColorGreen, statusColorRed } from '../Colors';
 
-const styles = StyleSheet.create({
-  line: {
-    marginHorizontal: 15,
-    borderBottomColor: whiteBorder,
-    borderBottomWidth: 0.4
-  }
-});
 
 const ConveyorStatusForm = ({ status }) => {
   const color = status === 'OK' ? statusColorGreen : statusColorRed;
@@ -48,7 +42,7 @@ const ConveyorStatusForm = ({ status }) => {
           style={{
             flex: 1,
             color: greyText,
-            fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+            ...fontStyles.fontMedium,
             fontSize: 13
           }}
         >
@@ -56,7 +50,7 @@ const ConveyorStatusForm = ({ status }) => {
           <Text
             style={{
               color,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+              ...fontStyles.fontMedium,
               fontSize: 13
             }}
           >
