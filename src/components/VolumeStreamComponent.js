@@ -42,7 +42,7 @@ const VolumeStreamComponent = props => (
         // fontWeight={700}
       >
         <TSpan x={0} y={0}>
-          {`${props.percentage  }%`}
+          {`${props.percentage}%`}
         </TSpan>
         <TSpan
           y={0}

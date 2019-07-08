@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 
-import ConveyorDetailsFormRow from "./ConveyorDetailsFormRow";
-import ConveyorDetailsFormHeader from "./ConveyorDetailsFormHeader";
-import FormLineComponent from "./FormLineComponent";
+import ConveyorDetailsFormRow from './ConveyorDetailsFormRow';
+import ConveyorDetailsFormHeader from './ConveyorDetailsFormHeader';
+import FormLineComponent from './FormLineComponent';
 
 import { elevationShadowStyle } from '../Styles';
 
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 
 const ConveyorDetailsForm = ({ conveyor }) => (
   <ScrollView contentContainerStyle={styles.container}>
-    <ConveyorDetailsFormHeader formHeader={`JOB: ${  conveyor.mac_address}`} />
+    <ConveyorDetailsFormHeader formHeader={`JOB: ${conveyor.mac_address}`} />
     <FormLineComponent />
     <ConveyorDetailsFormRow title="Material Name" item1={conveyor.material.name} item2="" />
     <FormLineComponent />

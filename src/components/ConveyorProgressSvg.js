@@ -7,7 +7,7 @@ const ConveyorProgresSvg = props => {
   return (
     <Svg data-name="Group 188" width={328} height={51} {...props}>
       <Path data-name="Path 1" d="M51 25.5h226" fill="none" stroke="#e5e5e5" />
-      <Path data-name="Path 438" d={`M51 25.5h${  percentage}`} fill="none" stroke="#02a04e" opacity={0.4} />
+      <Path data-name="Path 438" d={`M51 25.5h${percentage}`} fill="none" stroke="#02a04e" opacity={0.4} />
       <G data-name="Group 158">
         <Path data-name="Rectangle 1" fill="#e2e2e2" d="M87 5h1v41h-1z" />
         <G data-name="Path 429" fill="rgba(0,162,79,0.1)">
