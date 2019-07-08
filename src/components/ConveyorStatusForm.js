@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Circle, Svg } from 'react-native-svg';
@@ -7,7 +8,7 @@ import fontStyles from '../utils/FontUtils';
 import { greyText, statusColorGreen, statusColorRed } from '../Colors';
 
 
-const ConveyorStatusForm = ({ status }) => {
+const ConveyorStatusForm = ({ status } : { status: string }) => {
   const color = status === 'OK' ? statusColorGreen : statusColorRed;
   return (
     <View

@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   }
 });
 
+// TODO check props with flow
+
 const ConveyorDetailsForm = ({ conveyor }) => {
   return (
     <View
@@ -36,7 +38,7 @@ const ConveyorDetailsForm = ({ conveyor }) => {
         }}
       >
         <View style={{ paddingBottom: 0 }}>
-          <ConveyorDetailsFormHeader item1={'Conveyor Mac Address: ' + conveyor.mac_address} />
+          <ConveyorDetailsFormHeader item1={`Conveyor Mac Address: ${conveyor.mac_address}`} />
           <View style={styles.line} />
           <ConveyorDetailsFormRow title="Material Name" item1={conveyor.material.name} item2="" />
           <View style={styles.line} />
@@ -51,7 +53,7 @@ const ConveyorDetailsForm = ({ conveyor }) => {
           <ConveyorDetailsFormRow
             title="Conveyor Speed"
             item1={conveyor.latest_measurement.conveyor_speed}
-            item2={'mm/s'}
+            item2="mm/s"
           />
           <View style={styles.line} />
           <ConveyorDetailsFormRow
@@ -78,13 +80,13 @@ const ConveyorDetailsForm = ({ conveyor }) => {
             item2={'dm\u00B3/h'}
           />
           <View style={styles.line} />
-          <ConveyorDetailsFormRow title="Mass Sum" item1={conveyor.latest_measurement.mass_sum} item2={'kg'} />
+          <ConveyorDetailsFormRow title="Mass Sum" item1={conveyor.latest_measurement.mass_sum} item2="kg" />
           <View style={styles.line} />
-          <ConveyorDetailsFormRow title="Mass Flow" item1={conveyor.latest_measurement.avg_mass_flow} item2={'kg/h'} />
+          <ConveyorDetailsFormRow title="Mass Flow" item1={conveyor.latest_measurement.avg_mass_flow} item2="kg/h" />
           <View style={styles.line} />
-          <ConveyorDetailsFormRow title="Barycenter" item1={conveyor.latest_measurement.barycenter} item2={'mm'} />
+          <ConveyorDetailsFormRow title="Barycenter" item1={conveyor.latest_measurement.barycenter} item2="mm" />
           <View style={styles.line} />
-          <ConveyorDetailsFormRow title="Valid Points" item1={conveyor.latest_measurement.valid_points} item2={'%'} />
+          <ConveyorDetailsFormRow title="Valid Points" item1={conveyor.latest_measurement.valid_points} item2="%" />
         </View>
       </ScrollView>
     </View>

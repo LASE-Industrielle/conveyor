@@ -1,8 +1,9 @@
+// @flow
 import React, { useEffect, useState } from 'react';
 import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar } from 'react-native';
+import { NavigationScreenProp, NavigationActions, StackActions } from 'react-navigation';
 import { Button, Container, Content, Input, Item, Left, Right, Spinner, Text } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
-import { NavigationActions, StackActions } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { useStore } from '../context/StateContext';
@@ -16,7 +17,11 @@ const appAction = StackActions.reset({
   actions: [NavigationActions.navigate({ routeName: 'App' })]
 });
 
-const LoginScreen = props => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const LoginScreen = ({ navigation }: Props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [{ auth }, dispatch] = useStore();
@@ -32,7 +37,7 @@ const LoginScreen = props => {
     if (auth.token !== '' && auth.token !== undefined) {
       AsyncStorage.setItem('token', auth.token)
         .then(() => {
-          props.navigation.dispatch(appAction);
+          navigation.dispatch(appAction);
         })
         .catch(() => {
           console.log('failed to set token');
@@ -140,7 +145,7 @@ const LoginScreen = props => {
                 <Text
                   style={{
                     color: 'white',
-                    fontSize: 14,
+                    fontSize: 14
                   }}
                 >
                   LOG IN

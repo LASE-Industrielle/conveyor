@@ -1,10 +1,15 @@
+// @flow
 import React from 'react';
 import { View, Text } from 'react-native';
 
 import fontStyles from '../utils/FontUtils';
 import { black } from '../Colors';
 
-const ConveyorDetailsFormHeader = props => (
+type Props = {
+  formHeader: string
+};
+
+const ConveyorDetailsFormHeader = ({ formHeader }: Props) => (
   <View
     style={{
       margin: 10,
@@ -18,7 +23,7 @@ const ConveyorDetailsFormHeader = props => (
         ...fontStyles.fontBold
       }}
     >
-      {props.formHeader}
+      {formHeader}
     </Text>
   </View>
 );

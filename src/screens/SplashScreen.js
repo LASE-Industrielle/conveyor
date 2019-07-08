@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Image } from 'react-native';
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions, StackActions, NavigationScreenProp } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
@@ -17,7 +17,11 @@ const appAction2 = StackActions.reset({
   actions: [NavigationActions.navigate({ routeName: 'Login' })]
 });
 
-const SplashScreen = ({ navigation }) => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const SplashScreen = ({ navigation }: Props) => {
   useEffect(() => {
     AsyncStorage.getItem('token')
       .then(token => {

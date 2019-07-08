@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Platform, Switch, View } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
@@ -15,7 +16,11 @@ import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
 import { bgColor, statusColorRed, greenIconColor, blackTextColor, bgGradientStart, bgGradientEnd } from '../Colors';
 
-const ProfileScreen = props => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const ProfileScreen = ({ navigation }: Props) => {
   const [{ profile }, dispatch] = useStore();
 
   const [sync1, setSync1] = useState(true);
@@ -24,7 +29,7 @@ const ProfileScreen = props => {
   const logout = async () => {
     await AsyncStorage.removeItem('token');
     await dispatch({ type: LOGOUT_USER });
-    await props.navigation.dispatch(resetAction);
+    await navigation.dispatch(resetAction);
   };
 
   return (

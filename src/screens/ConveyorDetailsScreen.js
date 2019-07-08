@@ -1,5 +1,7 @@
+// @flow
 import React, { useEffect } from 'react';
 import { Platform, Text, TouchableOpacity, View, ScrollView, RefreshControl } from 'react-native';
+import {NavigationScreenProp} from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
 
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
@@ -10,7 +12,11 @@ import { getConveyorById } from '../services/ConveyorsService';
 import { elevationShadowStyle } from '../Styles';
 import { bgColor, bgGradientStart, bgGradientEnd, greenIconColor } from '../Colors';
 
-const ConveyorDetailsScreen = ({ navigation }) => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const ConveyorDetailsScreen = ({ navigation }: Props) => {
   const [{ conveyor }, dispatch] = useStore();
 
   useEffect(() => {

@@ -1,9 +1,16 @@
+// @flow
 import React from 'react';
 import { View, Text } from 'react-native';
 
 import { orange, inactiveText, bottomBorder } from '../Colors';
 
-const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
+type Props = {
+  title: String,
+  item1: string,
+  item2: string
+};
+
+const ConveyorDetailsFormRow = ({ title, item1, item2 } : Props) => {
   return (
     <View
       style={{

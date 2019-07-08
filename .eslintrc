@@ -15,7 +15,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-native", "prettier"],
+  "plugins": ["react", "react-native", "prettier", "flowtype"],
   "rules": {
     "react-native/no-unused-styles": 2,
     "react-native/split-platform-components": 2,

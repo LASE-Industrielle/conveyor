@@ -4,7 +4,7 @@ import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../reducers/
 import { loginUrl } from '../Urls';
 
 const authCall = async (dispatch, loginUsername, loginPassword) => {
-  const callConfig = {
+  const authCallConfig = {
     method: 'post',
     url: loginUrl,
     headers: {
@@ -16,7 +16,7 @@ const authCall = async (dispatch, loginUsername, loginPassword) => {
     }
   };
   dispatch({ type: AUTH_START });
-  const response = await axios(callConfig).catch(err => dispatch({ type: AUTH_ERROR, payload: err }));
+  const response = await axios(authCallConfig).catch(err => dispatch({ type: AUTH_ERROR, payload: err }));
 
   axios.defaults.headers.common.Authorization = `Token ${response.data.token}`;
   dispatch({ type: AUTH_SUCCESS, payload: response.data.token });

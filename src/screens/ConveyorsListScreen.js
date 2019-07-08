@@ -1,5 +1,7 @@
+// @flow
 import React, { useEffect } from 'react';
 import { FlatList, Platform, TouchableOpacity, View } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 import { Text } from 'native-base';
 import { Circle, Svg } from 'react-native-svg';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,7 +13,11 @@ import { elevationShadowStyle } from '../Styles';
 import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed, greyText } from '../Colors';
 import fontStyles from '../utils/FontUtils';
 
-const ConveyorsListScreen = props => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const ConveyorsListScreen = ({ navigation }: Props) => {
   const [{ conveyors }, dispatch] = useStore();
 
   useEffect(() => {
@@ -39,7 +45,7 @@ const ConveyorsListScreen = props => {
         <TouchableOpacity
           style={{ paddingBottom: 16 }}
           onPress={() =>
-            props.navigation.navigate('ConveyorDetails', {
+            navigation.navigate('ConveyorDetails', {
               id: item.id,
               title: item.name
             })
@@ -120,7 +126,7 @@ const ConveyorsListScreen = props => {
         <TouchableOpacity
           style={{ paddingBottom: 16 }}
           onPress={() =>
-            props.navigation.navigate('ConveyorDetails', {
+            navigation.navigate('ConveyorDetails', {
               id: item.id,
               title: item.name
             })
