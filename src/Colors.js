@@ -4,6 +4,8 @@ const primaryText = '#606060';
 const secondaryText = '#969696';
 const inactiveText = '#C5C5C5';
 
+const white = '#FFFFFF';
+
 const iconColor = '#FFF';
 const greenIconColor = '#02A04E';
 
@@ -21,7 +23,10 @@ const bgGradientEnd = '#539A88';
 const statusColorGreen = '#6CC799';
 const statusColorRed = '#F19B93';
 
+const bottomBorder = '#3A7F78';
+
 export {
+  white,
   primary,
   secondary,
   primaryText,
@@ -38,5 +43,6 @@ export {
   statusColorGreen,
   statusColorRed,
   greenIconColor,
-  blackTextColor
+  blackTextColor,
+  bottomBorder,
 };

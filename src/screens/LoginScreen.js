@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar } from 'react-native';
 import { Button, Container, Content, Input, Item, Left, Right, Spinner, Text } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import { NavigationActions, StackActions } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
+
 import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 

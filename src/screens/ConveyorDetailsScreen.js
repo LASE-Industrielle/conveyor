@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-
 import { Platform, Text, TouchableOpacity, View, ScrollView, RefreshControl } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
-import { elevationShadowStyle } from '../Styles';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
 import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
+
+import { elevationShadowStyle } from '../Styles';
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStore();

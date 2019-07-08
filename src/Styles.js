@@ -1,6 +1,6 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
 
-import { primary } from './Colors';
+import { primary, white, greenIconColor, blackTextColor, primaryText } from './Colors';
 
 export const elevationShadowStyle = (elevation = 2, shadowOpacity = 0.12) => ({
   elevation,
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: white,
     borderRadius: 8,
     ...(Platform.OS === 'android' && { paddingTop: 30, paddingBottom: 44 })
   },
@@ -39,12 +39,12 @@ export default StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     marginTop: Platform.OS === 'ios' ? 50 : 40,
-    backgroundColor: '#02A04E',
+    backgroundColor: greenIconColor,
     ...elevationShadowStyle(2, 0.16),
     padding: 30
   },
   inputItem: {
-    borderColor: '#797979',
+    borderColor: blackTextColor,
     marginTop: 10,
     marginBottom: 0,
     marginLeft: 20,
@@ -83,7 +83,7 @@ export default StyleSheet.create({
     color: primary
   },
   arrow: {
-    color: '#606060'
+    color: primaryText
   },
   buttonAnalyticsStyle: {
     flex: 1,

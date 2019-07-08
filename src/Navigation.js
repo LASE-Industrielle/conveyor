@@ -1,19 +1,20 @@
 import React from 'react';
-import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
-
 import { TouchableOpacity, Text, View, Platform, StatusBar } from 'react-native';
+import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
+
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SplashScreen from './screens/SplashScreen';
 import ConveyorsListScreen from './screens/ConveyorsListScreen';
 import ConveyorDetailsScreen from './screens/ConveyorDetailsScreen';
-import ScannersAnalyticScreen from './screens/ScannersAnalyticScreen';
+import ScannerAnalyticsScreen from './screens/ScannerAnalyticsScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
+
 import BackArrowIcon from './icons/BackArrowIcon';
 import NotificationIcon from './icons/NotificationIcon';
 import ProfileIcon from './icons/ProfileIcon';
-import { iconColor } from './Colors';
+import { iconColor, bgGradientStart, bgGradientEnd, bottomBorder } from './Colors';
 
 const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
   return {
@@ -58,7 +59,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
             }}
           >
             <StatusBar translucent backgroundColor="transparent" />
-            <LinearGradient colors={['#84CFA8', '#539A88']}>
+            <LinearGradient colors={[bgGradientStart, bgGradientEnd]}>
               <Header {...props} />
             </LinearGradient>
           </View>
@@ -67,7 +68,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
               position: 'absolute',
               top: 88,
               opacity: 0.4,
-              borderBottomColor: '#3A7F78',
+              borderBottomColor: bottomBorder,
               alignSelf: 'stretch',
               flex: 1,
               width: '100%',
@@ -151,7 +152,7 @@ const AppStackNavigator = createStackNavigator(
       navigationOptions: navigationOptions(true)
     },
     ScannersAnalytic: {
-      screen: ScannersAnalyticScreen,
+      screen: ScannerAnalyticsScreen,
       path: 'ScannersAnalytic',
       navigationOptions: navigationOptions(true, 'Analytics')
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const NotificationsScreen = props => {
+const NotificationsScreen = () => {
   return (
     <View style={{ backgroundColor: 'transparent', width: '100%', height: '100%' }}>
       <View

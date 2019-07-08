@@ -3,6 +3,7 @@ import { View, Image } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
+
 import lase from '../../assets/img/lase.jpeg';
 
 const appAction1 = StackActions.reset({

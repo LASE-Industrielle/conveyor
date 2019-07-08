@@ -3,15 +3,16 @@ import { Image, Platform, Switch, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
-import ccLogo from '../../assets/img/cc.jpg';
 
 import { useStore } from '../context/StateContext';
 import resetAction from '../utils/NavigationUtils';
 import { LOGOUT_USER } from '../Actions';
+
 import { elevationShadowStyle } from '../Styles';
 import NotificationIcon from '../icons/NotificationIcon';
 import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
+import ccLogo from '../../assets/img/cc.jpg';
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStore();

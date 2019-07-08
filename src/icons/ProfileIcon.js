@@ -1,6 +1,7 @@
 import React from "react";
 import { G, Path, Circle } from "react-native-svg";
 import SvgIcon from "react-native-svg-icon";
+
 import { iconColor } from "../Colors";
 
 const icon = {

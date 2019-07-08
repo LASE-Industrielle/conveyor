@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-
-import { Text } from 'native-base';
 import { FlatList, Platform, TouchableOpacity, View } from 'react-native';
+import { Text } from 'native-base';
 import { Circle, Svg } from 'react-native-svg';
 import LinearGradient from 'react-native-linear-gradient';
+
 import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
+
 import { elevationShadowStyle } from '../Styles';
 import { bgColor } from '../Colors';
 

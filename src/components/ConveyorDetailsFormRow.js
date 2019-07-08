@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+
 import { orange, inactiveText } from '../Colors';
 
 const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {

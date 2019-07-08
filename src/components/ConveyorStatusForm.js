@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Circle, Svg } from 'react-native-svg';
+
 import { elevationShadowStyle } from '../Styles';
 import { statusColorGreen, statusColorRed } from '../Colors';
 
