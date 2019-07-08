@@ -53,7 +53,7 @@ const GraphComponent = props => {
         </VictoryChart>
       ) : (
         <View style={{ height: 250, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator animating={true} />
+          <ActivityIndicator animating />
         </View>
       )}
     </View>

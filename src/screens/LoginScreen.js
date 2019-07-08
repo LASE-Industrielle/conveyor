@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar } from 'react-native';
 import { Button, Container, Content, Input, Item, Left, Right, Spinner, Text } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import axios from 'axios';
-
+import { NavigationActions, StackActions } from 'react-navigation';
+import LinearGradient from 'react-native-linear-gradient';
 import { useStateValue } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
 import styles from '../Styles';
-import { NavigationActions, StackActions } from 'react-navigation';
-import LinearGradient from 'react-native-linear-gradient';
 
 const appAction = StackActions.reset({
   index: 0,
@@ -63,7 +61,7 @@ const LoginScreen = props => {
 
   return (
     <ScrollView>
-      <StatusBar translucent={true} backgroundColor={'transparent'} />
+      <StatusBar translucent backgroundColor="transparent" />
       <KeyboardAvoidingView enabled>
         <Container style={{ backgroundColor: 'red', height: Dimensions.get('window').height }}>
           <LinearGradient
@@ -97,7 +95,7 @@ const LoginScreen = props => {
                   }}
                   placeholder="xyz@gmail.com"
                   style={styles.placeholder}
-                  placeholderTextColor={'#AAA9A9'}
+                  placeholderTextColor="#AAA9A9"
                 />
               </Item>
             ) : null}
@@ -126,7 +124,7 @@ const LoginScreen = props => {
                   }}
                   placeholder={'\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A'}
                   style={styles.placeholder}
-                  placeholderTextColor={'#AAA9A9'}
+                  placeholderTextColor="#AAA9A9"
                 />
               </Item>
             ) : null}

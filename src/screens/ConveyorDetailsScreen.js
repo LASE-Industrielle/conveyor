@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { Platform, Text, TouchableOpacity, View, ScrollView, RefreshControl } from 'react-native';
-import ConveyorProgresSvg from '../components/ConveyorProgressSvg';
+import LinearGradient from 'react-native-linear-gradient';
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
 import { elevationShadowStyle } from '../Styles';
-import LinearGradient from 'react-native-linear-gradient';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
-import GraphComponent from '../components/GraphComponent';
 import { useStateValue } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
@@ -16,7 +14,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
   useEffect(() => {
     getConveyorById(dispatch, navigation.getParam('id', ''), true);
 
-    let timer = setInterval(() => getConveyorById(dispatch, navigation.getParam('id', ''), false), 1000);
+    const timer = setInterval(() => getConveyorById(dispatch, navigation.getParam('id', ''), false), 1000);
     return () => {
       clearInterval(timer);
     };
@@ -31,7 +29,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
       style={{
         flex: 1,
         flexDirection: 'column',
-        //backgroundColor: "#F2F2F2",
+        // backgroundColor: "#F2F2F2",
         fontFamily: 'HelveticaNeue'
       }}
     >
@@ -62,15 +60,15 @@ const ConveyorDetailsScreen = ({ navigation }) => {
         style={{
           flex: 4,
           zIndex: 2,
-          //paddingVertical: 15,
-          //paddingHorizontal: 5,
-          //justifyContent: "space-between",
-          //borderRadius: 6,
-          //margin: 16,
+          // paddingVertical: 15,
+          // paddingHorizontal: 5,
+          // justifyContent: "space-between",
+          // borderRadius: 6,
+          // margin: 16,
           marginTop: Platform.OS === 'ios' ? 102 : 0,
           backgroundColor: 'transparent'
-          //...elevationShadowStyle(2),
-          //marginHorizontal: 15,
+          // ...elevationShadowStyle(2),
+          // marginHorizontal: 15,
         }}
       >
         {conveyor.loading ? null : (
@@ -86,7 +84,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               ...elevationShadowStyle(2),
               marginBottom: 4,
               paddingVertical: 15,
-              //paddingLeft:
+              // paddingLeft:
               alignItems: 'center'
             }}
           >

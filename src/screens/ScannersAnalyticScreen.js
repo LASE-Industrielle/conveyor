@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Platform, RefreshControl, ScrollView, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import { getConveyors } from '../services/ConveyorsService';
 import { useStateValue } from '../context/StateContext';
 import { elevationShadowStyle } from '../Styles';
-import { Platform, RefreshControl, ScrollView, View } from 'react-native';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
-import LinearGradient from 'react-native-linear-gradient';
 import { blueGraph, orangeGraph, redGraph } from '../Colors';
 import GraphComponent from '../components/GraphComponent';
 
@@ -26,9 +26,9 @@ const ScannersAnalyticScreen = props => {
   const [{ conveyors }, dispatch] = useStateValue();
 
   const createTicks = data => {
-    let maxValue = Math.max(...data);
-    let minValue = Math.min(...data);
-    let midValue = (maxValue + minValue) / 2;
+    const maxValue = Math.max(...data);
+    const minValue = Math.min(...data);
+    const midValue = (maxValue + minValue) / 2;
     const generateConstantTicks = value => [value - 2, value - 1, value, value + 1, value + 2];
     const generateAvgTicks = (minValue, midValue, maxValue) => [
       minValue,
@@ -111,7 +111,7 @@ const ScannersAnalyticScreen = props => {
             <GraphComponent
               lineColor={orangeGraph}
               loading={false}
-              label={'Volume Sum'}
+              label="Volume Sum"
               data={volumeSumMeasurements}
               ticks={volumeSumMeasurementsTicks}
               value={volumeSum}
@@ -123,7 +123,7 @@ const ScannersAnalyticScreen = props => {
             <GraphComponent
               lineColor={blueGraph}
               loading={false}
-              label={'Volume Flow Rate'}
+              label="Volume Flow Rate"
               data={volumeFlowMeasurements}
               ticks={volumeFlowMeasurementsTicks}
               value={avgVolumeFlow}
@@ -135,11 +135,11 @@ const ScannersAnalyticScreen = props => {
             <GraphComponent
               lineColor={redGraph}
               loading={false}
-              label={'Conveyor Speed'}
+              label="Conveyor Speed"
               data={conveyorSpeedMeasurements}
               ticks={conveyorSpeedMeasurementsTicks}
               value={conveyorSpeed}
-              units={'mm/s'}
+              units="mm/s"
             />
           )}
         </View>

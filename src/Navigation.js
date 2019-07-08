@@ -1,6 +1,8 @@
 import React from 'react';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 
+import { TouchableOpacity, Text, View, Platform, StatusBar } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SplashScreen from './screens/SplashScreen';
@@ -8,8 +10,6 @@ import ConveyorsListScreen from './screens/ConveyorsListScreen';
 import ConveyorDetailsScreen from './screens/ConveyorDetailsScreen';
 import ScannersAnalyticScreen from './screens/ScannersAnalyticScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
-import { TouchableOpacity, Text, View, Platform, StatusBar } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import BackArrowIcon from './icons/BackArrowIcon';
 import NotificationIcon from './icons/NotificationIcon';
 import ProfileIcon from './icons/ProfileIcon';
@@ -31,7 +31,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
           }}
         >
           <View>
-            <StatusBar translucent={true} backgroundColor={'transparent'} />
+            <StatusBar translucent backgroundColor="transparent" />
             <Header {...props} />
           </View>
           <View
@@ -57,7 +57,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
               zIndex: -1
             }}
           >
-            <StatusBar translucent={true} backgroundColor={'transparent'} />
+            <StatusBar translucent backgroundColor="transparent" />
             <LinearGradient colors={['#84CFA8', '#539A88']}>
               <Header {...props} />
             </LinearGradient>
@@ -77,7 +77,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
           />
         </View>
       ),
-    //Heading/title of the header
+    // Heading/title of the header
     headerTitle: (
       <Text
         style={{
@@ -90,7 +90,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
         {navigation.getParam('title', title !== null ? title : '')}
       </Text>
     ),
-    //Heading style
+    // Heading style
     headerStyle:
       Platform.OS === 'ios'
         ? {
@@ -104,7 +104,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
             marginTop: 18,
             marginBottom: 71
           },
-    //Heading text color
+    // Heading text color
     headerTintColor: navigation.getParam('HeaderTintColor', '#fff'),
     headerRight: (
       <View style={{ flexDirection: 'row', marginRight: 8 }}>
@@ -124,7 +124,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
         <BackArrowIcon />
       </TouchableOpacity>
     ) : null,
-    headerTransparent: Platform.OS === 'ios' ? true : false
+    headerTransparent: Platform.OS === 'ios'
   };
 };
 
