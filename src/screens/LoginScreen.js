@@ -9,7 +9,7 @@ import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
 import styles from '../Styles';
-import { greenIconColor, bottomBorder } from '../Colors';
+import { greenIconColor, bottomBorder, greyText, bgGradientStartLogin } from '../Colors';
 
 const appAction = StackActions.reset({
   index: 0,
@@ -67,7 +67,7 @@ const LoginScreen = props => {
         <Container style={{ backgroundColor: 'red', height: Dimensions.get('window').height }}>
           <LinearGradient
             style={{ flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            colors={['#83CEA7', bottomBorder]}
+            colors={[bgGradientStartLogin, bottomBorder]}
           />
 
           <Content contentContainerStyle={styles.default}>
@@ -75,14 +75,14 @@ const LoginScreen = props => {
             {!auth.loading && auth.token === '' ? (
               <Item style={{ borderColor: 'transparent' }}>
                 <Left style={{ marginTop: 20, marginLeft: 20 }}>
-                  <Text style={{ fontFamily: 'HelveticaNeue', color: '#AAA9A9', fontSize: 24 }}>Log In</Text>
+                  <Text style={{ fontFamily: 'HelveticaNeue', color: greyText, fontSize: 24 }}>Log In</Text>
                 </Left>
               </Item>
             ) : null}
             {!auth.loading && auth.token === '' ? (
               <Item style={{ borderColor: 'transparent' }}>
                 <Left style={{ marginTop: 20, marginLeft: 20 }}>
-                  <Text style={{ fontFamily: 'HelveticaNeue', color: '#AAA9A9' }}>Email</Text>
+                  <Text style={{ fontFamily: 'HelveticaNeue', color: greyText }}>Email</Text>
                 </Left>
               </Item>
             ) : null}
@@ -106,7 +106,7 @@ const LoginScreen = props => {
                   <Text
                     style={{
                       fontFamily: 'HelveticaNeue',
-                      color: '#AAA9A9'
+                      color: greyText
                     }}
                   >
                     Password
@@ -151,7 +151,7 @@ const LoginScreen = props => {
             ) : null}
             {!auth.loading && auth.token === '' ? (
               <Item style={{ borderColor: 'transparent', marginTop: 30 }}>
-                <Text style={{ color: '#AAA9A9' }}>Don't have an account?</Text>
+                <Text style={{ color: greyText }}>Don't have an account?</Text>
                 <Text
                   style={{
                     color: greenIconColor

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { bgGradientStart, bgGradientEnd } from '../Colors';
+import { bgGradientStart, bgGradientEnd, greyText } from '../Colors';
 
 const NotificationsScreen = () => {
   return (
@@ -17,7 +17,9 @@ const NotificationsScreen = () => {
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} /> : null}
+        {Platform.OS === 'ios' ? (
+          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
+        ) : null}
       </View>
       <View
         style={{
@@ -29,8 +31,8 @@ const NotificationsScreen = () => {
           marginTop: Platform.OS === 'ios' ? 134 : 32
         }}
       >
-        <Text style={{ color: '#AAA9A9' }}>Demonstration purposes only</Text>
-        <Text style={{ color: '#AAA9A9' }}>(Notifications not included in demo)</Text>
+        <Text style={{ color: greyText }}>Demonstration purposes only</Text>
+        <Text style={{ color: greyText }}>(Notifications not included in demo)</Text>
       </View>
     </View>
   );

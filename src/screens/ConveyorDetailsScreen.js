@@ -8,7 +8,7 @@ import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
 import { elevationShadowStyle } from '../Styles';
-import { bgGradientStart, bgGradientEnd } from '../Colors';
+import { bgColor, bgGradientStart, bgGradientEnd, greenIconColor } from '../Colors';
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStore();
@@ -45,7 +45,9 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} /> : null}
+        {Platform.OS === 'ios' ? (
+          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
+        ) : null}
       </View>
       <ScrollView
         refreshControl={

@@ -8,7 +8,7 @@ import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 
 import { elevationShadowStyle } from '../Styles';
-import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed } from '../Colors';
+import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed, greyText } from '../Colors';
 
 const ConveyorsListScreen = props => {
   const [{ conveyors }, dispatch] = useStore();
@@ -73,7 +73,7 @@ const ConveyorsListScreen = props => {
             style={{
               marginLeft: 18,
               marginTop: 4,
-              color: '#AAA9A9',
+              color: greyText,
               fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
               fontSize: 13
             }}
@@ -154,7 +154,7 @@ const ConveyorsListScreen = props => {
             style={{
               marginLeft: 18,
               marginTop: 4,
-              color: '#AAA9A9',
+              color: greyText,
               fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
               fontSize: 13
             }}

@@ -33,7 +33,7 @@ const getConveyorById = (dispatch, id, reloadPage = true) => {
     dispatch({ type: CONVEYOR_LOAD_START });
   }
   axios
-    .get(`${conveyorsUrl + id  }/`)
+    .get(`${conveyorsUrl + id}/`)
     .then(response =>
       dispatch({
         type: CONVEYOR_LOAD_SUCCESS,

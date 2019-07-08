@@ -5,11 +5,12 @@ import ConveyorDetailsFormRow from './ConveyorDetailsFormRow';
 import ConveyorDetailsFormHeader from './ConveyorDetailsFormHeader';
 
 import { elevationShadowStyle } from '../Styles';
+import { whiteBorder } from '../Colors';
 
 const styles = StyleSheet.create({
   line: {
     marginHorizontal: 15,
-    borderBottomColor: '#E8E6EA',
+    borderBottomColor: whiteBorder,
     borderBottomWidth: 0.4
   },
   formText: {

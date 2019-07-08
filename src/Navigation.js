@@ -106,7 +106,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
             marginBottom: 71
           },
     // Heading text color
-    headerTintColor: navigation.getParam('HeaderTintColor', '#fff'),
+    headerTintColor: navigation.getParam('HeaderTintColor', iconColor),
     headerRight: (
       <View style={{ flexDirection: 'row', marginRight: 8 }}>
         <TouchableOpacity

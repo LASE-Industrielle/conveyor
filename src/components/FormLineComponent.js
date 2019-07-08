@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { whiteBorder } from '../Colors';
 
 const styles = StyleSheet.create({
   line: {
     marginHorizontal: 15,
-    borderBottomColor: '#E8E6EA',
+    borderBottomColor: whiteBorder,
     borderBottomWidth: 0.4
   }
 });

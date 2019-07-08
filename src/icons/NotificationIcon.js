@@ -1,8 +1,8 @@
-import React from "react";
-import { G, Path } from "react-native-svg";
-import SvgIcon from "react-native-svg-icon";
+import React from 'react';
+import { G, Path } from 'react-native-svg';
+import SvgIcon from 'react-native-svg-icon';
 
-import { iconColor } from "../Colors";
+import { iconColor } from '../Colors';
 
 const icon = {
   icon: {
@@ -17,19 +17,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: "0 0 17.188 20"
+    viewBox: '0 0 17.188 20'
   }
 };
 
 const NotificationIcon = props => (
-  <SvgIcon
-    fill={iconColor}
-    height={20}
-    width={17.2}
-    name={"icon"}
-    {...props}
-    svgs={icon}
-  >
+  <SvgIcon fill={iconColor} height={20} width={17.2} name={'icon'} {...props} svgs={icon}>
     {props.children}
   </SvgIcon>
 );

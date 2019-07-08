@@ -3,12 +3,12 @@ import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Circle, Svg } from 'react-native-svg';
 
 import { elevationShadowStyle } from '../Styles';
-import { statusColorGreen, statusColorRed } from '../Colors';
+import { greyText, statusColorGreen, statusColorRed, whiteBorder } from '../Colors';
 
 const styles = StyleSheet.create({
   line: {
     marginHorizontal: 15,
-    borderBottomColor: '#E8E6EA',
+    borderBottomColor: whiteBorder,
     borderBottomWidth: 0.4
   },
   formText: {
@@ -50,7 +50,7 @@ const ConveyorStatusForm = ({ status }) => {
         <Text
           style={{
             flex: 1,
-            color: '#AAA9A9',
+            color: greyText,
             fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
             fontSize: 13
           }}

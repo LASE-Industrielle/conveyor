@@ -1,8 +1,8 @@
-import React from "react";
-import { G, Path } from "react-native-svg";
-import SvgIcon from "react-native-svg-icon";
+import React from 'react';
+import { G, Path } from 'react-native-svg';
+import SvgIcon from 'react-native-svg-icon';
 
-import { iconColor } from "../Colors";
+import { iconColor } from '../Colors';
 
 const icon = {
   icon: {
@@ -17,19 +17,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: "0 0 11.861 13.861"
+    viewBox: '0 0 11.861 13.861'
   }
 };
 
 const SynchronizationIcon = props => (
-  <SvgIcon
-    fill={iconColor}
-    height={12}
-    width={14}
-    name={"icon"}
-    {...props}
-    svgs={icon}
-  >
+  <SvgIcon fill={iconColor} height={12} width={14} name={'icon'} {...props} svgs={icon}>
     {props.children}
   </SvgIcon>
 );

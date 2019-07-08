@@ -40,7 +40,7 @@ const VolumeStreamComponent = props => (
         fontFamily="HelveticaNeue-Bold, Helvetica Neue"
       >
         <TSpan x={0} y={0}>
-          {props.percentage === -1 ? 'Error calculating value' : `${props.percentage  }%`}
+          {props.percentage === -1 ? 'Error calculating value' : `${props.percentage}%`}
         </TSpan>
       </Text>
       <G
@@ -94,7 +94,7 @@ const VolumeStreamComponent = props => (
             </TSpan>
             <TSpan y={0} fill="#aaa9a9" letterSpacing=".02em" />
             <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
-              {`${props.upperLimit  } m\u00B3/h`}
+              {`${props.upperLimit} m\u00B3/h`}
             </TSpan>
           </Text>
           <Text data-name="Lower limit 0" transform="translate(119 116)">
@@ -102,7 +102,7 @@ const VolumeStreamComponent = props => (
               {'Lower limit '}
             </TSpan>
             <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
-              {`${props.lowerLimit  } m\u00B3/h`}
+              {`${props.lowerLimit} m\u00B3/h`}
             </TSpan>
           </Text>
         </G>

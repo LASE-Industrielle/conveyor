@@ -13,7 +13,7 @@ import NotificationIcon from '../icons/NotificationIcon';
 import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
-import { statusColorRed, greenIconColor, blackTextColor, bgGradientStart, bgGradientEnd } from '../Colors';
+import { bgColor, statusColorRed, greenIconColor, blackTextColor, bgGradientStart, bgGradientEnd } from '../Colors';
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStore();
@@ -40,7 +40,9 @@ const ProfileScreen = props => {
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} /> : null}
+        {Platform.OS === 'ios' ? (
+          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
+        ) : null}
       </View>
       <View
         style={{

@@ -25,6 +25,12 @@ const statusColorRed = '#F19B93';
 
 const bottomBorder = '#3A7F78';
 
+const whiteBorder = '#E8E6EA';
+
+const greyText = '#AAA9A9';
+
+const bgGradientStartLogin = '#83CEA7';
+
 export {
   white,
   primary,
@@ -45,4 +51,7 @@ export {
   greenIconColor,
   blackTextColor,
   bottomBorder,
+  whiteBorder,
+  greyText,
+  bgGradientStartLogin
 };
