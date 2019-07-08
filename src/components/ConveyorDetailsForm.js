@@ -12,9 +12,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     borderBottomColor: whiteBorder,
     borderBottomWidth: 0.4
-  },
-  formText: {
-    fontFamily: 'HelveticaNeue'
   }
 });
 

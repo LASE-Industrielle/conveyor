@@ -29,7 +29,6 @@ const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
       >
         <Text
           style={{
-            fontFamily: 'HelveticaNeue',
             color: bottomBorder
           }}
         >
@@ -37,7 +36,6 @@ const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
         </Text>
         <Text
           style={{
-            fontFamily: 'HelveticaNeue',
             color: inactiveText
           }}
         >

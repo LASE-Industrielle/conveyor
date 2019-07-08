@@ -77,7 +77,7 @@ const ProfileScreen = props => {
             />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Syncronization</Text>
+            <Text style={{ color: blackTextColor }}>Syncronization</Text>
           </Body>
           <Right>
             <Switch value={sync1} onValueChange={() => setSync1(!sync1)} />
@@ -99,7 +99,7 @@ const ProfileScreen = props => {
             />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Notifications</Text>
+            <Text style={{ color: blackTextColor }}>Notifications</Text>
           </Body>
           <Right>
             <Switch value={sync2} onValueChange={() => setSync2(!sync2)} />
@@ -123,7 +123,6 @@ const ProfileScreen = props => {
           <Body>
             <Text
               style={{
-                fontFamily: 'HelveticaNeue',
                 fontWeight: 'bold',
                 color: statusColorRed
               }}

@@ -75,14 +75,14 @@ const LoginScreen = props => {
             {!auth.loading && auth.token === '' ? (
               <Item style={{ borderColor: 'transparent' }}>
                 <Left style={{ marginTop: 20, marginLeft: 20 }}>
-                  <Text style={{ fontFamily: 'HelveticaNeue', color: greyText, fontSize: 24 }}>Log In</Text>
+                  <Text style={{ color: greyText, fontSize: 24 }}>Log In</Text>
                 </Left>
               </Item>
             ) : null}
             {!auth.loading && auth.token === '' ? (
               <Item style={{ borderColor: 'transparent' }}>
                 <Left style={{ marginTop: 20, marginLeft: 20 }}>
-                  <Text style={{ fontFamily: 'HelveticaNeue', color: greyText }}>Email</Text>
+                  <Text style={{ color: greyText }}>Email</Text>
                 </Left>
               </Item>
             ) : null}
@@ -105,7 +105,6 @@ const LoginScreen = props => {
                 <Left style={{ marginTop: 20, marginLeft: 20 }}>
                   <Text
                     style={{
-                      fontFamily: 'HelveticaNeue',
                       color: greyText
                     }}
                   >
@@ -142,7 +141,6 @@ const LoginScreen = props => {
                   style={{
                     color: 'white',
                     fontSize: 14,
-                    fontFamily: 'HelveticaNeue'
                   }}
                 >
                   LOG IN

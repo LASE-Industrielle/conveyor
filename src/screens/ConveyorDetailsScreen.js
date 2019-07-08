@@ -31,7 +31,6 @@ const ConveyorDetailsScreen = ({ navigation }) => {
       style={{
         flex: 1,
         flexDirection: 'column',
-        fontFamily: 'HelveticaNeue'
       }}
     >
       <View
@@ -122,7 +121,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               navigation.navigate('ScannersAnalytic');
             }}
           >
-            <Text style={{ color: 'white', fontFamily: 'HelveticaNeue' }}>ANALYTICS</Text>
+            <Text style={{ color: 'white' }}>ANALYTICS</Text>
           </TouchableOpacity>
         </View>
       )}

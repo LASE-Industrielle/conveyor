@@ -1,11 +1,18 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import AppContainer from './Navigation';
 import { StateProvider, initialState } from './context/StateContext';
 import storeReducer from './reducers/StoreReducer';
 
+const style = StyleSheet.create({
+  globalFont: {
+    fontFamily: 'HelveticaNeue'
+  }
+});
+
 const App = () => (
-  <StateProvider initialState={initialState} reducer={storeReducer}>
+  <StateProvider initialState={initialState} reducer={storeReducer} style={style.globalFont}>
     <AppContainer />
   </StateProvider>
 );
