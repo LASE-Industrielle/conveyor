@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../Actions';
+import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../reducers/Actions'
 import { loginUrl } from '../Urls';
 
 const authCall = async (dispatch, loginUsername, loginPassword) => {

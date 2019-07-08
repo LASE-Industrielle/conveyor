@@ -7,7 +7,7 @@ import {
   CONVEYOR_LOAD_START,
   CONVEYOR_LOAD_SUCCESS,
   CONVEYOR_LOAD_ERROR
-} from '../Actions';
+} from '../reducers/Actions';
 import { conveyorsUrl } from '../Urls';
 
 const handleError = (dispatch, err, type) => {

@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import { useStore } from '../context/StateContext';
 import resetAction from '../utils/NavigationUtils';
-import { LOGOUT_USER } from '../Actions';
+import { LOGOUT_USER } from '../reducers/Actions';
 
 import { elevationShadowStyle } from '../Styles';
 import NotificationIcon from '../icons/NotificationIcon';

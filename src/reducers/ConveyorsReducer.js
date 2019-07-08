@@ -1,4 +1,4 @@
-import { CONVEYORS_LOAD_ERROR, CONVEYORS_LOAD_START, CONVEYORS_LOAD_SUCCESS } from '../Actions';
+import { CONVEYORS_LOAD_ERROR, CONVEYORS_LOAD_START, CONVEYORS_LOAD_SUCCESS } from './Actions';
 
 const conveyorsReducer = (state, action) => {
   switch (action.type) {

@@ -1,4 +1,4 @@
-import { LOGOUT_USER, SET_USERNAME } from '../Actions';
+import { LOGOUT_USER, SET_USERNAME } from './Actions';
 
 const profileReducer = (state, action) => {
   switch (action.type) {
