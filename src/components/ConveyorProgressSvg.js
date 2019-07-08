@@ -3,7 +3,6 @@ import Svg, { Path, G } from 'react-native-svg';
 import { greenIconColor, statusColorGreen, bottomBorder } from '../Colors';
 
 const ConveyorProgresSvg = props => {
-  // Progress should be from 0 to 227
   const percentage = parseInt(props.percentage) * 2.27;
   return (
     <Svg data-name="Group 188" width={328} height={51} {...props}>

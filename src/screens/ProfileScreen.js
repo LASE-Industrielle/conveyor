@@ -46,22 +46,12 @@ const ProfileScreen = props => {
         style={{
           flex: 1,
           zIndex: 2,
-          // paddingVertical: 15,
-          // paddingHorizontal: 5,
-          // justifyContent: "space-between",
-          // borderRadius: 6,
-          // margin: 16,
           marginTop: Platform.OS === 'ios' ? 102 : 0,
-          // backgroundColor: "transparent",
-          // ...elevationShadowStyle(2),
-          // marginHorizontal: 15,
           margin: 20,
           backgroundColor: 'white',
           borderRadius: 8,
           padding: 10,
           fontSize: 13,
-          // height: '100%',
-          // marginBottom: 20,
           ...elevationShadowStyle(2, 0.12)
         }}
       >

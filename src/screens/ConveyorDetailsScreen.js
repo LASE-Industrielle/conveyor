@@ -61,15 +61,8 @@ const ConveyorDetailsScreen = ({ navigation }) => {
         style={{
           flex: 4,
           zIndex: 2,
-          // paddingVertical: 15,
-          // paddingHorizontal: 5,
-          // justifyContent: "space-between",
-          // borderRadius: 6,
-          // margin: 16,
           marginTop: Platform.OS === 'ios' ? 102 : 0,
           backgroundColor: 'transparent'
-          // ...elevationShadowStyle(2),
-          // marginHorizontal: 15,
         }}
       >
         {conveyor.loading ? null : (
@@ -85,7 +78,6 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               ...elevationShadowStyle(2),
               marginBottom: 4,
               paddingVertical: 15,
-              // paddingLeft:
               alignItems: 'center'
             }}
           >

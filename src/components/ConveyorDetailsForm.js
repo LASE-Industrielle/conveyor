@@ -22,7 +22,6 @@ const ConveyorDetailsForm = ({ conveyor }) => {
     <View
       style={{
         zIndex: 2,
-        //paddingVertical: 30,
         paddingHorizontal: 5,
         justifyContent: 'space-between',
         borderRadius: 6,
@@ -33,18 +32,9 @@ const ConveyorDetailsForm = ({ conveyor }) => {
     >
       <ScrollView
         style={{
-          //flex: 4,
           zIndex: 2,
           paddingVertical: 30,
-          //paddingHorizontal: 5,
-          //justifyContent: "space-between",
-          //borderRadius: 6,
-          //margin: 16,
-          //marginTop: Platform.OS === 'ios' ? 102 : 0,
           backgroundColor: 'transparent'
-          //...elevationShadowStyle(2),
-          //marginHorizontal: 15,
-          //height: 200
         }}
       >
         <View style={{ paddingBottom: 0 }}>

@@ -25,7 +25,6 @@ const ConveyorsListScreen = props => {
     Platform.OS === 'ios' ? (
       <View
         style={{
-          // height: 68,
           flex: 1,
           flexDirection: 'column',
           alignSelf: 'stretch',
@@ -107,7 +106,6 @@ const ConveyorsListScreen = props => {
     ) : (
       <View
         style={{
-          // height: 68,
           flex: 1,
           flexDirection: 'column',
           alignSelf: 'stretch',
@@ -208,7 +206,6 @@ const ConveyorsListScreen = props => {
         style={{ zIndex: 2, marginTop: 102 }}
         data={conveyors.data}
         keyExtractor={item => String(item.id)}
-        // extraData={conveyors}
         renderItem={renderListItem}
       />
     </View>
@@ -231,7 +228,6 @@ const ConveyorsListScreen = props => {
         style={{ zIndex: 2 }}
         data={conveyors.data}
         keyExtractor={item => String(item.id)}
-        // extraData={conveyors}
         renderItem={renderListItem}
       />
     </View>
