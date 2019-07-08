@@ -5,10 +5,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
 import lase from '../../assets/img/lase.jpeg';
+import { AppPath } from '../navigation/Paths';
 
 const appAction1 = StackActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'App' })]
+  actions: [NavigationActions.navigate({ routeName: AppPath })]
 });
 
 const appAction2 = StackActions.reset({

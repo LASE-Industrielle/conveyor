@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import AppContainer from './Navigation';
+import AppContainer from './navigation/Navigation';
 import { StateProvider, initialState } from './context/StateContext';
 import storeReducer from './reducers/StoreReducer';
 

@@ -30,7 +30,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
     <View
       style={{
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: 'column'
       }}
     >
       <View
@@ -118,7 +118,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               ...elevationShadowStyle(2)
             }}
             onPress={() => {
-              navigation.navigate('ScannersAnalytic');
+              navigation.navigate('ScannerAnalytics');
             }}
           >
             <Text style={{ color: 'white' }}>ANALYTICS</Text>

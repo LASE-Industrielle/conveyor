@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { bgGradientStart, bgGradientEnd, greyText } from '../Colors';
+import { bgGradientStart, bgGradientEnd, greyText, bgColor } from '../Colors';
 
 const NotificationsScreen = () => {
   return (

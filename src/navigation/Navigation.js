@@ -3,19 +3,29 @@ import { TouchableOpacity, Text, View, Platform, StatusBar } from 'react-native'
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
 
-import LoginScreen from './screens/LoginScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import SplashScreen from './screens/SplashScreen';
-import ConveyorsListScreen from './screens/ConveyorsListScreen';
-import ConveyorDetailsScreen from './screens/ConveyorDetailsScreen';
-import ScannerAnalyticsScreen from './screens/ScannerAnalyticsScreen';
-import NotificationsScreen from './screens/NotificationsScreen';
+import {
+  ConveyorsListPath,
+  ProfilePath,
+  NotificationsPath,
+  ConveyorDetailsPath,
+  ScannerAnalyticsPath,
+  SplashPath,
+  LoginPath,
+  AppPath
+} from './Paths';
+import LoginScreen from '../screens/LoginScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SplashScreen from '../screens/SplashScreen';
+import ConveyorsListScreen from '../screens/ConveyorsListScreen';
+import ConveyorDetailsScreen from '../screens/ConveyorDetailsScreen';
+import ScannerAnalyticsScreen from '../screens/ScannerAnalyticsScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
-import BackArrowIcon from './icons/BackArrowIcon';
-import NotificationIcon from './icons/NotificationIcon';
-import ProfileIcon from './icons/ProfileIcon';
-import fontStyles from './utils/FontUtils';
-import { iconColor, bgGradientStart, bgGradientEnd, bottomBorder } from './Colors';
+import BackArrowIcon from '../icons/BackArrowIcon';
+import NotificationIcon from '../icons/NotificationIcon';
+import ProfileIcon from '../icons/ProfileIcon';
+import fontStyles from '../utils/FontUtils';
+import { iconColor, bgGradientStart, bgGradientEnd, bottomBorder } from '../Colors';
 
 const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
   return {
@@ -134,27 +144,27 @@ const AppStackNavigator = createStackNavigator(
   {
     ConveyorsList: {
       screen: ConveyorsListScreen,
-      path: 'ConveyorsList',
+      path: ConveyorDetailsPath,
       navigationOptions: navigationOptions(false, 'Conveyors')
     },
     Profile: {
       screen: ProfileScreen,
-      path: 'Profile',
+      path: ProfilePath,
       navigationOptions: navigationOptions(true, 'Profile')
     },
     Notifications: {
       screen: NotificationsScreen,
-      path: 'Notifications',
+      path: NotificationsPath,
       navigationOptions: navigationOptions(true, 'Notifications')
     },
     ConveyorDetails: {
       screen: ConveyorDetailsScreen,
-      path: 'ConveyorDetails',
+      path: ConveyorDetailsPath,
       navigationOptions: navigationOptions(true)
     },
-    ScannersAnalytic: {
+    ScannerAnalytics: {
       screen: ScannerAnalyticsScreen,
-      path: 'ScannersAnalytic',
+      path: ScannerAnalyticsPath,
       navigationOptions: navigationOptions(true, 'Analytics')
     }
   },
@@ -162,7 +172,7 @@ const AppStackNavigator = createStackNavigator(
     tabBarOptions: {
       showLabel: true
     },
-    initialRouteName: 'ConveyorsList'
+    initialRouteName: ConveyorsListPath
   }
 );
 
@@ -170,22 +180,22 @@ const AppNavigator = createStackNavigator(
   {
     Splash: {
       screen: SplashScreen,
-      path: 'Splash',
+      path: SplashPath,
       navigationOptions: { header: null }
     },
     Login: {
       screen: LoginScreen,
-      path: 'Login',
+      path: LoginPath,
       navigationOptions: { header: null }
     },
     App: {
       screen: AppStackNavigator,
-      path: 'App',
+      path: AppPath,
       navigationOptions: { header: null }
     }
   },
   {
-    initialRouteName: 'Splash'
+    initialRouteName: SplashPath
   }
 );
 
