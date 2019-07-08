@@ -1,27 +1,25 @@
-import React, { useContext, useReducer, createContext } from "react";
+import React, { useContext, useReducer, createContext } from 'react';
 
-export const StateContext = createContext("");
+export const StateContext = createContext('');
 
 export const StateProvider = ({ reducer, initialState, children }) => (
-  <StateContext.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </StateContext.Provider>
+  <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>
 );
 
 export const useStateValue = () => useContext(StateContext);
 
 export const initialState = {
   auth: {
-    token: "",
-    errorMessage: "",
+    token: '',
+    errorMessage: '',
     loading: false
   },
   profile: {
-    username: ""
+    username: ''
   },
   conveyors: {
     data: [],
-    errorMessage: "",
+    errorMessage: '',
     loading: false
   },
   conveyor: {
@@ -31,6 +29,6 @@ export const initialState = {
       latest_measurement: {}
     },
     loading: false,
-    errorMessage: ""
+    errorMessage: ''
   }
 };

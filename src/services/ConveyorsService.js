@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   CONVEYORS_LOAD_SUCCESS,
   CONVEYORS_LOAD_START,
@@ -6,8 +6,8 @@ import {
   CONVEYOR_LOAD_START,
   CONVEYOR_LOAD_SUCCESS,
   CONVEYOR_LOAD_ERROR
-} from "../Actions";
-import { conveyorsUrl } from "../Urls";
+} from '../Actions';
+import { conveyorsUrl } from '../Urls';
 
 const getConveyors = dispatch => {
   dispatch({ type: CONVEYORS_LOAD_START });
@@ -30,7 +30,7 @@ const getConveyors = dispatch => {
 const getConveyorById = (dispatch, id) => {
   dispatch({ type: CONVEYOR_LOAD_START });
   axios
-    .get(conveyorsUrl + id + "/")
+    .get(`${conveyorsUrl + id  }/`)
     .then(response =>
       dispatch({
         type: CONVEYOR_LOAD_SUCCESS,

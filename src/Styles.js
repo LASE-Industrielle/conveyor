@@ -1,26 +1,26 @@
-import { Platform, StatusBar, StyleSheet } from "react-native";
+import { Platform, StatusBar, StyleSheet } from 'react-native';
 
-import { primary } from "./Colors";
+import { primary } from './Colors';
 
 export const elevationShadowStyle = (elevation = 2, shadowOpacity = 0.12) => ({
   elevation,
-  shadowColor: "#000000",
+  shadowColor: '#000000',
   shadowOffset: { width: 0, height: 3 * elevation },
-  shadowOpacity: shadowOpacity,
+  shadowOpacity,
   shadowRadius: 6 * elevation
 });
 
 export default StyleSheet.create({
   default: {
-    marginTop: Platform.OS === "ios" ? 250 : 142,
-    marginBottom: Platform.OS === "ios" ? 50 : 34,
+    marginTop: Platform.OS === 'ios' ? 250 : 142,
+    marginBottom: Platform.OS === 'ios' ? 50 : 34,
     marginHorizontal: 10,
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
     borderRadius: 8,
-    ...(Platform.OS === "android" && { paddingTop: 30, paddingBottom: 44 })
+    ...(Platform.OS === 'android' && { paddingTop: 30, paddingBottom: 44 })
   },
   image: {
     width: 100,
@@ -38,13 +38,13 @@ export default StyleSheet.create({
   loginButtonStyle: {
     marginLeft: 20,
     marginRight: 20,
-    marginTop: Platform.OS === "ios" ? 50 : 40,
-    backgroundColor: "#02A04E",
+    marginTop: Platform.OS === 'ios' ? 50 : 40,
+    backgroundColor: '#02A04E',
     ...elevationShadowStyle(2, 0.16),
     padding: 30
   },
   inputItem: {
-    borderColor: "#797979",
+    borderColor: '#797979',
     marginTop: 10,
     marginBottom: 0,
     marginLeft: 20,
@@ -67,29 +67,29 @@ export default StyleSheet.create({
   },
   homeHeaderStyle: {
     flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
     padding: 5
   },
   behind: {
     zIndex: -100,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    position: "absolute"
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    position: 'absolute'
   },
   icons: {
     color: primary
   },
   arrow: {
-    color: "#606060"
+    color: '#606060'
   },
   buttonAnalyticsStyle: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
     height: 40,
     marginLeft: 20,
     marginRight: 20,

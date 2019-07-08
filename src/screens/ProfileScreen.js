@@ -1,28 +1,21 @@
-import React, { useState } from "react";
-import { Image, Platform, Switch, View } from "react-native";
-import { Body, Button, Left, ListItem, Right, Text, Title } from "native-base";
-import LinearGradient from "react-native-linear-gradient";
+import React, { useState } from 'react';
+import { Image, Platform, Switch, View } from 'react-native';
+import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
 
-import { useStateValue } from "../context/StateContext";
-import resetAction from "../utils/NavigationUtils";
+import { useStateValue } from '../context/StateContext';
+import resetAction from '../utils/NavigationUtils';
 
-import { LOGOUT_USER } from "../Actions";
+import { LOGOUT_USER } from '../Actions';
 
-import SynchronizationIcon from "../icons/SynchronizationIcon";
-import LogoutIcon from "../icons/LogoutIcon";
-import NotificationIcon from "../icons/NotificationIcon";
+import SynchronizationIcon from '../icons/SynchronizationIcon';
+import LogoutIcon from '../icons/LogoutIcon';
+import NotificationIcon from '../icons/NotificationIcon';
 
-import { elevationShadowStyle } from "../Styles";
+import { elevationShadowStyle } from '../Styles';
 
-import ccLogo from "../../assets/img/cc.jpg";
-import {
-  bgColor,
-  bgGradientStart,
-  bgGradientEnd,
-  blackTextColor,
-  greenIconColor,
-  statusColorRed
-} from "../Colors";
+import ccLogo from '../../assets/img/cc.jpg';
+import { bgColor, bgGradientStart, bgGradientEnd, blackTextColor, greenIconColor, statusColorRed } from '../Colors';
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStateValue();
@@ -38,36 +31,33 @@ const ProfileScreen = props => {
   return (
     <View
       style={{
-        backgroundColor: "transparent",
-        width: "100%",
-        height: "100%"
+        backgroundColor: 'transparent',
+        width: '100%',
+        height: '100%'
       }}
     >
       <View
         style={{
-          position: "absolute",
-          top: Platform.OS === "ios" ? 0 : 32,
+          position: 'absolute',
+          top: Platform.OS === 'ios' ? 0 : 32,
           zIndex: 1,
           backgroundColor: bgColor,
           flex: 1,
-          width: "100%",
-          height: "100%"
+          width: '100%',
+          height: '100%'
         }}
       >
-        {Platform.OS === "ios" ? (
-          <LinearGradient
-            style={{ height: 134 }}
-            colors={[bgGradientStart, bgGradientEnd]}
-          />
+        {Platform.OS === 'ios' ? (
+          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
         ) : null}
       </View>
       <View
         style={{
           flex: 1,
           zIndex: 2,
-          marginTop: Platform.OS === "ios" ? 102 : 0,
+          marginTop: Platform.OS === 'ios' ? 102 : 0,
           margin: 20,
-          backgroundColor: "white",
+          backgroundColor: 'white',
           borderRadius: 8,
           padding: 10,
           fontSize: 13,
@@ -77,7 +67,7 @@ const ProfileScreen = props => {
         <Image
           source={ccLogo}
           style={{
-            alignSelf: "center",
+            alignSelf: 'center',
             width: 80,
             height: 80,
             borderRadius: 80 / 2,
@@ -99,17 +89,13 @@ const ProfileScreen = props => {
               style={{
                 opacity: 1,
                 zIndex: 100,
-                position: "absolute",
+                position: 'absolute',
                 left: 8
               }}
             />
           </Left>
           <Body>
-            <Text
-              style={{ fontFamily: "HelveticaNeue", color: blackTextColor }}
-            >
-              Syncronization
-            </Text>
+            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Syncronization</Text>
           </Body>
           <Right>
             <Switch value={sync1} onValueChange={() => setSync1(!sync1)} />
@@ -130,15 +116,13 @@ const ProfileScreen = props => {
               style={{
                 opacity: 1,
                 zIndex: 100,
-                position: "absolute",
+                position: 'absolute',
                 left: 8
               }}
             />
           </Left>
           <Body>
-            <Text style={{ fontFamily: "HelveticaNeue", color: "#797979" }}>
-              Notifications
-            </Text>
+            <Text style={{ fontFamily: 'HelveticaNeue', color: '#797979' }}>Notifications</Text>
           </Body>
           <Right>
             <Switch value={sync2} onValueChange={() => setSync2(!sync2)} />
@@ -159,7 +143,7 @@ const ProfileScreen = props => {
               style={{
                 opacity: 1,
                 zIndex: 100,
-                position: "absolute",
+                position: 'absolute',
                 left: 8
               }}
             />
@@ -167,8 +151,8 @@ const ProfileScreen = props => {
           <Body>
             <Text
               style={{
-                fontFamily: "HelveticaNeue",
-                fontWeight: "bold",
+                fontFamily: 'HelveticaNeue',
+                fontWeight: 'bold',
                 color: statusColorRed
               }}
             >

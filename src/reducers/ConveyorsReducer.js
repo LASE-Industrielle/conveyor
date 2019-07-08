@@ -1,8 +1,4 @@
-import {
-  CONVEYORS_LOAD_ERROR,
-  CONVEYORS_LOAD_START,
-  CONVEYORS_LOAD_SUCCESS
-} from "../Actions";
+import { CONVEYORS_LOAD_ERROR, CONVEYORS_LOAD_START, CONVEYORS_LOAD_SUCCESS } from '../Actions';
 
 const conveyorsReducer = (state, action) => {
   switch (action.type) {
@@ -20,11 +16,11 @@ const conveyorsReducer = (state, action) => {
     case CONVEYORS_LOAD_ERROR:
       return {
         ...state,
-        errorMessage: "failed",
+        errorMessage: 'failed',
         loading: false
       };
     default:
       return state;
   }
 };
-export { conveyorsReducer };
+export default conveyorsReducer;

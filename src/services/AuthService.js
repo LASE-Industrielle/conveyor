@@ -1,14 +1,14 @@
-import axios from "axios";
-import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from "../Actions";
-import { loginUrl } from "../Urls";
+import axios from 'axios';
+import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../Actions';
+import { loginUrl } from '../Urls';
 
 const authCall = (dispatch, loginUsername, loginPassword) => {
   dispatch({ type: AUTH_START });
   axios({
-    method: "post",
+    method: 'post',
     url: loginUrl,
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     },
     data: {
       username: loginUsername,
@@ -16,9 +16,7 @@ const authCall = (dispatch, loginUsername, loginPassword) => {
     }
   })
     .then(response => {
-      axios.defaults.headers.common.Authorization = `Token ${
-        response.data.token
-      }`;
+      axios.defaults.headers.common.Authorization = `Token ${response.data.token}`;
       dispatch({
         type: AUTH_SUCCESS,
         payload: response.data.token

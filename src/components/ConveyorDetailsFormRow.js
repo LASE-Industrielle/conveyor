@@ -1,13 +1,13 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { orange, inactiveText } from "../Colors";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { orange, inactiveText } from '../Colors';
 
 const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
   return (
     <View
       style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         margin: 10
       }}
     >
@@ -22,21 +22,21 @@ const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
       <View
         style={{
           flex: 1,
-          flexDirection: "row",
-          justifyContent: "space-between"
+          flexDirection: 'row',
+          justifyContent: 'space-between'
         }}
       >
         <Text
           style={{
-            fontFamily: "HelveticaNeue",
-            color: "#3A7F78"
+            fontFamily: 'HelveticaNeue',
+            color: '#3A7F78'
           }}
         >
           {item1}
         </Text>
         <Text
           style={{
-            fontFamily: "HelveticaNeue",
+            fontFamily: 'HelveticaNeue',
             color: inactiveText
           }}
         >

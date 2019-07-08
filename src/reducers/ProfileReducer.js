@@ -1,4 +1,4 @@
-import { LOGOUT_USER, SET_USERNAME } from "../Actions";
+import { LOGOUT_USER, SET_USERNAME } from '../Actions';
 
 const profileReducer = (state, action) => {
   switch (action.type) {
@@ -10,10 +10,10 @@ const profileReducer = (state, action) => {
     case LOGOUT_USER:
       return {
         ...state,
-        username: ""
+        username: ''
       };
     default:
       return state;
   }
 };
-export { profileReducer };
+export default profileReducer;

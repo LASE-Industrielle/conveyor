@@ -1,16 +1,11 @@
-import React from "react";
-import { Text, View } from "react-native";
-import {
-  VictoryAxis,
-  VictoryChart,
-  VictoryLine,
-  VictoryTheme
-} from "victory-native";
-import { bgColor } from "../Colors";
+import React from 'react';
+import { Text, View } from 'react-native';
+import { VictoryAxis, VictoryChart, VictoryLine, VictoryTheme } from 'victory-native';
+import { bgColor } from '../Colors';
 
 const GraphComponent = props => {
   const { label, lineColor, data, value, units, loading } = props;
-  let values = [];
+  const values = [];
   data.map((item, index) => {
     values.push({ x: index, y: item });
   });
@@ -41,20 +36,14 @@ const GraphComponent = props => {
           <VictoryAxis
             orientation="bottom"
             tickValues={values.map(item => item.x)}
-            tickFormat={values.map(item => "")}
+            tickFormat={values.map(item => '')}
             style={{
               axis: { stroke: bgColor },
               ticks: { stroke: bgColor },
               grid: { stroke: bgColor }
             }}
           />
-          {!loading && (
-            <VictoryLine
-              style={{ data: { stroke: lineColor } }}
-              data={values}
-              interpolation="natural"
-            />
-          )}
+          {!loading && <VictoryLine style={{ data: { stroke: lineColor } }} data={values} interpolation="natural" />}
         </VictoryChart>
       )}
     </View>

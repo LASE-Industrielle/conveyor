@@ -1,4 +1,4 @@
-const baseUrl = "https://conveyor-be.herokuapp.com";
+const baseUrl = 'https://conveyor-be.herokuapp.com';
 const loginUrl = `${baseUrl}/auth/`;
 const conveyorsUrl = `${baseUrl}/conveyor/`;
 
