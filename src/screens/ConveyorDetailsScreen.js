@@ -5,11 +5,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
 import { elevationShadowStyle } from '../Styles';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
 const ConveyorDetailsScreen = ({ navigation }) => {
-  const [{ conveyor }, dispatch] = useStateValue();
+  const [{ conveyor }, dispatch] = useStore();
 
   useEffect(() => {
     getConveyorById(dispatch, navigation.getParam('id', ''), true);

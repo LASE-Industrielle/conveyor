@@ -1,14 +1,14 @@
 import React, { useContext, useReducer, createContext } from 'react';
 
-export const StateContext = createContext('');
+const StateContext = createContext('');
 
-export const StateProvider = ({ reducer, initialState, children }) => (
+const StateProvider = ({ reducer, initialState, children }) => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>
 );
 
-export const useStateValue = () => useContext(StateContext);
+const useStore = () => useContext(StateContext);
 
-export const initialState = {
+const initialState = {
   auth: {
     token: '',
     errorMessage: '',
@@ -32,3 +32,5 @@ export const initialState = {
     errorMessage: ''
   }
 };
+
+export { StateContext, StateProvider, useStore, initialState };

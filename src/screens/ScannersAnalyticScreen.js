@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Platform, RefreshControl, ScrollView, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { getConveyors } from '../services/ConveyorsService';
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 import { elevationShadowStyle } from '../Styles';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
 import { blueGraph, orangeGraph, redGraph } from '../Colors';
 import GraphComponent from '../components/GraphComponent';
 
-const ScannersAnalyticScreen = props => {
+const ScannersAnalyticScreen = () => {
   const [volumeSumMeasurements, setVolumeSumMeasurements] = useState();
   const [volumeSumMeasurementsTicks, setVolumeSumMeasurementsTicks] = useState();
 
@@ -23,7 +23,7 @@ const ScannersAnalyticScreen = props => {
   const [conveyorSpeed, setConveyorSpeed] = useState();
   const [scannerStatus, setScannerStatus] = useState();
 
-  const [{ conveyors }, dispatch] = useStateValue();
+  const [{ conveyors }, dispatch] = useStore();
 
   const createTicks = data => {
     const maxValue = Math.max(...data);

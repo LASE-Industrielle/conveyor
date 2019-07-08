@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import { NavigationActions, StackActions } from 'react-navigation';
 import LinearGradient from 'react-native-linear-gradient';
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
 import styles from '../Styles';
@@ -18,7 +18,7 @@ const appAction = StackActions.reset({
 const LoginScreen = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [{ auth }, dispatch] = useStateValue();
+  const [{ auth }, dispatch] = useStore();
 
   useEffect(() => {
     if (__DEV__ === true) {

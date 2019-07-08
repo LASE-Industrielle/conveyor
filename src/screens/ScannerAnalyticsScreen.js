@@ -4,7 +4,7 @@ import { Platform, ScrollView, View, RefreshControl } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { getConveyors } from '../services/ConveyorsService';
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 
 import GraphComponent from '../components/GraphComponent';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
@@ -13,7 +13,7 @@ import { blue, orange, red, bgGradientStart, bgGradientEnd, bgColor } from '../C
 import { elevationShadowStyle } from '../Styles';
 
 const ScannersAnalyticsScreen = () => {
-  const [{ conveyors }, dispatch] = useStateValue();
+  const [{ conveyors }, dispatch] = useStore();
 
   const latestMeasurement = conveyors.data[0].latest_measurement;
   const chartData = conveyors.data[0].chart_data;

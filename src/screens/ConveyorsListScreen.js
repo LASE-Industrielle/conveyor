@@ -5,12 +5,12 @@ import { FlatList, Platform, TouchableOpacity, View } from 'react-native';
 import { Circle, Svg } from 'react-native-svg';
 import LinearGradient from 'react-native-linear-gradient';
 import { getConveyors } from '../services/ConveyorsService';
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 import { elevationShadowStyle } from '../Styles';
 import { bgColor } from '../Colors';
 
 const ConveyorsListScreen = props => {
-  const [{ conveyors }, dispatch] = useStateValue();
+  const [{ conveyors }, dispatch] = useStore();
 
   useEffect(() => {
     getConveyors(dispatch);

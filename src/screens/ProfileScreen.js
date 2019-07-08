@@ -5,8 +5,7 @@ import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import ccLogo from '../../assets/img/cc.jpg';
 
-
-import { useStateValue } from '../context/StateContext';
+import { useStore } from '../context/StateContext';
 import resetAction from '../utils/NavigationUtils';
 import { LOGOUT_USER } from '../Actions';
 import { elevationShadowStyle } from '../Styles';
@@ -15,7 +14,7 @@ import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 
 const ProfileScreen = props => {
-  const [{ profile }, dispatch] = useStateValue();
+  const [{ profile }, dispatch] = useStore();
 
   const [sync1, setSync1] = useState(true);
   const [sync2, setSync2] = useState(false);
@@ -77,7 +76,7 @@ const ProfileScreen = props => {
                 opacity: 0.08
               }}
               textStyle={{}}
-             />
+            />
             <SynchronizationIcon fill="#02A04E" style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }} />
           </Left>
           <Body>
@@ -94,7 +93,7 @@ const ProfileScreen = props => {
                 backgroundColor: '#02A04E',
                 opacity: 0.08
               }}
-             />
+            />
             <NotificationIcon
               fill="#02A04E"
               height={14}
@@ -116,7 +115,7 @@ const ProfileScreen = props => {
                 backgroundColor: '#F19B93',
                 opacity: 0.1
               }}
-             />
+            />
             <LogoutIcon
               fill="#F19B93"
               height={14}
