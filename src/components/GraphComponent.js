@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { VictoryAxis, VictoryChart, VictoryLine, VictoryTheme } from 'victory-native';
+import { bgColor } from '../Colors';
 
 const GraphComponent = props => {
   const { label, lineColor, data, ticks, value, units } = props;
@@ -32,9 +33,9 @@ const GraphComponent = props => {
             tickValues={ticks}
             tickFormat={t => ~~t}
             style={{
-              axis: { stroke: '#F2F2F2' },
-              ticks: { stroke: '#F2F2F2' },
-              grid: { stroke: '#F2F2F2' }
+              axis: { stroke: bgColor },
+              ticks: { stroke: bgColor },
+              grid: { stroke: bgColor }
             }}
           />
 
@@ -43,7 +44,7 @@ const GraphComponent = props => {
             tickValues={data.map(item => item.x)}
             tickFormat={data.map(item => '')}
             style={{
-              axis: { stroke: '#F2F2F2' },
+              axis: { stroke: bgColor },
               ticks: { stroke: 'none' },
               grid: { stroke: 'none' }
             }}

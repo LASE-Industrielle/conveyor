@@ -40,7 +40,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
               position: 'absolute',
               top: 88,
               opacity: 0.4,
-              borderBottomColor: '#3A7F78',
+              borderBottomColor: bottomBorder,
               alignSelf: 'stretch',
               flex: 1,
               width: '100%',

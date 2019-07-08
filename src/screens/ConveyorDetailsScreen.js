@@ -8,6 +8,7 @@ import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
 import { elevationShadowStyle } from '../Styles';
+import { bgGradientStart, bgGradientEnd } from '../Colors';
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStore();
@@ -30,7 +31,6 @@ const ConveyorDetailsScreen = ({ navigation }) => {
       style={{
         flex: 1,
         flexDirection: 'column',
-        // backgroundColor: "#F2F2F2",
         fontFamily: 'HelveticaNeue'
       }}
     >
@@ -39,13 +39,13 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           position: 'absolute',
           top: Platform.OS === 'ios' ? 0 : 32,
           zIndex: 1,
-          backgroundColor: '#F2F2F2',
+          backgroundColor: bgColor,
           flex: 1,
           width: '100%',
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={['#84CFA8', '#539A88']} /> : null}
+        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} /> : null}
       </View>
       <ScrollView
         refreshControl={
@@ -118,7 +118,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
               paddingVertical: Platform.OS === 'ios' ? 0 : 5,
               alignItems: 'center',
               flex: Platform.OS === 'ios' ? 0.7 : 0.8,
-              backgroundColor: '#02A04E',
+              backgroundColor: greenIconColor,
               justifyContent: 'center',
               flexDirection: 'column',
               borderRadius: 5,

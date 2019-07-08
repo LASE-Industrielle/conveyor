@@ -8,7 +8,7 @@ import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 
 import { elevationShadowStyle } from '../Styles';
-import { bgColor } from '../Colors';
+import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed } from '../Colors';
 
 const ConveyorsListScreen = props => {
   const [{ conveyors }, dispatch] = useStore();
@@ -29,7 +29,7 @@ const ConveyorsListScreen = props => {
           flex: 1,
           flexDirection: 'column',
           alignSelf: 'stretch',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: white,
           marginHorizontal: 16,
           zIndex: 3,
           marginBottom: 5,
@@ -57,7 +57,7 @@ const ConveyorsListScreen = props => {
               r="45"
               stroke="blue"
               strokeWidth="2.5"
-              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? '#6CC799' : '#F19B93'}
+              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
             />
           </Svg>
           <Text
@@ -83,7 +83,7 @@ const ConveyorsListScreen = props => {
             {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
               <Text
                 style={{
-                  color: '#6CC799',
+                  color: statusColorGreen,
                   fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
                   fontSize: 13
                 }}
@@ -93,7 +93,7 @@ const ConveyorsListScreen = props => {
             ) : (
               <Text
                 style={{
-                  color: '#F19B93',
+                  color: statusColorRed,
                   fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
                   fontSize: 13
                 }}
@@ -111,7 +111,7 @@ const ConveyorsListScreen = props => {
           flex: 1,
           flexDirection: 'column',
           alignSelf: 'stretch',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: white,
           marginHorizontal: 16,
           zIndex: 3,
           marginBottom: 5,
@@ -139,7 +139,7 @@ const ConveyorsListScreen = props => {
               r="45"
               stroke="blue"
               strokeWidth="2.5"
-              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? '#6CC799' : '#F19B93'}
+              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
             />
           </Svg>
           <Text
@@ -165,7 +165,7 @@ const ConveyorsListScreen = props => {
             {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
               <Text
                 style={{
-                  color: '#6CC799',
+                  color: statusColorGreen,
                   fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
                   fontSize: 13
                 }}
@@ -175,7 +175,7 @@ const ConveyorsListScreen = props => {
             ) : (
               <Text
                 style={{
-                  color: '#F19B93',
+                  color: statusColorRed,
                   fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
                   fontSize: 13
                 }}
@@ -200,7 +200,7 @@ const ConveyorsListScreen = props => {
           height: '100%'
         }}
       >
-        <LinearGradient style={{ height: 134 }} colors={['#84CFA8', '#539A88']} />
+        <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
       </View>
       <FlatList
         refreshing={conveyors.loading}

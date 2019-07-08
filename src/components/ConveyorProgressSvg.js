@@ -1,5 +1,6 @@
 import React from 'react';
 import Svg, { Path, G } from 'react-native-svg';
+import { greenIconColor, statusColorGreen, bottomBorder } from '../Colors';
 
 const ConveyorProgresSvg = props => {
   // Progress should be from 0 to 227
@@ -7,7 +8,7 @@ const ConveyorProgresSvg = props => {
   return (
     <Svg data-name="Group 188" width={328} height={51} {...props}>
       <Path data-name="Path 1" d="M51 25.5h226" fill="none" stroke="#e5e5e5" />
-      <Path data-name="Path 438" d={`M51 25.5h${percentage}`} fill="none" stroke="#02a04e" opacity={0.4} />
+      <Path data-name="Path 438" d={`M51 25.5h${percentage}`} fill="none" stroke={greenIconColor} opacity={0.4} />
       <G data-name="Group 158">
         <Path data-name="Rectangle 1" fill="#e2e2e2" d="M87 5h1v41h-1z" />
         <G data-name="Path 429" fill="rgba(0,162,79,0.1)">
@@ -17,7 +18,7 @@ const ConveyorProgresSvg = props => {
             fill="#a6dec1"
           />
         </G>
-        <Path data-name="Path 6" d="M87.5 21a4.5 4.5 0 1 1-4.5 4.5 4.5 4.5 0 0 1 4.5-4.5z" fill="#6cc799" />
+        <Path data-name="Path 6" d="M87.5 21a4.5 4.5 0 1 1-4.5 4.5 4.5 4.5 0 0 1 4.5-4.5z" fill={statusColorGreen} />
         <G data-name="Path 7" fill="none">
           <Path d="M87.5 9A16.5 16.5 0 1 1 71 25.5 16.5 16.5 0 0 1 87.5 9z" />
           <Path
@@ -31,10 +32,10 @@ const ConveyorProgresSvg = props => {
           <Path d="M25.5 0A25.5 25.5 0 1 1 0 25.5 25.5 25.5 0 0 1 25.5 0z" />
           <Path
             d="M25.5 1A24.42 24.42 0 0 0 8.176 8.176 24.42 24.42 0 0 0 1 25.5a24.42 24.42 0 0 0 7.176 17.324A24.42 24.42 0 0 0 25.5 50a24.42 24.42 0 0 0 17.324-7.176A24.42 24.42 0 0 0 50 25.5a24.42 24.42 0 0 0-7.176-17.324A24.42 24.42 0 0 0 25.5 1m0-1C39.583 0 51 11.417 51 25.5S39.583 51 25.5 51 0 39.583 0 25.5 11.417 0 25.5 0z"
-            fill="#6cc799"
+            fill={statusColorGreen}
           />
         </G>
-        <G fill="#3a7f78">
+        <G fill={bottomBorder}>
           <Path
             data-name="Path 440"
             d="M35.157 29.406h-.426v-3.353a.449.449 0 0 0-.45-.448h-3.8a.449.449 0 0 0-.45.448v3.353h-9.383v-3.353a.449.449 0 0 0-.45-.448H16.4a.449.449 0 0 0-.45.448v3.353h-.057A1.891 1.891 0 0 0 14 31.291v2.436a1.891 1.891 0 0 0 1.893 1.885h.944v.94a.45.45 0 0 0 .9 0v-.94h10.807a.45.45 0 1 0 0-.9H15.893a.991.991 0 0 1-.992-.988v-2.436a.991.991 0 0 1 .992-.988h19.264a.991.991 0 0 1 .992.988v2.436a.991.991 0 0 1-.992.988H32.6a.45.45 0 1 0 0 .9h.718v.94a.45.45 0 0 0 .9 0v-.94h.944a1.891 1.891 0 0 0 1.893-1.885v-2.436a1.891 1.891 0 0 0-1.898-1.885zm-18.312 0v-2.9h2.9v2.9zm14.083 0v-2.9h2.9v2.9zm0 0"
@@ -68,7 +69,7 @@ const ConveyorProgresSvg = props => {
             fill="#e5e5e5"
           />
         </G>
-        <G data-name="conveyor" fill="#3a7f78">
+        <G data-name="conveyor" fill={bottomBorder}>
           <Path
             data-name="Path 440"
             d="M312.157 29.406h-.426v-3.353a.449.449 0 0 0-.45-.448h-3.8a.449.449 0 0 0-.45.448v3.353h-9.383v-3.353a.449.449 0 0 0-.45-.448H293.4a.449.449 0 0 0-.45.448v3.353h-.057A1.891 1.891 0 0 0 291 31.291v2.436a1.891 1.891 0 0 0 1.893 1.885h.944v.94a.45.45 0 0 0 .9 0v-.94h10.807a.45.45 0 1 0 0-.9h-12.651a.991.991 0 0 1-.992-.988v-2.436a.991.991 0 0 1 .992-.988h19.264a.991.991 0 0 1 .992.988v2.436a.991.991 0 0 1-.992.988H309.6a.45.45 0 1 0 0 .9h.718v.94a.45.45 0 0 0 .9 0v-.94h.944a1.891 1.891 0 0 0 1.893-1.885v-2.436a1.891 1.891 0 0 0-1.898-1.885zm-18.312 0v-2.9h2.9v2.9zm14.083 0v-2.9h2.9v2.9zm0 0"

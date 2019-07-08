@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { orange, inactiveText } from '../Colors';
+import { orange, inactiveText, bottomBorder } from '../Colors';
 
 const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
   return (
@@ -30,7 +30,7 @@ const ConveyorDetailsFormRow = ({ title, item1, item2 }) => {
         <Text
           style={{
             fontFamily: 'HelveticaNeue',
-            color: '#3A7F78'
+            color: bottomBorder
           }}
         >
           {item1}

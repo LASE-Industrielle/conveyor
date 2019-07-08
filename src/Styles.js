@@ -1,10 +1,10 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
 
-import { primary, white, greenIconColor, blackTextColor, primaryText } from './Colors';
+import { primary, white, greenIconColor, blackTextColor, primaryText, black } from './Colors';
 
 export const elevationShadowStyle = (elevation = 2, shadowOpacity = 0.12) => ({
   elevation,
-  shadowColor: '#000000',
+  shadowColor: black,
   shadowOffset: { width: 0, height: 3 * elevation },
   shadowOpacity,
   shadowRadius: 6 * elevation

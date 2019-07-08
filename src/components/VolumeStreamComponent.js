@@ -1,5 +1,6 @@
 import React from 'react';
 import Svg, { Defs, ClipPath, Rect, LinearGradient, Stop, G, Text, TSpan } from 'react-native-svg';
+import { black, bgColor, statusColorGreen, statusColorRed } from '../Colors';
 
 const VolumeStreamComponent = props => (
   <Svg width={296} height={119} {...props}>
@@ -11,11 +12,11 @@ const VolumeStreamComponent = props => (
           height={8}
           rx={4}
           transform="translate(32 174)"
-          fill="#6cc799"
+          fill={statusColorGreen}
         />
       </ClipPath>
       <LinearGradient id="prefix__b" y1={0.5} x2={1} y2={0.5} gradientUnits="objectBoundingBox">
-        <Stop offset={0} stopColor="#6cc799" stopOpacity={0.8} />
+        <Stop offset={0} stopColor={statusColorGreen} stopOpacity={0.8} />
         <Stop offset={1} stopColor="#6bc698" />
       </LinearGradient>
     </Defs>
@@ -23,7 +24,7 @@ const VolumeStreamComponent = props => (
       <Text
         data-name="Volume Stream"
         transform="translate(212 12)"
-        fill="#262626"
+        fill={black}
         fontSize={12}
         fontFamily="HelveticaNeue-Medium, Helvetica Neue"
       >
@@ -34,7 +35,7 @@ const VolumeStreamComponent = props => (
       <Text
         data-name="19% full"
         transform="translate(0 35)"
-        fill={props.percentage === -1 ? '#F19B93' : '#6cc799'}
+        fill={props.percentage === -1 ? statusColorRed : statusColorGreen}
         fontSize={14}
         fontFamily="HelveticaNeue-Bold, Helvetica Neue"
       >
@@ -72,7 +73,7 @@ const VolumeStreamComponent = props => (
       </G>
       <G data-name="Group 315">
         <G data-name="Group 313">
-          <Rect data-name="Rectangle 1488" width={296} height={8} rx={4} transform="translate(0 46)" fill="#f2f2f2" />
+          <Rect data-name="Rectangle 1488" width={296} height={8} rx={4} transform="translate(0 46)" fill={bgColor} />
         </G>
         <G data-name="Mask Group 9" clipPath="url(#prefix__a)" transform="translate(-32 -128)">
           <Rect
@@ -92,7 +93,7 @@ const VolumeStreamComponent = props => (
               {'Upper limit '}
             </TSpan>
             <TSpan y={0} fill="#aaa9a9" letterSpacing=".02em" />
-            <TSpan y={0} fill="#6cc799" fontFamily="HelveticaNeue-Bold, Helvetica Neue">
+            <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
               {`${props.upperLimit  } m\u00B3/h`}
             </TSpan>
           </Text>
@@ -100,7 +101,7 @@ const VolumeStreamComponent = props => (
             <TSpan x={0} y={0}>
               {'Lower limit '}
             </TSpan>
-            <TSpan y={0} fill="#6cc799" fontFamily="HelveticaNeue-Bold, Helvetica Neue">
+            <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
               {`${props.lowerLimit  } m\u00B3/h`}
             </TSpan>
           </Text>

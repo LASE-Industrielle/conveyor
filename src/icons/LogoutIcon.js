@@ -1,13 +1,13 @@
-import React from "react";
-import { G, Path } from "react-native-svg";
-import SvgIcon from "react-native-svg-icon";
+import React from 'react';
+import { G, Path } from 'react-native-svg';
+import SvgIcon from 'react-native-svg-icon';
 
-import { iconColor } from "../Colors";
+import { iconColor, statusColorRed } from '../Colors';
 
 const icon = {
   icon: {
     svg: (
-      <G fill="#f19b93" stroke="#f19b93">
+      <G fill={statusColorRed} stroke={statusColorRed}>
         <Path
           d="M6.412 11.673H1.678a.526.526 0 0 1-.526-.526V1.678a.526.526 0 0 1 .526-.528h4.734a.526.526
                  0 0 0 0-1.052H1.678A1.58 1.58 0 0 0 .1 1.678v9.472a1.58 1.58 0 0 0 1.578 1.578h4.734a.526.526 0
@@ -19,19 +19,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: "0 0 12.866 12.825"
+    viewBox: '0 0 12.866 12.825'
   }
 };
 
 const LogoutIcon = props => (
-  <SvgIcon
-    fill={iconColor}
-    height={13}
-    width={13}
-    name={"icon"}
-    {...props}
-    svgs={icon}
-  >
+  <SvgIcon fill={iconColor} height={13} width={13} name="icon" {...props} svgs={icon}>
     {props.children}
   </SvgIcon>
 );

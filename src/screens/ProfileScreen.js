@@ -13,6 +13,7 @@ import NotificationIcon from '../icons/NotificationIcon';
 import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
+import { statusColorRed, greenIconColor, blackTextColor, bgGradientStart, bgGradientEnd } from '../Colors';
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStore();
@@ -33,13 +34,13 @@ const ProfileScreen = props => {
           position: 'absolute',
           top: Platform.OS === 'ios' ? 0 : 32,
           zIndex: 1,
-          backgroundColor: '#F2F2F2',
+          backgroundColor: bgColor,
           flex: 1,
           width: '100%',
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={['#84CFA8', '#539A88']} /> : null}
+        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} /> : null}
       </View>
       <View
         style={{
@@ -73,15 +74,18 @@ const ProfileScreen = props => {
           <Left>
             <Button
               style={{
-                backgroundColor: '#02A04E',
+                backgroundColor: greenIconColor,
                 opacity: 0.08
               }}
               textStyle={{}}
             />
-            <SynchronizationIcon fill="#02A04E" style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }} />
+            <SynchronizationIcon
+              fill={greenIconColor}
+              style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
+            />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: '#797979' }}>Syncronization</Text>
+            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Syncronization</Text>
           </Body>
           <Right>
             <Switch value={sync1} onValueChange={() => setSync1(!sync1)} />
@@ -91,19 +95,19 @@ const ProfileScreen = props => {
           <Left>
             <Button
               style={{
-                backgroundColor: '#02A04E',
+                backgroundColor: greenIconColor,
                 opacity: 0.08
               }}
             />
             <NotificationIcon
-              fill="#02A04E"
+              fill={greenIconColor}
               height={14}
               width={12}
               style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
             />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: '#797979' }}>Notifications</Text>
+            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Notifications</Text>
           </Body>
           <Right>
             <Switch value={sync2} onValueChange={() => setSync2(!sync2)} />
@@ -113,12 +117,12 @@ const ProfileScreen = props => {
           <Left>
             <Button
               style={{
-                backgroundColor: '#F19B93',
+                backgroundColor: statusColorRed,
                 opacity: 0.1
               }}
             />
             <LogoutIcon
-              fill="#F19B93"
+              fill={statusColorRed}
               height={14}
               width={12}
               style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
@@ -129,7 +133,7 @@ const ProfileScreen = props => {
               style={{
                 fontFamily: 'HelveticaNeue',
                 fontWeight: 'bold',
-                color: '#F19B93'
+                color: statusColorRed
               }}
             >
               Logout

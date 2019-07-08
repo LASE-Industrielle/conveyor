@@ -7,7 +7,7 @@ import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
 
-import { blue, orange, red } from '../Colors';
+import { blue, orange, red, bgGradientStart, bgGradientEnd, bgColor } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
 
 const ScannerAnalyticsScreen = () => {
@@ -80,13 +80,13 @@ const ScannerAnalyticsScreen = () => {
           position: 'absolute',
           top: Platform.OS === 'ios' ? 0 : 32,
           zIndex: 1,
-          backgroundColor: '#F2F2F2',
+          backgroundColor: bgColor,
           flex: 1,
           width: '100%',
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' && <LinearGradient style={{ height: 134 }} colors={['#84CFA8', '#539A88']} />}
+        {Platform.OS === 'ios' && <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />}
       </View>
       <ScrollView
         refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}

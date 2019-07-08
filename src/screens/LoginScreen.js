@@ -9,6 +9,7 @@ import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
 import styles from '../Styles';
+import { greenIconColor, bottomBorder } from '../Colors';
 
 const appAction = StackActions.reset({
   index: 0,
@@ -66,7 +67,7 @@ const LoginScreen = props => {
         <Container style={{ backgroundColor: 'red', height: Dimensions.get('window').height }}>
           <LinearGradient
             style={{ flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            colors={['#83CEA7', '#3A7F78']}
+            colors={['#83CEA7', bottomBorder]}
           />
 
           <Content contentContainerStyle={styles.default}>
@@ -131,7 +132,7 @@ const LoginScreen = props => {
             {!auth.loading && auth.token === '' ? (
               <Item style={{ justifyContent: 'flex-end', borderColor: 'transparent' }}>
                 <Right style={{ marginHorizontal: 15, padding: 7 }}>
-                  <Text style={{ color: '#02A04E', paddingTop: 10 }}>Forgot Password</Text>
+                  <Text style={{ color: greenIconColor, paddingTop: 10 }}>Forgot Password</Text>
                 </Right>
               </Item>
             ) : null}
@@ -153,7 +154,7 @@ const LoginScreen = props => {
                 <Text style={{ color: '#AAA9A9' }}>Don't have an account?</Text>
                 <Text
                   style={{
-                    color: '#02A04E'
+                    color: greenIconColor
                   }}
                 >
                   &nbsp;Sign up
