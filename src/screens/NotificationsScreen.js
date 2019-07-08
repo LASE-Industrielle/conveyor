@@ -1,9 +1,8 @@
 import React from 'react';
 import { Platform, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { bgGradientStart, bgGradientEnd, bgColor } from '../Colors';
 
-const NotificationsScreen = () => {
+const NotificationsScreen = props => {
   return (
     <View style={{ backgroundColor: 'transparent', width: '100%', height: '100%' }}>
       <View
@@ -11,19 +10,17 @@ const NotificationsScreen = () => {
           position: 'absolute',
           top: Platform.OS === 'ios' ? 0 : 32,
           zIndex: 1,
-          backgroundColor: bgColor,
+          backgroundColor: '#F2F2F2',
           flex: 1,
           width: '100%',
           height: '100%'
         }}
       >
-        {Platform.OS === 'ios' ? (
-          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
-        ) : null}
+        {Platform.OS === 'ios' ? <LinearGradient style={{ height: 134 }} colors={['#84CFA8', '#539A88']} /> : null}
       </View>
       <View
         style={{
-          backgroundColor: bgColor,
+          backgroundColor: '#F2F2F2',
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
@@ -31,7 +28,8 @@ const NotificationsScreen = () => {
           marginTop: Platform.OS === 'ios' ? 134 : 32
         }}
       >
-        <Text style={{ color: '#AAA9A9' }}>0 notifications</Text>
+        <Text style={{ color: '#AAA9A9' }}>Demonstration purposes only</Text>
+        <Text style={{ color: '#AAA9A9' }}>(Notifications not included in demo)</Text>
       </View>
     </View>
   );

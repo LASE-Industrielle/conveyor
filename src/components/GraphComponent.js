@@ -1,14 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
 import { VictoryAxis, VictoryChart, VictoryLine, VictoryTheme } from 'victory-native';
-import { bgColor } from '../Colors';
 
 const GraphComponent = props => {
-  const { label, lineColor, data, value, units, loading } = props;
-  const values = [];
-  data.map((item, index) => {
-    values.push({ x: index, y: item });
-  });
+  const { label, lineColor, data, ticks, value, units } = props;
+  const [loader, setLoader] = useState(false);
+
+  // hack chart drawing to be done in background
+  useEffect(() => {
+    (async () => {
+      setLoader(true);
+    })();
+  }, []);
 
   return (
     <View>
@@ -16,35 +19,42 @@ const GraphComponent = props => {
       <Text style={{ fontSize: 16, color: lineColor, paddingLeft: 15 }}>
         {value} {units}
       </Text>
-      {values && (
+      {data && loader ? (
         <VictoryChart
-          domainPadding={20}
-          padding={{ left: 50, right: 50, bottom: 20, top: 20 }}
-          height={300}
+          domainPadding={30}
+          padding={{ left: 55, right: 50, bottom: 20, top: 20 }}
+          height={250}
           theme={VictoryTheme.material}
         >
           <VictoryAxis
             dependentAxis
             orientation="left"
+            tickValues={ticks}
+            tickFormat={t => ~~t}
             style={{
-              axis: { stroke: bgColor },
-              ticks: { stroke: bgColor },
-              grid: { stroke: bgColor }
+              axis: { stroke: '#F2F2F2' },
+              ticks: { stroke: '#F2F2F2' },
+              grid: { stroke: '#F2F2F2' }
             }}
           />
 
           <VictoryAxis
             orientation="bottom"
-            tickValues={values.map(item => item.x)}
-            tickFormat={values.map(item => '')}
+            tickValues={data.map(item => item.x)}
+            tickFormat={data.map(item => '')}
             style={{
-              axis: { stroke: bgColor },
-              ticks: { stroke: bgColor },
-              grid: { stroke: bgColor }
+              axis: { stroke: '#F2F2F2' },
+              ticks: { stroke: 'none' },
+              grid: { stroke: 'none' }
             }}
           />
-          {!loading && <VictoryLine style={{ data: { stroke: lineColor } }} data={values} interpolation="natural" />}
+
+          <VictoryLine style={{ data: { stroke: lineColor } }} data={data} interpolation="catmullRom" />
         </VictoryChart>
+      ) : (
+        <View style={{ height: 250, alignItems: 'center', justifyContent: 'center' }}>
+          <ActivityIndicator animating={true} />
+        </View>
       )}
     </View>
   );

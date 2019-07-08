@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, KeyboardAvoidingView, ScrollView, Dimensions } from 'react-native';
+import { Alert, KeyboardAvoidingView, ScrollView, Dimensions, StatusBar, View } from 'react-native';
 import { Button, Container, Content, Input, Item, Left, Right, Spinner, Text } from 'native-base';
-import { NavigationActions, StackActions } from 'react-navigation';
-import LinearGradient from 'react-native-linear-gradient';
+import AsyncStorage from '@react-native-community/async-storage';
+
+import axios from 'axios';
+
 import { useStateValue } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
 import styles from '../Styles';
+import { NavigationActions, StackActions } from 'react-navigation';
+import LinearGradient from 'react-native-linear-gradient';
 
 const appAction = StackActions.reset({
   index: 0,
@@ -26,8 +30,14 @@ const LoginScreen = props => {
   }, []);
 
   useEffect(() => {
-    if (auth.token !== '') {
-      props.navigation.dispatch(appAction);
+    if (auth.token !== '' && auth.token !== undefined) {
+      AsyncStorage.setItem('token', auth.token)
+        .then(() => {
+          props.navigation.dispatch(appAction);
+        })
+        .catch(() => {
+          console.log('failed to set token');
+        });
     }
   }, [auth.token]);
 
@@ -51,118 +61,107 @@ const LoginScreen = props => {
     authCall(dispatch, username, password);
   };
 
-  if (auth.loading) {
-    return (
-      <Container>
-        <Content contentContainerStyle={styles.default}>
-          <Spinner />
-        </Content>
-      </Container>
-    );
-  }
-
   return (
     <ScrollView>
+      <StatusBar translucent={true} backgroundColor={'transparent'} />
       <KeyboardAvoidingView enabled>
-        <Container
-          style={{
-            backgroundColor: 'red',
-            height: Dimensions.get('window').height
-          }}
-        >
+        <Container style={{ backgroundColor: 'red', height: Dimensions.get('window').height }}>
           <LinearGradient
-            style={{
-              flex: 1,
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%'
-            }}
+            style={{ flex: 1, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
             colors={['#83CEA7', '#3A7F78']}
           />
+
           <Content contentContainerStyle={styles.default}>
-            <Item style={{ borderColor: 'transparent' }}>
-              <Left style={{ marginTop: 20, marginLeft: 20 }}>
+            {auth.loading || (!auth.loading && auth.token !== '') ? <Spinner /> : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item style={{ borderColor: 'transparent' }}>
+                <Left style={{ marginTop: 20, marginLeft: 20 }}>
+                  <Text style={{ fontFamily: 'HelveticaNeue', color: '#AAA9A9', fontSize: 24 }}>Log In</Text>
+                </Left>
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item style={{ borderColor: 'transparent' }}>
+                <Left style={{ marginTop: 20, marginLeft: 20 }}>
+                  <Text style={{ fontFamily: 'HelveticaNeue', color: '#AAA9A9' }}>Email</Text>
+                </Left>
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item rounded style={styles.inputItem}>
+                <Input
+                  autoCapitalize="none"
+                  value={username}
+                  onChangeText={text => {
+                    setUsername(text);
+                  }}
+                  placeholder="xyz@gmail.com"
+                  style={styles.placeholder}
+                  placeholderTextColor={'#AAA9A9'}
+                />
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item style={{ borderColor: 'transparent' }}>
+                <Left style={{ marginTop: 20, marginLeft: 20 }}>
+                  <Text
+                    style={{
+                      fontFamily: 'HelveticaNeue',
+                      color: '#AAA9A9'
+                    }}
+                  >
+                    Password
+                  </Text>
+                </Left>
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item rounded style={styles.inputItem}>
+                <Input
+                  autoCapitalize="none"
+                  secureTextEntry
+                  value={password}
+                  onChangeText={text => {
+                    setPassword(text);
+                  }}
+                  placeholder={'\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A'}
+                  style={styles.placeholder}
+                  placeholderTextColor={'#AAA9A9'}
+                />
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item style={{ justifyContent: 'flex-end', borderColor: 'transparent' }}>
+                <Right style={{ marginHorizontal: 15, padding: 7 }}>
+                  <Text style={{ color: '#02A04E', paddingTop: 10 }}>Forgot Password</Text>
+                </Right>
+              </Item>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Button block primary onPress={login} style={styles.loginButtonStyle}>
                 <Text
                   style={{
-                    fontFamily: 'HelveticaNeue',
-                    color: '#AAA9A9',
-                    fontSize: 24
+                    color: 'white',
+                    fontSize: 14,
+                    fontFamily: 'HelveticaNeue'
                   }}
                 >
-                  Log In
+                  LOG IN
                 </Text>
-              </Left>
-            </Item>
-            <Item style={{ borderColor: 'transparent' }}>
-              <Left style={{ marginTop: 20, marginLeft: 20 }}>
-                <Text style={{ fontFamily: 'HelveticaNeue', color: '#AAA9A9' }}>Email</Text>
-              </Left>
-            </Item>
-            <Item rounded style={styles.inputItem}>
-              <Input
-                autoCapitalize="none"
-                value={username}
-                onChangeText={text => {
-                  setUsername(text);
-                }}
-                placeholder="xyz@gmail.com"
-                style={styles.placeholder}
-                placeholderTextColor="#AAA9A9"
-              />
-            </Item>
-            <Item style={{ borderColor: 'transparent' }}>
-              <Left style={{ marginTop: 20, marginLeft: 20 }}>
+              </Button>
+            ) : null}
+            {!auth.loading && auth.token === '' ? (
+              <Item style={{ borderColor: 'transparent', marginTop: 30 }}>
+                <Text style={{ color: '#AAA9A9' }}>Don't have an account?</Text>
                 <Text
                   style={{
-                    fontFamily: 'HelveticaNeue',
-                    color: '#AAA9A9'
+                    color: '#02A04E'
                   }}
                 >
-                  Password
+                  &nbsp;Sign up
                 </Text>
-              </Left>
-            </Item>
-            <Item rounded style={styles.inputItem}>
-              <Input
-                autoCapitalize="none"
-                secureTextEntry
-                value={password}
-                onChangeText={text => {
-                  setPassword(text);
-                }}
-                placeholder={'\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A'}
-                style={styles.placeholder}
-                placeholderTextColor="#AAA9A9"
-              />
-            </Item>
-            <Item style={{ justifyContent: 'flex-end', borderColor: 'transparent' }}>
-              <Right style={{ marginHorizontal: 15, padding: 7 }}>
-                <Text style={{ color: '#02A04E', paddingTop: 10 }}>Forgot Password</Text>
-              </Right>
-            </Item>
-            <Button block primary onPress={login} style={styles.loginButtonStyle}>
-              <Text
-                style={{
-                  color: 'white',
-                  fontSize: 14,
-                  fontFamily: 'HelveticaNeue'
-                }}
-              >
-                LOG IN
-              </Text>
-            </Button>
-            <Item style={{ borderColor: 'transparent', marginTop: 30 }}>
-              <Text style={{ color: '#AAA9A9' }}>Don't have an account?</Text>
-              <Text
-                style={{
-                  color: '#02A04E'
-                }}
-              >
-                &nbsp;Sign up
-              </Text>
-            </Item>
+              </Item>
+            ) : null}
           </Content>
         </Container>
       </KeyboardAvoidingView>

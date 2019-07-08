@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Defs, ClipPath, Rect, LinearGradient, Stop, G, Text, TSpan } from 'react-native-svg';
-import { bgColor } from '../Colors';
 
 const VolumeStreamComponent = props => (
   <Svg width={296} height={119} {...props}>
@@ -27,7 +26,6 @@ const VolumeStreamComponent = props => (
         fill="#262626"
         fontSize={12}
         fontFamily="HelveticaNeue-Medium, Helvetica Neue"
-        // fontWeight={500}
       >
         <TSpan x={0} y={0}>
           {'Volume Stream'}
@@ -36,25 +34,12 @@ const VolumeStreamComponent = props => (
       <Text
         data-name="19% full"
         transform="translate(0 35)"
-        fill="#6cc799"
+        fill={props.percentage === -1 ? '#F19B93' : '#6cc799'}
         fontSize={14}
         fontFamily="HelveticaNeue-Bold, Helvetica Neue"
-        // fontWeight={700}
       >
         <TSpan x={0} y={0}>
-          {`${props.percentage}%`}
-        </TSpan>
-        <TSpan
-          y={0}
-          fontFamily="HelveticaNeue-Light, Helvetica Neue"
-          // fontWeight={300}
-        />
-        <TSpan
-          y={0}
-          fontFamily="HelveticaNeue, Helvetica Neue"
-          // fontWeight={400}
-        >
-          {' full'}
+          {props.percentage === -1 ? 'Error calculating value' : props.percentage + '%'}
         </TSpan>
       </Text>
       <G
@@ -62,7 +47,6 @@ const VolumeStreamComponent = props => (
         fill="#656565"
         fontSize={10}
         fontFamily="HelveticaNeue-Medium, Helvetica Neue"
-        // fontWeight={500}
         letterSpacing=".02em"
       >
         <Text data-name="80%" transform="translate(225 72)">
@@ -88,7 +72,7 @@ const VolumeStreamComponent = props => (
       </G>
       <G data-name="Group 315">
         <G data-name="Group 313">
-          <Rect data-name="Rectangle 1488" width={296} height={8} rx={4} transform="translate(0 46)" fill={bgColor} />
+          <Rect data-name="Rectangle 1488" width={296} height={8} rx={4} transform="translate(0 46)" fill="#f2f2f2" />
         </G>
         <G data-name="Mask Group 9" clipPath="url(#prefix__a)" transform="translate(-32 -128)">
           <Rect
@@ -108,26 +92,16 @@ const VolumeStreamComponent = props => (
               {'Upper limit '}
             </TSpan>
             <TSpan y={0} fill="#aaa9a9" letterSpacing=".02em" />
-            <TSpan
-              y={0}
-              fill="#6cc799"
-              fontFamily="HelveticaNeue-Bold, Helvetica Neue"
-              // fontWeight={700}
-            >
-              {props.upperLimit}
+            <TSpan y={0} fill="#6cc799" fontFamily="HelveticaNeue-Bold, Helvetica Neue">
+              {props.upperLimit + ' m\u00B3/h'}
             </TSpan>
           </Text>
           <Text data-name="Lower limit 0" transform="translate(119 116)">
             <TSpan x={0} y={0}>
               {'Lower limit '}
             </TSpan>
-            <TSpan
-              y={0}
-              fill="#6cc799"
-              fontFamily="HelveticaNeue-Bold, Helvetica Neue"
-              // fontWeight={700}
-            >
-              {props.lowerLimit}
+            <TSpan y={0} fill="#6cc799" fontFamily="HelveticaNeue-Bold, Helvetica Neue">
+              {props.lowerLimit + ' m\u00B3/h'}
             </TSpan>
           </Text>
         </G>
