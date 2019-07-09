@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react';
-import { View, Image } from 'react-native';
-import { NavigationActions, StackActions, NavigationScreenProp } from 'react-navigation';
+import { View, Image, StyleSheet } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
 import lase from '../../assets/img/lase.jpeg';
-import { AppPath } from '../navigation/Paths';
+import { AppPath, LoginPath } from '../navigation/Paths';
+import resetAction from '../navigation/Actions';
 
-const appAction1 = StackActions.reset({
-  index: 0,
-  actions: [NavigationActions.navigate({ routeName: AppPath })]
-});
-
-const appAction2 = StackActions.reset({
-  index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'Login' })]
+const styles = StyleSheet.create({
+  splashContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  imageStyle: { alignSelf: 'center', width: 100, height: 100 }
 });
 
 type Props = {
@@ -22,24 +18,23 @@ type Props = {
 };
 
 const SplashScreen = ({ navigation }: Props) => {
+  const checkToken = async () => {
+    const token = await AsyncStorage.getItem('token').catch(() => {
+      navigation.dispatch(resetAction(LoginPath));
+    });
+    if (token !== null) {
+      axios.defaults.headers.common.Authorization = `Token ${token}`;
+      navigation.dispatch(resetAction(AppPath));
+    }
+  };
+
   useEffect(() => {
-    AsyncStorage.getItem('token')
-      .then(token => {
-        if (token !== null) {
-          axios.defaults.headers.common.Authorization = `Token ${token}`;
-          navigation.dispatch(appAction1);
-        } else {
-          navigation.dispatch(appAction2);
-        }
-      })
-      .catch(() => {
-        console.log('something went wrong');
-      });
+    checkToken();
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Image source={lase} style={{ alignSelf: 'center', width: 100, height: 100 }} />
+    <View style={styles.splashContainer}>
+      <Image source={lase} style={styles.imageStyle} />
     </View>
   );
 };

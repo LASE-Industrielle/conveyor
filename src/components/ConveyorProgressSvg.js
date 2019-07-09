@@ -1,13 +1,18 @@
+// @flow
 import React from 'react';
 import Svg, { Path, G } from 'react-native-svg';
 import { greenIconColor, statusColorGreen, bottomBorder } from '../Colors';
 
-const ConveyorProgresSvg = props => {
-  const percentage = parseInt(props.percentage) * 2.27;
+type Props = {
+  percentage: number
+};
+
+const ConveyorProgresSvg = ({ percentage }: Props) => {
+  const calcPercentage = parseInt(percentage, 10) * 2.27;
   return (
-    <Svg data-name="Group 188" width={328} height={51} {...props}>
+    <Svg data-name="Group 188" width={328} height={51}>
       <Path data-name="Path 1" d="M51 25.5h226" fill="none" stroke="#e5e5e5" />
-      <Path data-name="Path 438" d={`M51 25.5h${percentage}`} fill="none" stroke={greenIconColor} opacity={0.4} />
+      <Path data-name="Path 438" d={`M51 25.5h${calcPercentage}`} fill="none" stroke={greenIconColor} opacity={0.4} />
       <G data-name="Group 158">
         <Path data-name="Rectangle 1" fill="#e2e2e2" d="M87 5h1v41h-1z" />
         <G data-name="Path 429" fill="rgba(0,162,79,0.1)">

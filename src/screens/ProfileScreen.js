@@ -6,7 +6,8 @@ import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { useStore } from '../context/StateContext';
-import resetAction from '../utils/NavigationUtils';
+import resetAction from '../navigation/Actions';
+import { LoginPath } from '../navigation/Paths';
 import { LOGOUT_USER } from '../reducers/Actions';
 
 import { elevationShadowStyle } from '../Styles';
@@ -29,7 +30,7 @@ const ProfileScreen = ({ navigation }: Props) => {
   const logout = async () => {
     await AsyncStorage.removeItem('token');
     await dispatch({ type: LOGOUT_USER });
-    await navigation.dispatch(resetAction);
+    await navigation.dispatch(resetAction(LoginPath));
   };
 
   return (
