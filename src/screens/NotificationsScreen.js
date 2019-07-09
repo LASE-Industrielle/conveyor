@@ -1,7 +1,6 @@
 import React from 'react';
-import { Platform, Text, View, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { bgGradientStart, bgGradientEnd, greyText, bgColor } from '../Colors';
+import { StyleSheet, Text, View } from 'react-native';
+import { bgColor, greyText } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 
 const styles = StyleSheet.create({

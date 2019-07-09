@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RefreshControl, ScrollView, StyleSheet, View, Platform } from 'react-native';
+import { Platform, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 
 import GraphComponent from '../components/GraphComponent';
 import { getConveyors } from '../services/ConveyorsService';

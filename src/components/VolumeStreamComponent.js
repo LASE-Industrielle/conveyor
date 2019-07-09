@@ -1,14 +1,21 @@
+// @flow
 import React from 'react';
-import Svg, { Defs, ClipPath, Rect, LinearGradient, Stop, G, Text, TSpan } from 'react-native-svg';
-import { black, bgColor, statusColorGreen, statusColorRed } from '../Colors';
+import Svg, { ClipPath, Defs, G, LinearGradient, Rect, Stop, Text, TSpan } from 'react-native-svg';
+import { bgColor, black, statusColorGreen, statusColorRed } from '../Colors';
 
-const VolumeStreamComponent = props => (
-  <Svg width={296} height={119} {...props}>
+type Props = {
+  percentage: number,
+  upperLimit: number,
+  lowerLimit: number
+};
+
+const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) => (
+  <Svg width={296} height={119}>
     <Defs>
       <ClipPath id="prefix__a">
         <Rect
           data-name="Rectangle 1526"
-          width={(props.percentage * 296) / 100}
+          width={(percentage * 296) / 100}
           height={8}
           rx={4}
           transform="translate(32 174)"
@@ -35,12 +42,12 @@ const VolumeStreamComponent = props => (
       <Text
         data-name="19% full"
         transform="translate(0 35)"
-        fill={props.percentage === -1 ? statusColorRed : statusColorGreen}
+        fill={percentage === -1 ? statusColorRed : statusColorGreen}
         fontSize={14}
         fontFamily="HelveticaNeue-Bold, Helvetica Neue"
       >
         <TSpan x={0} y={0}>
-          {props.percentage === -1 ? 'Error calculating value' : `${props.percentage}%`}
+          {percentage === -1 ? 'Error calculating value' : `${percentage}%`}
         </TSpan>
       </Text>
       <G
@@ -94,7 +101,7 @@ const VolumeStreamComponent = props => (
             </TSpan>
             <TSpan y={0} fill="#aaa9a9" letterSpacing=".02em" />
             <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
-              {`${props.upperLimit} m\u00B3/h`}
+              {`${upperLimit} m\u00B3/h`}
             </TSpan>
           </Text>
           <Text data-name="Lower limit 0" transform="translate(119 116)">
@@ -102,7 +109,7 @@ const VolumeStreamComponent = props => (
               {'Lower limit '}
             </TSpan>
             <TSpan y={0} fill={statusColorGreen} fontFamily="HelveticaNeue-Bold, Helvetica Neue">
-              {`${props.lowerLimit} m\u00B3/h`}
+              {`${lowerLimit} m\u00B3/h`}
             </TSpan>
           </Text>
         </G>

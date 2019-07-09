@@ -1,14 +1,18 @@
+// @flow
 import React, { useEffect } from 'react';
-import { FlatList, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 import { Text } from 'native-base';
 
 import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 
 import { elevationShadowStyle } from '../Styles';
-import { greyText, statusColorGreen, statusColorRed, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 import ConveyorStatusSvgCircle from '../components/ConveyorStatusSvgCircle';
+import { greyText, statusColorGreen, statusColorRed, white } from '../Colors';
+import fontStyles from '../utils/FontUtils';
+import { ConveyorDetailsPath } from '../navigation/Paths';
 
 const styles = StyleSheet.create({
   flatList: {
@@ -36,29 +40,43 @@ const styles = StyleSheet.create({
   conveyorNameText: {
     marginTop: -5,
     marginLeft: 18,
-    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
+    ...fontStyles.fontBold,
     fontSize: 13
   },
   conveyorStatusText: {
     marginLeft: 18,
     marginTop: 4,
     color: greyText,
-    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    ...fontStyles.fontMedium,
     fontSize: 13
   },
   conveyorStatusGreenText: {
     color: statusColorGreen,
-    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    ...fontStyles.fontMedium,
     fontSize: 13
   },
   conveyorStatusRedText: {
     color: statusColorRed,
-    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    ...fontStyles.fontMedium,
     fontSize: 13
   }
 });
 
-const ConveyorsListScreen = props => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+type ListItemProps = {
+  item: {
+    id: string,
+    name: string,
+    latest_measurement: {
+      scanner_status: string
+    }
+  }
+};
+
+const ConveyorsListScreen = ({ navigation }: Props) => {
   const [{ conveyors }, dispatch] = useStore();
 
   useEffect(() => {
@@ -69,12 +87,12 @@ const ConveyorsListScreen = props => {
     getConveyors(dispatch);
   };
 
-  const renderListItem = ({ item }) => (
+  const renderListItem = ({ item }: ListItemProps) => (
     <View style={styles.listItemView}>
       <TouchableOpacity
         style={styles.touchableOpacityPadding}
         onPress={() =>
-          props.navigation.navigate('ConveyorDetails', {
+          navigation.navigate(ConveyorDetailsPath, {
             id: item.id,
             title: item.name
           })

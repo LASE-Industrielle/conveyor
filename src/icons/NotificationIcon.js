@@ -21,10 +21,6 @@ const icon = {
   }
 };
 
-const NotificationIcon = props => (
-  <SvgIcon fill={iconColor} height={20} width={17.2} name={'icon'} {...props} svgs={icon}>
-    {props.children}
-  </SvgIcon>
-);
+const NotificationIcon = () => <SvgIcon fill={iconColor} height={20} width={17.2} name="icon" svgs={icon} />;
 
 export default NotificationIcon;

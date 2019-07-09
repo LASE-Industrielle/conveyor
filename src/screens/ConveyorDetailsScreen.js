@@ -1,5 +1,7 @@
+// @flow
 import React, { useEffect } from 'react';
 import { Platform, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
@@ -9,6 +11,8 @@ import { getConveyorById } from '../services/ConveyorsService';
 import { elevationShadowStyle } from '../Styles';
 import { greenIconColor, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
+import fontStyles from '../utils/FontUtils';
+import { ScannerAnalyticsPath } from '../navigation/Paths';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -49,11 +53,25 @@ const styles = StyleSheet.create({
   },
   analyticsText: {
     color: white,
-    fontFamily: 'HelveticaNeue'
+    ...fontStyles.fontMedium
   }
 });
 
-const ConveyorDetailsScreen = ({ navigation }) => {
+type Props = {
+  navigation: NavigationScreenProp<{}>,
+  conveyor: {
+    loading: boolean,
+    details: {
+      latest_measurement: {
+        percentage_full: number,
+        upper_limit_flow: number,
+        lower_limit_flow: number
+      }
+    }
+  }
+};
+
+const ConveyorDetailsScreen = ({ navigation }: Props) => {
   const [{ conveyor }, dispatch] = useStore();
 
   useEffect(() => {
@@ -104,7 +122,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
           <TouchableOpacity
             style={styles.analyticsTouchableOpacity}
             onPress={() => {
-              navigation.navigate('ScannersAnalytic');
+              navigation.navigate(ScannerAnalyticsPath);
             }}
           >
             <Text style={styles.analyticsText}>ANALYTICS</Text>

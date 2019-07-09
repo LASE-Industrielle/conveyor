@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -24,7 +25,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const GradientHeaderComponent = ({ children }) => (
+type Props = {
+  children: React.Node
+};
+
+const GradientHeaderComponent = ({ children }: Props) => (
   <View style={styles.outerView}>
     <LinearGradient style={styles.linearGradientHeight} colors={[bgGradientStart, bgGradientEnd]}>
       <View style={styles.innerView} />

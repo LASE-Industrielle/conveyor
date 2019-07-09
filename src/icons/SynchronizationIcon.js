@@ -21,10 +21,6 @@ const icon = {
   }
 };
 
-const SynchronizationIcon = props => (
-  <SvgIcon fill={iconColor} height={12} width={14} name={'icon'} {...props} svgs={icon}>
-    {props.children}
-  </SvgIcon>
-);
+const SynchronizationIcon = () => <SvgIcon fill={iconColor} height={12} width={14} name="icon" svgs={icon} />;
 
 export default SynchronizationIcon;

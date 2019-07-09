@@ -23,10 +23,6 @@ const icon = {
   }
 };
 
-const LogoutIcon = props => (
-  <SvgIcon fill={iconColor} height={13} width={13} name="icon" {...props} svgs={icon}>
-    {props.children}
-  </SvgIcon>
-);
+const LogoutIcon = () => <SvgIcon fill={iconColor} height={13} width={13} name="icon" svgs={icon} />;
 
 export default LogoutIcon;

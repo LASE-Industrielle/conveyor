@@ -1,4 +1,4 @@
-import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, LOGOUT_USER } from '../Actions';
+import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, LOGOUT_USER } from './Actions';
 
 const authReducer = (state, action) => {
   switch (action.type) {

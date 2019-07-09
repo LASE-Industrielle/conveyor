@@ -1,19 +1,29 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, Platform, StatusBar, StyleSheet } from 'react-native';
+import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 
-import LoginScreen from './screens/LoginScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import SplashScreen from './screens/SplashScreen';
-import ConveyorsListScreen from './screens/ConveyorsListScreen';
-import ConveyorDetailsScreen from './screens/ConveyorDetailsScreen';
-import ScannerAnalyticsScreen from './screens/ScannerAnalyticsScreen';
-import NotificationsScreen from './screens/NotificationsScreen';
+import {
+  AppPath,
+  ConveyorDetailsPath,
+  ConveyorsListPath,
+  LoginPath,
+  NotificationsPath,
+  ProfilePath,
+  ScannerAnalyticsPath,
+  SplashPath
+} from './Paths';
+import LoginScreen from '../screens/LoginScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SplashScreen from '../screens/SplashScreen';
+import ConveyorsListScreen from '../screens/ConveyorsListScreen';
+import ConveyorDetailsScreen from '../screens/ConveyorDetailsScreen';
+import ScannerAnalyticsScreen from '../screens/ScannerAnalyticsScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
-import BackArrowIcon from './icons/BackArrowIcon';
-import NotificationIcon from './icons/NotificationIcon';
-import ProfileIcon from './icons/ProfileIcon';
-import { iconColor } from './Colors';
+import BackArrowIcon from '../icons/BackArrowIcon';
+import NotificationIcon from '../icons/NotificationIcon';
+import ProfileIcon from '../icons/ProfileIcon';
+import { iconColor } from '../Colors';
 
 const styles = StyleSheet.create({
   headerTitleText: {
@@ -71,10 +81,10 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
     headerTintColor: navigation.getParam('HeaderTintColor', iconColor),
     headerRight: (
       <View style={styles.headerRightView}>
-        <TouchableOpacity style={styles.notificationIconPadding} onPress={() => navigation.navigate('Notifications')}>
+        <TouchableOpacity style={styles.notificationIconPadding} onPress={() => navigation.navigate(NotificationsPath)}>
           <NotificationIcon />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.profileIconPadding} onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity style={styles.profileIconPadding} onPress={() => navigation.navigate(ProfilePath)}>
           <ProfileIcon />
         </TouchableOpacity>
       </View>
@@ -92,27 +102,27 @@ const AppStackNavigator = createStackNavigator(
   {
     ConveyorsList: {
       screen: ConveyorsListScreen,
-      path: 'ConveyorsList',
+      path: ConveyorDetailsPath,
       navigationOptions: navigationOptions(false, 'Conveyors')
     },
     Profile: {
       screen: ProfileScreen,
-      path: 'Profile',
+      path: ProfilePath,
       navigationOptions: navigationOptions(true, 'Profile')
     },
     Notifications: {
       screen: NotificationsScreen,
-      path: 'Notifications',
+      path: NotificationsPath,
       navigationOptions: navigationOptions(true, 'Notifications')
     },
     ConveyorDetails: {
       screen: ConveyorDetailsScreen,
-      path: 'ConveyorDetails',
+      path: ConveyorDetailsPath,
       navigationOptions: navigationOptions(true)
     },
-    ScannersAnalytic: {
+    ScannerAnalytics: {
       screen: ScannerAnalyticsScreen,
-      path: 'ScannersAnalytic',
+      path: ScannerAnalyticsPath,
       navigationOptions: navigationOptions(true, 'Analytics')
     }
   },
@@ -120,7 +130,7 @@ const AppStackNavigator = createStackNavigator(
     tabBarOptions: {
       showLabel: true
     },
-    initialRouteName: 'ConveyorsList'
+    initialRouteName: ConveyorsListPath
   }
 );
 
@@ -128,22 +138,22 @@ const AppNavigator = createStackNavigator(
   {
     Splash: {
       screen: SplashScreen,
-      path: 'Splash',
+      path: SplashPath,
       navigationOptions: { header: null }
     },
     Login: {
       screen: LoginScreen,
-      path: 'Login',
+      path: LoginPath,
       navigationOptions: { header: null }
     },
     App: {
       screen: AppStackNavigator,
-      path: 'App',
+      path: AppPath,
       navigationOptions: { header: null }
     }
   },
   {
-    initialRouteName: 'Splash'
+    initialRouteName: LoginPath
   }
 );
 

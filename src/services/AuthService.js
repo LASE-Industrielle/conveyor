@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../Actions';
+import { AUTH_ERROR, AUTH_START, AUTH_SUCCESS, SET_USERNAME } from '../reducers/Actions';
 import { loginUrl } from '../Urls';
 
-const authCall = (dispatch, loginUsername, loginPassword) => {
-  dispatch({ type: AUTH_START });
-  axios({
+const authCall = async (dispatch, loginUsername, loginPassword) => {
+  const authCallConfig = {
     method: 'post',
     url: loginUrl,
     headers: {
@@ -15,24 +14,13 @@ const authCall = (dispatch, loginUsername, loginPassword) => {
       username: loginUsername,
       password: loginPassword
     }
-  })
-    .then(response => {
-      axios.defaults.headers.common.Authorization = `Token ${response.data.token}`;
-      dispatch({
-        type: AUTH_SUCCESS,
-        payload: response.data.token
-      });
-      dispatch({
-        type: SET_USERNAME,
-        username: loginUsername
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: AUTH_ERROR,
-        payload: err
-      });
-    });
+  };
+  dispatch({ type: AUTH_START });
+  const response = await axios(authCallConfig).catch(err => dispatch({ type: AUTH_ERROR, payload: err }));
+
+  axios.defaults.headers.common.Authorization = `Token ${response.data.token}`;
+  dispatch({ type: AUTH_SUCCESS, payload: response.data.token });
+  dispatch({ type: SET_USERNAME, username: loginUsername });
 };
 
 export default authCall;

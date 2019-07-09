@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Image, StyleSheet, Switch, View } from 'react-native';
+import { NavigationScreenProp } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
 
 import { useStore } from '../context/StateContext';
-import resetAction from '../utils/NavigationUtils';
-import { LOGOUT_USER } from '../Actions';
+import resetAction from '../navigation/Actions';
+import { LoginPath } from '../navigation/Paths';
+import { LOGOUT_USER } from '../reducers/Actions';
 
 import { elevationShadowStyle } from '../Styles';
 import NotificationIcon from '../icons/NotificationIcon';
@@ -14,6 +16,7 @@ import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
 import { blackTextColor, greenIconColor, statusColorRed, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
+import fontStyles from '../utils/FontUtils';
 
 const styles = StyleSheet.create({
   view: {
@@ -53,17 +56,21 @@ const styles = StyleSheet.create({
     left: 8
   },
   profileItemText: {
-    fontFamily: 'HelveticaNeue',
+    ...fontStyles.fontMedium,
     color: blackTextColor
   },
   profileItemRedText: {
-    fontFamily: 'HelveticaNeue',
+    ...fontStyles.fontMedium,
     fontWeight: 'bold',
     color: statusColorRed
   }
 });
 
-const ProfileScreen = props => {
+type Props = {
+  navigation: NavigationScreenProp<{}>
+};
+
+const ProfileScreen = ({ navigation }: Props) => {
   const [{ profile }, dispatch] = useStore();
 
   const [sync1, setSync1] = useState(true);
@@ -72,7 +79,7 @@ const ProfileScreen = props => {
   const logout = async () => {
     await AsyncStorage.removeItem('token');
     await dispatch({ type: LOGOUT_USER });
-    await props.navigation.dispatch(resetAction);
+    await navigation.dispatch(resetAction(LoginPath));
   };
 
   return (

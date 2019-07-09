@@ -1,8 +1,15 @@
-import React, { useContext, useReducer, createContext } from 'react';
+// @flow
+import React, { createContext, useContext, useReducer } from 'react';
 
 const StateContext = createContext('');
 
-const StateProvider = ({ reducer, initialState, children }) => (
+type Props = {
+  reducer: Function,
+  initialState: Object,
+  children: React.Node
+};
+
+const StateProvider = ({ reducer, initialState, children }: Props) => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>
 );
 

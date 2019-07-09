@@ -18,10 +18,6 @@ const icon = {
   }
 };
 
-const BackArrowIcon = props => (
-  <SvgIcon fill={iconColor} height={16} width={9.37} name={'icon'} {...props} svgs={icon}>
-    {props.children}
-  </SvgIcon>
-);
+const BackArrowIcon = () => <SvgIcon fill={iconColor} height={16} width={9.37} name="icon" svgs={icon} />;
 
 export default BackArrowIcon;

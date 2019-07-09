@@ -1,24 +1,29 @@
+// @flow
 import React from 'react';
-import { View, Text, Platform } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
+import fontStyles from '../utils/FontUtils';
 import { black } from '../Colors';
 
-const ConveyorDetailsFormHeader = props => (
-  <View
-    style={{
-      margin: 10,
-      justifyContent: 'space-between',
-      flexDirection: 'row'
-    }}
-  >
-    <Text
-      style={{
-        color: black,
-        fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold'
-      }}
-    >
-      {props.formHeader}
-    </Text>
+const styles = StyleSheet.create({
+  headerWrapper: {
+    margin: 10,
+    justifyContent: 'space-between',
+    flexDirection: 'row'
+  },
+  textStyle: {
+    color: black,
+    ...fontStyles.fontBold
+  }
+});
+
+type Props = {
+  formHeader: string
+};
+
+const ConveyorDetailsFormHeader = ({ formHeader }: Props) => (
+  <View style={styles.headerWrapper}>
+    <Text style={styles.textStyle}>{formHeader}</Text>
   </View>
 );
 
