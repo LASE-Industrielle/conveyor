@@ -10,7 +10,7 @@ import resetAction from '../navigation/Actions';
 
 const styles = StyleSheet.create({
   splashContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  imageStyle: { alignSelf: 'center', width: 100, height: 100 }
+  imageStyle: { width: 100, height: 100 }
 });
 
 type Props = {
