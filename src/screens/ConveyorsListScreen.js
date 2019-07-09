@@ -1,14 +1,62 @@
 import React, { useEffect } from 'react';
-import { FlatList, Platform, TouchableOpacity, View } from 'react-native';
+import { FlatList, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Text } from 'native-base';
-import { Circle, Svg } from 'react-native-svg';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 
 import { elevationShadowStyle } from '../Styles';
-import { bgColor, white, bgGradientEnd, bgGradientStart, statusColorGreen, statusColorRed, greyText } from '../Colors';
+import { greyText, statusColorGreen, statusColorRed, white } from '../Colors';
+import GradientHeaderComponent from '../components/GradientHeaderComponent';
+import ConveyorStatusSvgCircle from '../components/ConveyorStatusSvgCircle';
+
+const styles = StyleSheet.create({
+  flatList: {
+    zIndex: 2,
+    bottom: 32
+  },
+  listItemView: {
+    flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'stretch',
+    backgroundColor: white,
+    marginHorizontal: 16,
+    zIndex: 3,
+    marginBottom: 5,
+    ...elevationShadowStyle(2)
+  },
+  touchableOpacityPadding: {
+    paddingBottom: 16
+  },
+  statusCircle: {
+    alignSelf: 'flex-end',
+    marginTop: 10,
+    marginRight: 10
+  },
+  conveyorNameText: {
+    marginTop: -5,
+    marginLeft: 18,
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
+    fontSize: 13
+  },
+  conveyorStatusText: {
+    marginLeft: 18,
+    marginTop: 4,
+    color: greyText,
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    fontSize: 13
+  },
+  conveyorStatusGreenText: {
+    color: statusColorGreen,
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    fontSize: 13
+  },
+  conveyorStatusRedText: {
+    color: statusColorRed,
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    fontSize: 13
+  }
+});
 
 const ConveyorsListScreen = props => {
   const [{ conveyors }, dispatch] = useStore();
@@ -21,216 +69,45 @@ const ConveyorsListScreen = props => {
     getConveyors(dispatch);
   };
 
-  const renderListItem = ({ item }) =>
-    Platform.OS === 'ios' ? (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'column',
-          alignSelf: 'stretch',
-          backgroundColor: white,
-          marginHorizontal: 16,
-          zIndex: 3,
-          marginBottom: 5,
-          ...elevationShadowStyle(2)
-        }}
+  const renderListItem = ({ item }) => (
+    <View style={styles.listItemView}>
+      <TouchableOpacity
+        style={styles.touchableOpacityPadding}
+        onPress={() =>
+          props.navigation.navigate('ConveyorDetails', {
+            id: item.id,
+            title: item.name
+          })
+        }
       >
-        <TouchableOpacity
-          style={{ paddingBottom: 16 }}
-          onPress={() =>
-            props.navigation.navigate('ConveyorDetails', {
-              id: item.id,
-              title: item.name
-            })
-          }
-        >
-          <Svg
-            height="9"
-            width="9"
-            viewBox="0 0 100 100"
-            style={{ alignSelf: 'flex-end', marginTop: 10, marginRight: 10 }}
-          >
-            <Circle
-              cx="50"
-              cy="50"
-              r="45"
-              stroke="blue"
-              strokeWidth="2.5"
-              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
-            />
-          </Svg>
-          <Text
-            style={{
-              marginTop: -5,
-              marginLeft: 18,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
-              fontSize: 13
-            }}
-          >
-            {item.name.toUpperCase()}
-          </Text>
-          <Text
-            style={{
-              marginLeft: 18,
-              marginTop: 4,
-              color: greyText,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-              fontSize: 13
-            }}
-          >
-            Status:{' '}
-            {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
-              <Text
-                style={{
-                  color: statusColorGreen,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-                  fontSize: 13
-                }}
-              >
-                {item.latest_measurement.scanner_status}
-              </Text>
-            ) : (
-              <Text
-                style={{
-                  color: statusColorRed,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-                  fontSize: 13
-                }}
-              >
-                {item.latest_measurement.scanner_status}
-              </Text>
-            )}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    ) : (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'column',
-          alignSelf: 'stretch',
-          backgroundColor: white,
-          marginHorizontal: 16,
-          zIndex: 3,
-          marginBottom: 5,
-          ...elevationShadowStyle(2)
-        }}
-      >
-        <TouchableOpacity
-          style={{ paddingBottom: 16 }}
-          onPress={() =>
-            props.navigation.navigate('ConveyorDetails', {
-              id: item.id,
-              title: item.name
-            })
-          }
-        >
-          <Svg
-            height="9"
-            width="9"
-            viewBox="0 0 100 100"
-            style={{ alignSelf: 'flex-end', marginTop: 10, marginRight: 10 }}
-          >
-            <Circle
-              cx="50"
-              cy="50"
-              r="45"
-              stroke="blue"
-              strokeWidth="2.5"
-              fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
-            />
-          </Svg>
-          <Text
-            style={{
-              marginTop: -5,
-              marginLeft: 18,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'HelveticaNeueBold',
-              fontSize: 13
-            }}
-          >
-            {item.name.toUpperCase()}
-          </Text>
-          <Text
-            style={{
-              marginLeft: 18,
-              marginTop: 4,
-              color: greyText,
-              fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-              fontSize: 13
-            }}
-          >
-            Status:{' '}
-            {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
-              <Text
-                style={{
-                  color: statusColorGreen,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-                  fontSize: 13
-                }}
-              >
-                {item.latest_measurement.scanner_status}
-              </Text>
-            ) : (
-              <Text
-                style={{
-                  color: statusColorRed,
-                  fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-                  fontSize: 13
-                }}
-              >
-                {item.latest_measurement.scanner_status}
-              </Text>
-            )}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    );
+        <ConveyorStatusSvgCircle
+          style={styles.statusCircle}
+          fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
+        />
+        <Text style={styles.conveyorNameText}>{item.name.toUpperCase()}</Text>
+        <Text style={styles.conveyorStatusText}>
+          Status:{' '}
+          {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
+            <Text style={styles.conveyorStatusGreenText}>{item.latest_measurement.scanner_status}</Text>
+          ) : (
+            <Text style={styles.conveyorStatusRedText}>{item.latest_measurement.scanner_status}</Text>
+          )}
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
 
-  return Platform.OS === 'ios' ? (
-    <View style={{ height: '100%' }}>
-      <View
-        style={{
-          position: 'absolute',
-          zIndex: 1,
-          backgroundColor: bgColor,
-          flex: 1,
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
-      </View>
+  return (
+    <GradientHeaderComponent>
       <FlatList
         refreshing={conveyors.loading}
         onRefresh={() => reload()}
-        style={{ zIndex: 2, marginTop: 102 }}
+        style={styles.flatList}
         data={conveyors.data}
         keyExtractor={item => String(item.id)}
         renderItem={renderListItem}
       />
-    </View>
-  ) : (
-    <View style={{ height: '100%' }}>
-      <View
-        style={{
-          position: 'absolute',
-          top: 32,
-          zIndex: 1,
-          backgroundColor: bgColor,
-          flex: 1,
-          width: '100%',
-          height: '100%'
-        }}
-      />
-      <FlatList
-        refreshing={conveyors.loading}
-        onRefresh={() => reload()}
-        style={{ zIndex: 2 }}
-        data={conveyors.data}
-        keyExtractor={item => String(item.id)}
-        renderItem={renderListItem}
-      />
-    </View>
+    </GradientHeaderComponent>
   );
 };
 

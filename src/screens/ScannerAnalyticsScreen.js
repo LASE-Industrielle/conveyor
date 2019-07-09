@@ -1,14 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { Platform, RefreshControl, ScrollView, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { RefreshControl, ScrollView, StyleSheet, View, Platform } from 'react-native';
 
 import GraphComponent from '../components/GraphComponent';
 import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
 
-import { blue, orange, red, bgGradientStart, bgGradientEnd, bgColor } from '../Colors';
+import { blue, orange, red, white } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
+import GradientHeaderComponent from '../components/GradientHeaderComponent';
+
+const styles = StyleSheet.create({
+  scrollView: {
+    zIndex: 2,
+    bottom: 32
+  },
+  graphOuterView: {
+    paddingHorizontal: 5,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderRadius: 6,
+    marginHorizontal: 15,
+    backgroundColor: white,
+    ...elevationShadowStyle(2),
+    marginBottom: 18
+  },
+  conveyorStatusView: {
+    height: Platform.OS === 'ios' ? 80 : 60
+  }
+});
 
 const ScannerAnalyticsScreen = () => {
   const [volumeSumMeasurements, setVolumeSumMeasurements] = useState();
@@ -74,41 +94,12 @@ const ScannerAnalyticsScreen = () => {
   };
 
   return (
-    <View style={{ backgroundColor: 'transparent', width: '100%', height: '100%' }}>
-      <View
-        style={{
-          position: 'absolute',
-          top: Platform.OS === 'ios' ? 0 : 32,
-          zIndex: 1,
-          backgroundColor: bgColor,
-          flex: 1,
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        {Platform.OS === 'ios' && <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />}
-      </View>
+    <GradientHeaderComponent>
       <ScrollView
         refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
-        style={{
-          zIndex: 2,
-          marginTop: Platform.OS === 'ios' ? 102 : 0,
-          backgroundColor: 'transparent'
-        }}
+        style={styles.scrollView}
       >
-        <View
-          pointerEvents="none"
-          style={{
-            paddingHorizontal: 5,
-            justifyContent: 'center',
-            flexDirection: 'column',
-            borderRadius: 6,
-            marginHorizontal: 15,
-            backgroundColor: 'white',
-            ...elevationShadowStyle(2),
-            marginBottom: 18
-          }}
-        >
+        <View pointerEvents="none" style={styles.graphOuterView}>
           {volumeSumMeasurements && (
             <GraphComponent
               lineColor={orange}
@@ -146,10 +137,10 @@ const ScannerAnalyticsScreen = () => {
           )}
         </View>
       </ScrollView>
-      <View style={{ height: 60 }}>
+      <View style={styles.conveyorStatusView}>
         <ConveyorStatusForm status={scannerStatus} />
       </View>
-    </View>
+    </GradientHeaderComponent>
   );
 };
 

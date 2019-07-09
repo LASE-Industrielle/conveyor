@@ -1,7 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, Platform, StatusBar } from 'react-native';
+import { TouchableOpacity, Text, View, Platform, StatusBar, StyleSheet } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
-import LinearGradient from 'react-native-linear-gradient';
 
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -14,82 +13,45 @@ import NotificationsScreen from './screens/NotificationsScreen';
 import BackArrowIcon from './icons/BackArrowIcon';
 import NotificationIcon from './icons/NotificationIcon';
 import ProfileIcon from './icons/ProfileIcon';
-import { iconColor, bgGradientStart, bgGradientEnd, bottomBorder } from './Colors';
+import { iconColor } from './Colors';
+
+const styles = StyleSheet.create({
+  headerTitleText: {
+    marginLeft: Platform.OS === 'ios' ? 0 : 26,
+    fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
+    fontSize: 18,
+    color: iconColor
+  },
+  headerRightView: {
+    flexDirection: 'row',
+    marginRight: 8
+  },
+  notificationIconPadding: {
+    paddingRight: 5,
+    paddingLeft: 14
+  },
+  profileIconPadding: {
+    paddingRight: 14,
+    paddingLeft: 5
+  },
+  backArrowPadding: {
+    padding: 20,
+    paddingTop: 15,
+    paddingBottom: 15
+  }
+});
 
 const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
   return {
-    header: props =>
-      Platform.OS === 'ios' ? (
-        <View
-          style={{
-            height: 102,
-            marginTop: 0,
-            zIndex: -1,
-            position: 'relative',
-
-            width: '100%',
-            alignItems: 'stretch'
-          }}
-        >
-          <View>
-            <StatusBar translucent backgroundColor="transparent" />
-            <Header {...props} />
-          </View>
-          <View
-            style={{
-              position: 'absolute',
-              top: 88,
-              opacity: 0.4,
-              borderBottomColor: bottomBorder,
-              alignSelf: 'stretch',
-              flex: 1,
-              width: '100%',
-              flexDirection: 'row',
-              borderBottomWidth: 1
-            }}
-          />
-        </View>
-      ) : (
-        <View>
-          <View
-            style={{
-              height: 102,
-              marginTop: 0,
-              zIndex: -1
-            }}
-          >
-            <StatusBar translucent backgroundColor="transparent" />
-            <LinearGradient colors={[bgGradientStart, bgGradientEnd]}>
-              <Header {...props} />
-            </LinearGradient>
-          </View>
-          <View
-            style={{
-              position: 'absolute',
-              top: 88,
-              opacity: 0.4,
-              borderBottomColor: bottomBorder,
-              alignSelf: 'stretch',
-              flex: 1,
-              width: '100%',
-              flexDirection: 'row',
-              borderBottomWidth: 1
-            }}
-          />
-        </View>
-      ),
+    header: props => (
+      <View>
+        <StatusBar translucent backgroundColor="transparent" />
+        <Header {...props} />
+      </View>
+    ),
     // Heading/title of the header
     headerTitle: (
-      <Text
-        style={{
-          marginLeft: Platform.OS === 'ios' ? 0 : 26,
-          fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
-          fontSize: 18,
-          color: iconColor
-        }}
-      >
-        {navigation.getParam('title', title !== null ? title : '')}
-      </Text>
+      <Text style={styles.headerTitleText}>{navigation.getParam('title', title !== null ? title : '')}</Text>
     ),
     // Heading style
     headerStyle:
@@ -108,24 +70,21 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
     // Heading text color
     headerTintColor: navigation.getParam('HeaderTintColor', iconColor),
     headerRight: (
-      <View style={{ flexDirection: 'row', marginRight: 8 }}>
-        <TouchableOpacity
-          style={{ paddingRight: 5, paddingLeft: 14 }}
-          onPress={() => navigation.navigate('Notifications')}
-        >
+      <View style={styles.headerRightView}>
+        <TouchableOpacity style={styles.notificationIconPadding} onPress={() => navigation.navigate('Notifications')}>
           <NotificationIcon />
         </TouchableOpacity>
-        <TouchableOpacity style={{ paddingRight: 14, paddingLeft: 5 }} onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity style={styles.profileIconPadding} onPress={() => navigation.navigate('Profile')}>
           <ProfileIcon />
         </TouchableOpacity>
       </View>
     ),
     headerLeft: backArrowExists ? (
-      <TouchableOpacity style={{ padding: 20, paddingTop: 15, paddingBottom: 15 }} onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backArrowPadding} onPress={() => navigation.goBack()}>
         <BackArrowIcon />
       </TouchableOpacity>
     ) : null,
-    headerTransparent: Platform.OS === 'ios'
+    headerTransparent: true
   };
 };
 

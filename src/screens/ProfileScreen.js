@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Image, Platform, Switch, View } from 'react-native';
+import { Image, StyleSheet, Switch, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Body, Button, Left, ListItem, Right, Text, Title } from 'native-base';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { useStore } from '../context/StateContext';
 import resetAction from '../utils/NavigationUtils';
@@ -13,7 +12,56 @@ import NotificationIcon from '../icons/NotificationIcon';
 import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
-import { bgColor, statusColorRed, greenIconColor, blackTextColor, bgGradientStart, bgGradientEnd } from '../Colors';
+import { blackTextColor, greenIconColor, statusColorRed, white } from '../Colors';
+import GradientHeaderComponent from '../components/GradientHeaderComponent';
+
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    zIndex: 2,
+    margin: 20,
+    marginTop: 0,
+    backgroundColor: white,
+    borderRadius: 8,
+    padding: 10,
+    fontSize: 13,
+    bottom: 32,
+    ...elevationShadowStyle(2, 0.12)
+  },
+  profileImage: {
+    alignSelf: 'center',
+    width: 80,
+    height: 80,
+    borderRadius: 80 / 2,
+    marginTop: 30
+  },
+  profileUsernameText: {
+    paddingBottom: 15
+  },
+  iconGreenBackground: {
+    backgroundColor: greenIconColor,
+    opacity: 0.08
+  },
+  iconRedbackground: {
+    backgroundColor: statusColorRed,
+    opacity: 0.1
+  },
+  iconStyle: {
+    opacity: 1,
+    zIndex: 100,
+    position: 'absolute',
+    left: 8
+  },
+  profileItemText: {
+    fontFamily: 'HelveticaNeue',
+    color: blackTextColor
+  },
+  profileItemRedText: {
+    fontFamily: 'HelveticaNeue',
+    fontWeight: 'bold',
+    color: statusColorRed
+  }
+});
 
 const ProfileScreen = props => {
   const [{ profile }, dispatch] = useStore();
@@ -28,56 +76,17 @@ const ProfileScreen = props => {
   };
 
   return (
-    <View style={{ backgroundColor: 'transparent', width: '100%', height: '100%' }}>
-      <View
-        style={{
-          position: 'absolute',
-          top: Platform.OS === 'ios' ? 0 : 32,
-          zIndex: 1,
-          backgroundColor: bgColor,
-          flex: 1,
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        {Platform.OS === 'ios' ? (
-          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
-        ) : null}
-      </View>
-      <View
-        style={{
-          flex: 1,
-          zIndex: 2,
-          marginTop: Platform.OS === 'ios' ? 102 : 0,
-          margin: 20,
-          backgroundColor: 'white',
-          borderRadius: 8,
-          padding: 10,
-          fontSize: 13,
-          ...elevationShadowStyle(2, 0.12)
-        }}
-      >
-        <Image
-          source={ccLogo}
-          style={{ alignSelf: 'center', width: 80, height: 80, borderRadius: 80 / 2, marginTop: 30 }}
-        />
-        <Title style={{ paddingBottom: 15 }}>{profile.username}</Title>
+    <GradientHeaderComponent>
+      <View style={styles.view}>
+        <Image source={ccLogo} style={styles.profileImage} />
+        <Title style={styles.profileUsernameText}>{profile.username}</Title>
         <ListItem icon>
           <Left>
-            <Button
-              style={{
-                backgroundColor: greenIconColor,
-                opacity: 0.08
-              }}
-              textStyle={{}}
-            />
-            <SynchronizationIcon
-              fill={greenIconColor}
-              style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
-            />
+            <Button style={styles.iconGreenBackground} />
+            <SynchronizationIcon fill={greenIconColor} style={styles.iconStyle} />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Syncronization</Text>
+            <Text style={styles.profileItemText}>Syncronization</Text>
           </Body>
           <Right>
             <Switch value={sync1} onValueChange={() => setSync1(!sync1)} />
@@ -85,21 +94,11 @@ const ProfileScreen = props => {
         </ListItem>
         <ListItem icon>
           <Left>
-            <Button
-              style={{
-                backgroundColor: greenIconColor,
-                opacity: 0.08
-              }}
-            />
-            <NotificationIcon
-              fill={greenIconColor}
-              height={14}
-              width={12}
-              style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
-            />
+            <Button style={styles.iconGreenBackground} />
+            <NotificationIcon fill={greenIconColor} height={14} width={12} style={styles.iconStyle} />
           </Left>
           <Body>
-            <Text style={{ fontFamily: 'HelveticaNeue', color: blackTextColor }}>Notifications</Text>
+            <Text style={styles.profileItemText}>Notifications</Text>
           </Body>
           <Right>
             <Switch value={sync2} onValueChange={() => setSync2(!sync2)} />
@@ -107,34 +106,16 @@ const ProfileScreen = props => {
         </ListItem>
         <ListItem icon onPress={logout}>
           <Left>
-            <Button
-              style={{
-                backgroundColor: statusColorRed,
-                opacity: 0.1
-              }}
-            />
-            <LogoutIcon
-              fill={statusColorRed}
-              height={14}
-              width={12}
-              style={{ opacity: 1, zIndex: 100, position: 'absolute', left: 8 }}
-            />
+            <Button style={styles.iconRedbackground} />
+            <LogoutIcon fill={statusColorRed} height={14} width={12} style={styles.iconStyle} />
           </Left>
           <Body>
-            <Text
-              style={{
-                fontFamily: 'HelveticaNeue',
-                fontWeight: 'bold',
-                color: statusColorRed
-              }}
-            >
-              Logout
-            </Text>
+            <Text style={styles.profileItemRedText}>Logout</Text>
           </Body>
           <Right />
         </ListItem>
       </View>
-    </View>
+    </GradientHeaderComponent>
   );
 };
 

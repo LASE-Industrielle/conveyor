@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Platform, Text, TouchableOpacity, View, ScrollView, RefreshControl } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { Platform, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
@@ -8,7 +7,51 @@ import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
 import { elevationShadowStyle } from '../Styles';
-import { bgColor, bgGradientStart, bgGradientEnd, greenIconColor } from '../Colors';
+import { greenIconColor, white } from '../Colors';
+import GradientHeaderComponent from '../components/GradientHeaderComponent';
+
+const styles = StyleSheet.create({
+  scrollView: {
+    flex: 4,
+    zIndex: 2,
+    bottom: 32
+  },
+  volumeStreamWrapperView: {
+    paddingHorizontal: 5,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderRadius: 6,
+    marginHorizontal: 15,
+    marginTop: 0,
+    backgroundColor: white,
+    ...elevationShadowStyle(2),
+    marginBottom: 4,
+    paddingVertical: 15,
+    alignItems: 'center'
+  },
+  analyticsView: {
+    backgroundColor: white,
+    flex: 0.17,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    zIndex: 2
+  },
+  analyticsTouchableOpacity: {
+    margin: 22,
+    paddingVertical: Platform.OS === 'ios' ? 0 : 5,
+    alignItems: 'center',
+    flex: Platform.OS === 'ios' ? 0.7 : 0.8,
+    backgroundColor: greenIconColor,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderRadius: 5,
+    ...elevationShadowStyle(2)
+  },
+  analyticsText: {
+    color: white,
+    fontFamily: 'HelveticaNeue'
+  }
+});
 
 const ConveyorDetailsScreen = ({ navigation }) => {
   const [{ conveyor }, dispatch] = useStore();
@@ -27,28 +70,7 @@ const ConveyorDetailsScreen = ({ navigation }) => {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'column',
-        fontFamily: 'HelveticaNeue'
-      }}
-    >
-      <View
-        style={{
-          position: 'absolute',
-          top: Platform.OS === 'ios' ? 0 : 32,
-          zIndex: 1,
-          backgroundColor: bgColor,
-          flex: 1,
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        {Platform.OS === 'ios' ? (
-          <LinearGradient style={{ height: 134 }} colors={[bgGradientStart, bgGradientEnd]} />
-        ) : null}
-      </View>
+    <GradientHeaderComponent>
       <ScrollView
         refreshControl={
           <RefreshControl
@@ -60,29 +82,10 @@ const ConveyorDetailsScreen = ({ navigation }) => {
         }
         stickyHeaderIndices={[0]}
         showsVerticalScrollIndicator={false}
-        style={{
-          flex: 4,
-          zIndex: 2,
-          marginTop: Platform.OS === 'ios' ? 102 : 0,
-          backgroundColor: 'transparent'
-        }}
+        style={styles.scrollView}
       >
         {conveyor.loading ? null : (
-          <View
-            style={{
-              paddingHorizontal: 5,
-              justifyContent: 'center',
-              flexDirection: 'column',
-              borderRadius: 6,
-              marginHorizontal: 15,
-              marginTop: 0,
-              backgroundColor: 'white',
-              ...elevationShadowStyle(2),
-              marginBottom: 4,
-              paddingVertical: 15,
-              alignItems: 'center'
-            }}
-          >
+          <View style={styles.volumeStreamWrapperView}>
             <VolumeStreamComponent
               percentage={
                 conveyor.details.latest_measurement.percentage_full === undefined
@@ -97,36 +100,18 @@ const ConveyorDetailsScreen = ({ navigation }) => {
         {conveyor.loading ? null : <ConveyorDetailsForm conveyor={conveyor.details} />}
       </ScrollView>
       {conveyor.loading ? null : (
-        <View
-          style={{
-            backgroundColor: 'white',
-            flex: 0.17,
-            justifyContent: 'center',
-            flexDirection: 'column',
-            zIndex: 2
-          }}
-        >
+        <View style={styles.analyticsView}>
           <TouchableOpacity
-            style={{
-              margin: 22,
-              paddingVertical: Platform.OS === 'ios' ? 0 : 5,
-              alignItems: 'center',
-              flex: Platform.OS === 'ios' ? 0.7 : 0.8,
-              backgroundColor: greenIconColor,
-              justifyContent: 'center',
-              flexDirection: 'column',
-              borderRadius: 5,
-              ...elevationShadowStyle(2)
-            }}
+            style={styles.analyticsTouchableOpacity}
             onPress={() => {
               navigation.navigate('ScannersAnalytic');
             }}
           >
-            <Text style={{ color: 'white', fontFamily: 'HelveticaNeue' }}>ANALYTICS</Text>
+            <Text style={styles.analyticsText}>ANALYTICS</Text>
           </TouchableOpacity>
         </View>
       )}
-    </View>
+    </GradientHeaderComponent>
   );
 };
 
