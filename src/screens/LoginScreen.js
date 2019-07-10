@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import {
   Alert,
-  Text,
   KeyboardAvoidingView,
-  View,
-  TextInput,
-  Button,
+  Platform,
   StyleSheet,
+  Text,
+  TextInput,
   TouchableOpacity,
-  Platform
+  View
 } from 'react-native';
 import { NavigationActions, NavigationScreenProp, StackActions } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -17,11 +16,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
-import { AppPath, ScannerAnalyticsPath } from '../navigation/Paths';
+import { AppPath } from '../navigation/Paths';
 import fontStyles from '../utils/FontUtils';
-import { greenIconColor, white } from '../Colors';
+import { greenIconColor, greyText, transparentColor, white } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
-import { LinearGradient } from 'react-native-svg';
+import GradientBackground from '../components/GradientBackground';
 
 const appAction = StackActions.reset({
   index: 0,
@@ -31,18 +30,18 @@ const appAction = StackActions.reset({
 const styles = StyleSheet.create({
   loginText: {
     ...fontStyles.fontMedium,
-    color: '#AAA9A9',
+    color: greyText,
     fontSize: 24
   },
   credentialsText: {
     ...fontStyles.fontMedium,
-    color: '#AAA9A9',
+    color: greyText,
     marginTop: 20
   },
   credentialsTextInput: {
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#AAA9A9',
+    borderColor: greyText,
     marginTop: 10,
     paddingHorizontal: 15,
     paddingVertical: Platform.OS === 'ios' ? 15 : 10
@@ -51,20 +50,43 @@ const styles = StyleSheet.create({
     marginTop: 15,
     alignSelf: 'flex-end',
     flexDirection: 'row',
-    color: '#02A04E'
+    color: greenIconColor
   },
   loginButton: {
     color: white,
     fontSize: 14,
     ...fontStyles.fontMedium
   },
+  loginTouchableOpacity: {
+    marginTop: 40,
+    backgroundColor: greenIconColor,
+    ...elevationShadowStyle(2, 0.24),
+    padding: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5
+  },
   dontHaveAccountText: {
     marginTop: 30,
     alignSelf: 'center',
-    color: '#AAA9A9'
+    color: greyText
   },
   signUpText: {
-    color: '#02A04E'
+    color: greenIconColor
+  },
+  keyboardAwoidingView: {
+    height: 440,
+    backgroundColor: transparentColor,
+    marginTop: 50,
+    marginBottom: 20,
+    borderRadius: 15,
+    marginHorizontal: 10,
+    alignSelf: 'stretch',
+    bottom: 510
+  },
+  loginView: {
+    backgroundColor: white,
+    padding: 20
   }
 });
 
@@ -119,62 +141,39 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', backgroundColor: 'transparent' }}>
-      <KeyboardAvoidingView
-        style={{
-          height: 440,
-          width: 350,
-          backgroundColor: 'transparent',
-          margin: 50,
-          marginBottom: 20,
-          borderRadius: 15,
-          padding: 20
-        }}
-      >
-        <LinearGradient
-          style={{ flex: 1, zIndex: 2, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          colors={['#83CEA7', '#3A7F78']}
-        />
-        <Text style={styles.loginText}>Log In</Text>
-        <Text style={styles.credentialsText}>Email</Text>
-        <TextInput
-          style={styles.credentialsTextInput}
-          placeholder="xyz@gmail.com"
-          placeholderTextColor="#AAA9A9"
-          autoCapitalize="none"
-          value={username}
-          onChangeText={text => setUsername(text)}
-        />
-        <Text style={styles.credentialsText}>Password</Text>
-        <TextInput
-          secureTextEntry
-          placeholder="\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A"
-          style={styles.credentialsTextInput}
-          placeholderTextColor="#AAA9A9"
-          autoCapitalize="none"
-          value={password}
-          onChangeText={text => setPassword(text)}
-        />
-        <Text style={styles.forgotPasswordText}>Forgot password?</Text>
-        <TouchableOpacity
-          style={{
-            marginTop: 40,
-            backgroundColor: greenIconColor,
-            ...elevationShadowStyle(2, 0.16),
-            padding: 15,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 5
-          }}
-          onPress={login}
-        >
-          <Text style={styles.loginButton}>LOG IN</Text>
-        </TouchableOpacity>
-        <Text style={styles.dontHaveAccountText}>
-          Don't have an account? <Text style={styles.signUpText}>Sign up</Text>
-        </Text>
+    <GradientBackground>
+      <KeyboardAvoidingView style={styles.keyboardAwoidingView} behavior={Platform.OS === 'ios' ? 'position' : null}>
+        <View style={styles.loginView}>
+          <Text style={styles.loginText}>Log In</Text>
+          <Text style={styles.credentialsText}>Email</Text>
+          <TextInput
+            style={styles.credentialsTextInput}
+            placeholder="xyz@gmail.com"
+            placeholderTextColor={greyText}
+            autoCapitalize="none"
+            value={username}
+            onChangeText={text => setUsername(text)}
+          />
+          <Text style={styles.credentialsText}>Password</Text>
+          <TextInput
+            secureTextEntry
+            placeholder={'\u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A \u002A'}
+            style={styles.credentialsTextInput}
+            placeholderTextColor={greyText}
+            autoCapitalize="none"
+            value={password}
+            onChangeText={text => setPassword(text)}
+          />
+          <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+          <TouchableOpacity style={styles.loginTouchableOpacity} onPress={login}>
+            <Text style={styles.loginButton}>LOG IN</Text>
+          </TouchableOpacity>
+          <Text style={styles.dontHaveAccountText}>
+            Don&apos;t have an account? <Text style={styles.signUpText}>Sign up</Text>
+          </Text>
+        </View>
       </KeyboardAvoidingView>
-    </View>
+    </GradientBackground>
   );
 };
 

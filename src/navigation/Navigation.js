@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
+const navigationOptions = (backArrowExists, title, rightIconsExists) => ({ navigation }) => {
   return {
     header: props => (
       <View>
-        <StatusBar translucent backgroundColor="transparent" />
+        <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
         <Header {...props} />
       </View>
     ),
@@ -79,7 +79,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
           },
     // Heading text color
     headerTintColor: navigation.getParam('HeaderTintColor', iconColor),
-    headerRight: (
+    headerRight: rightIconsExists ? (
       <View style={styles.headerRightView}>
         <TouchableOpacity style={styles.notificationIconPadding} onPress={() => navigation.navigate(NotificationsPath)}>
           <NotificationIcon />
@@ -88,7 +88,7 @@ const navigationOptions = (backArrowExists, title) => ({ navigation }) => {
           <ProfileIcon />
         </TouchableOpacity>
       </View>
-    ),
+    ) : null,
     headerLeft: backArrowExists ? (
       <TouchableOpacity style={styles.backArrowPadding} onPress={() => navigation.goBack()}>
         <BackArrowIcon />
@@ -103,27 +103,27 @@ const AppStackNavigator = createStackNavigator(
     ConveyorsList: {
       screen: ConveyorsListScreen,
       path: ConveyorDetailsPath,
-      navigationOptions: navigationOptions(false, 'Conveyors')
+      navigationOptions: navigationOptions(false, 'Conveyors', true)
     },
     Profile: {
       screen: ProfileScreen,
       path: ProfilePath,
-      navigationOptions: navigationOptions(true, 'Profile')
+      navigationOptions: navigationOptions(true, 'Profile', true)
     },
     Notifications: {
       screen: NotificationsScreen,
       path: NotificationsPath,
-      navigationOptions: navigationOptions(true, 'Notifications')
+      navigationOptions: navigationOptions(true, 'Notifications', true)
     },
     ConveyorDetails: {
       screen: ConveyorDetailsScreen,
       path: ConveyorDetailsPath,
-      navigationOptions: navigationOptions(true)
+      navigationOptions: navigationOptions(true, '', true)
     },
     ScannerAnalytics: {
       screen: ScannerAnalyticsScreen,
       path: ScannerAnalyticsPath,
-      navigationOptions: navigationOptions(true, 'Analytics')
+      navigationOptions: navigationOptions(true, 'Analytics', true)
     }
   },
   {
@@ -144,7 +144,7 @@ const AppNavigator = createStackNavigator(
     Login: {
       screen: LoginScreen,
       path: LoginPath,
-      navigationOptions: { header: null }
+      navigationOptions: navigationOptions(false, '', false)
     },
     App: {
       screen: AppStackNavigator,
