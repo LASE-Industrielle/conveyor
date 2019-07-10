@@ -15,7 +15,7 @@ const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) =>
       <ClipPath id="prefix__a">
         <Rect
           data-name="Rectangle 1526"
-          width={(percentage * 296) / 100}
+          width={((percentage > 0 ? percentage : 0) * 296) / 100}
           height={8}
           rx={4}
           transform="translate(32 174)"

@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
   },
   loginView: {
     backgroundColor: white,
-    padding: 20
+    padding: 20,
+    borderRadius: 15
   }
 });
 
