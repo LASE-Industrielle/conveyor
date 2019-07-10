@@ -1,14 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
-import {
-  Platform,
-  RefreshControl,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Platform, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
 
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
@@ -26,7 +18,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 4,
     zIndex: 2,
-    bottom: 32,
+    bottom: 32
   },
   volumeStreamWrapperView: {
     paddingHorizontal: 5,
@@ -39,14 +31,14 @@ const styles = StyleSheet.create({
     ...elevationShadowStyle(2),
     marginBottom: 4,
     paddingVertical: 15,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   analyticsView: {
     backgroundColor: white,
     flex: 0.17,
     justifyContent: 'center',
     flexDirection: 'column',
-    zIndex: 2,
+    zIndex: 2
   },
   analyticsTouchableOpacity: {
     margin: 22,
@@ -57,12 +49,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     borderRadius: 5,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(2)
   },
   analyticsText: {
     color: white,
-    ...fontStyles.fontMedium,
-  },
+    ...fontStyles.fontMedium
+  }
 });
 
 type Conveyor = {
@@ -72,15 +64,15 @@ type Conveyor = {
       latest_measurement: {
         percentage_full: number,
         upper_limit_flow: number,
-        lower_limit_flow: number,
-      },
-    },
-  },
+        lower_limit_flow: number
+      }
+    }
+  }
 };
 
 type Props = {
   navigation: NavigationScreenProp<{}>,
-  conveyor: Conveyor,
+  conveyor: Conveyor
 };
 
 const ConveyorDetailsScreen = ({ navigation }: Props) => {
@@ -89,10 +81,7 @@ const ConveyorDetailsScreen = ({ navigation }: Props) => {
   useEffect(() => {
     getConveyorById(dispatch, navigation.getParam('id', ''), true);
 
-    const timer = setInterval(
-      () => getConveyorById(dispatch, navigation.getParam('id', ''), false),
-      1000,
-    );
+    const timer = setInterval(() => getConveyorById(dispatch, navigation.getParam('id', ''), false), 1000);
     return () => {
       clearInterval(timer);
     };

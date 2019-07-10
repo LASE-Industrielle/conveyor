@@ -9,10 +9,10 @@ import { bgColor, bgGradientEnd, bgGradientStart, bottomBorder } from '../Colors
 const styles = StyleSheet.create({
   outerView: {
     height: '100%',
-    backgroundColor: bgColor,
+    backgroundColor: bgColor
   },
   linearGradientHeight: {
-    height: 134,
+    height: 134
   },
   innerView: {
     bottom: 46,
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     flexDirection: 'row',
-    borderBottomWidth: 1,
-  },
+    borderBottomWidth: 1
+  }
 });
 
 type Props = {
-  children: Node,
+  children: Node
 };
 
 const GradientHeaderComponent = ({ children }: Props) => (

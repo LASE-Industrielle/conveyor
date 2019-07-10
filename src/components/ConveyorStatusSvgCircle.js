@@ -5,7 +5,7 @@ import type { ViewStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet
 
 type Props = {
   style: ViewStyleProp,
-  fill: string,
+  fill: string
 };
 
 const ConveyorStatusSvgCircle = ({ style, fill }: Props) => (

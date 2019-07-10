@@ -25,7 +25,7 @@ import GradientBackground from '../components/GradientBackground';
 
 const appAction = StackActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: AppPath })],
+  actions: [NavigationActions.navigate({ routeName: AppPath })]
 });
 
 const styles = StyleSheet.create({
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     borderColor: greyText,
     marginTop: 10,
     paddingHorizontal: 15,
-    paddingVertical: Platform.OS === 'ios' ? 15 : 10,
+    paddingVertical: Platform.OS === 'ios' ? 15 : 10
   },
   forgotPasswordText: {
     marginTop: 15,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   loginButton: {
     color: white,
     fontSize: 14,
-    ...fontStyles.fontMedium,
+    ...fontStyles.fontMedium
   },
   loginTouchableOpacity: {
     marginTop: 40,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  navigation: NavigationScreenProp<{}>,
+  navigation: NavigationScreenProp<{}>
 };
 
 const LoginScreen = ({ navigation }: Props) => {
@@ -129,10 +129,10 @@ const LoginScreen = ({ navigation }: Props) => {
             text: 'OK',
             onPress: () => {
               auth.errorMessage = '';
-            },
-          },
+            }
+          }
         ],
-        { cancelable: false },
+        { cancelable: false }
       );
     }
   }, [auth.errorMessage]);

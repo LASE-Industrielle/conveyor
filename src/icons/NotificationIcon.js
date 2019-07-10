@@ -22,12 +22,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 17.188 20',
-  },
+    viewBox: '0 0 17.188 20'
+  }
 };
 
 type Props = {
-  children: Object,
+  children: Object
 };
 
 const NotificationIcon = (props: Props) => {

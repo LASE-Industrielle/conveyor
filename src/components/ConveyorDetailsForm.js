@@ -17,19 +17,19 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 16,
     backgroundColor: white,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(2)
   },
   scrollView: {
     zIndex: 2,
-    paddingVertical: 30,
-  },
+    paddingVertical: 30
+  }
 });
 
 type Props = {
   conveyor: {
     mac_address: string,
     material: {
-      name: string,
+      name: string
     },
     latest_measurement: {
       bulk_density: number,
@@ -41,9 +41,9 @@ type Props = {
       mass_sum: number,
       avg_mass_flow: number,
       barycenter: number,
-      valid_points: number,
-    },
-  },
+      valid_points: number
+    }
+  }
 };
 
 const ConveyorDetailsForm = ({ conveyor }: Props) => {
@@ -93,29 +93,13 @@ const ConveyorDetailsForm = ({ conveyor }: Props) => {
             item2={'dm\u00B3/h'}
           />
           <FormLineComponent />
-          <ConveyorDetailsFormRow
-            title="Mass Sum"
-            item1={conveyor.latest_measurement.mass_sum}
-            item2="kg"
-          />
+          <ConveyorDetailsFormRow title="Mass Sum" item1={conveyor.latest_measurement.mass_sum} item2="kg" />
           <FormLineComponent />
-          <ConveyorDetailsFormRow
-            title="Mass Flow"
-            item1={conveyor.latest_measurement.avg_mass_flow}
-            item2="kg/h"
-          />
+          <ConveyorDetailsFormRow title="Mass Flow" item1={conveyor.latest_measurement.avg_mass_flow} item2="kg/h" />
           <FormLineComponent />
-          <ConveyorDetailsFormRow
-            title="Barycenter"
-            item1={conveyor.latest_measurement.barycenter}
-            item2="mm"
-          />
+          <ConveyorDetailsFormRow title="Barycenter" item1={conveyor.latest_measurement.barycenter} item2="mm" />
           <FormLineComponent />
-          <ConveyorDetailsFormRow
-            title="Valid Points"
-            item1={conveyor.latest_measurement.valid_points}
-            item2="%"
-          />
+          <ConveyorDetailsFormRow title="Valid Points" item1={conveyor.latest_measurement.valid_points} item2="%" />
         </View>
       </ScrollView>
     </View>
