@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     flex: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: white,
     zIndex: 2,
     fontSize: 13,
