@@ -7,10 +7,12 @@ import {
   View,
   TextInput,
   StyleSheet,
+  Platform,
   TouchableOpacity,
 } from 'react-native';
 import { NavigationActions, NavigationScreenProp, StackActions } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
+import LinearGradient from 'react-native-linear-gradient';
 
 import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';

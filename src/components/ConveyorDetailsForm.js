@@ -59,61 +59,61 @@ const ConveyorDetailsForm = ({ conveyor }: Props) => {
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Bulk Density"
-            item1={conveyor.latest_measurement.bulk_density.toString()}
+            item1={conveyor.latest_measurement.bulk_density}
             item2={'kg/m\u00B3'}
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Conveyor Speed"
-            item1={conveyor.latest_measurement.conveyor_speed.toString()}
+            item1={conveyor.latest_measurement.conveyor_speed}
             item2="mm/s"
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Calculated Area"
-            item1={conveyor.latest_measurement.calculated_area.toString()}
+            item1={conveyor.latest_measurement.calculated_area}
             item2={'cm\u00B2'}
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Volume Sum"
-            item1={conveyor.latest_measurement.volume_sum.toString()}
+            item1={conveyor.latest_measurement.volume_sum}
             item2={'dm\u00B3'}
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Volume Flow Per Hour"
-            item1={conveyor.latest_measurement.avg_volume_flow_per_hour.toString()}
+            item1={conveyor.latest_measurement.avg_volume_flow_per_hour}
             item2={'dm\u00B3/h'}
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Volume Flow"
-            item1={conveyor.latest_measurement.avg_volume_flow.toString()}
+            item1={conveyor.latest_measurement.avg_volume_flow}
             item2={'dm\u00B3/h'}
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Mass Sum"
-            item1={conveyor.latest_measurement.mass_sum.toString()}
+            item1={conveyor.latest_measurement.mass_sum}
             item2="kg"
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Mass Flow"
-            item1={conveyor.latest_measurement.avg_mass_flow.toString()}
+            item1={conveyor.latest_measurement.avg_mass_flow}
             item2="kg/h"
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Barycenter"
-            item1={conveyor.latest_measurement.barycenter.toString()}
+            item1={conveyor.latest_measurement.barycenter}
             item2="mm"
           />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Valid Points"
-            item1={conveyor.latest_measurement.valid_points.toString()}
+            item1={conveyor.latest_measurement.valid_points}
             item2="%"
           />
         </View>

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { G, Path } from 'react-native-svg';
 import SvgIcon from 'react-native-svg-icon';
@@ -9,8 +10,10 @@ const icon = {
     svg: (
       <G fill={statusColorRed} stroke={statusColorRed}>
         <Path
-          d="M6.412 11.673H1.678a.526.526 0 0 1-.526-.526V1.678a.526.526 0 0 1 .526-.528h4.734a.526.526
-                 0 0 0 0-1.052H1.678A1.58 1.58 0 0 0 .1 1.678v9.472a1.58 1.58 0 0 0 1.578 1.578h4.734a.526.526 0
+          d="M6.412 11.673H1.678a.526.526 0 0 1-.526-.526V1.678a.526.526
+           0 0 1 .526-.528h4.734a.526.526
+                 0 0 0 0-1.052H1.678A1.58 1.58 0 0
+                 0 .1 1.678v9.472a1.58 1.58 0 0 0 1.578 1.578h4.734a.526.526 0
                   1 0 0-1.052z"
         />
         <Path
@@ -23,8 +26,17 @@ const icon = {
   },
 };
 
-const LogoutIcon = () => (
-  <SvgIcon fill={iconColor} height={13} width={13} name="icon" svgs={icon} />
-);
+type Props = {
+  children: Object,
+};
+
+const LogoutIcon = (props: Props) => {
+  const { children } = props;
+  return (
+    <SvgIcon fill={iconColor} height={13} width={13} name="icon" {...props} svgs={icon}>
+      {children}
+    </SvgIcon>
+  );
+};
 
 export default LogoutIcon;
