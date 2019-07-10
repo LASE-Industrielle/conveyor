@@ -13,7 +13,7 @@ import GradientHeaderComponent from '../components/GradientHeaderComponent';
 const styles = StyleSheet.create({
   scrollView: {
     zIndex: 2,
-    bottom: 32
+    bottom: 32,
   },
   graphOuterView: {
     paddingHorizontal: 5,
@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     backgroundColor: white,
     ...elevationShadowStyle(2),
-    marginBottom: 18
+    marginBottom: 18,
   },
   conveyorStatusView: {
-    height: Platform.OS === 'ios' ? 80 : 60
-  }
+    height: Platform.OS === 'ios' ? 80 : 60,
+  },
 });
 
 const ScannerAnalyticsScreen = () => {

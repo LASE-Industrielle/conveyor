@@ -16,5 +16,5 @@ export {
   ScannerAnalyticsPath,
   SplashPath,
   LoginPath,
-  AppPath
+  AppPath,
 };

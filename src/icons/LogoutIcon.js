@@ -19,10 +19,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 12.866 12.825'
-  }
+    viewBox: '0 0 12.866 12.825',
+  },
 };
 
-const LogoutIcon = () => <SvgIcon fill={iconColor} height={13} width={13} name="icon" svgs={icon} />;
+const LogoutIcon = () => (
+  <SvgIcon fill={iconColor} height={13} width={13} name="icon" svgs={icon} />
+);
 
 export default LogoutIcon;

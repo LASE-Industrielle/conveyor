@@ -17,10 +17,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 11.861 13.861'
-  }
+    viewBox: '0 0 11.861 13.861',
+  },
 };
 
-const SynchronizationIcon = () => <SvgIcon fill={iconColor} height={12} width={14} name="icon" svgs={icon} />;
+const SynchronizationIcon = () => (
+  <SvgIcon fill={iconColor} height={12} width={14} name="icon" svgs={icon} />
+);
 
 export default SynchronizationIcon;

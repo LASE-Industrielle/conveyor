@@ -17,10 +17,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 17.188 20'
-  }
+    viewBox: '0 0 17.188 20',
+  },
 };
 
-const NotificationIcon = () => <SvgIcon fill={iconColor} height={20} width={17.2} name="icon" svgs={icon} />;
+const NotificationIcon = () => (
+  <SvgIcon fill={iconColor} height={20} width={17.2} name="icon" svgs={icon} />
+);
 
 export default NotificationIcon;

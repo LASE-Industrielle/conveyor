@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { Circle, Svg } from 'react-native-svg';
-import { ViewStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
+import type { ViewStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 
 type Props = {
   style: ViewStyleProp,
-  fill: string
+  fill: string,
 };
 
 const ConveyorStatusSvgCircle = ({ style, fill }: Props) => (

@@ -29,45 +29,45 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 13,
     bottom: 32,
-    ...elevationShadowStyle(2, 0.12)
+    ...elevationShadowStyle(2, 0.12),
   },
   profileImage: {
     alignSelf: 'center',
     width: 80,
     height: 80,
     borderRadius: 80 / 2,
-    marginTop: 30
+    marginTop: 30,
   },
   profileUsernameText: {
-    paddingBottom: 15
+    paddingBottom: 15,
   },
   iconGreenBackground: {
     backgroundColor: greenIconColor,
-    opacity: 0.08
+    opacity: 0.08,
   },
   iconRedbackground: {
     backgroundColor: statusColorRed,
-    opacity: 0.1
+    opacity: 0.1,
   },
   iconStyle: {
     opacity: 1,
     zIndex: 100,
     position: 'absolute',
-    left: 8
+    left: 8,
   },
   profileItemText: {
     ...fontStyles.fontMedium,
-    color: blackTextColor
+    color: blackTextColor,
   },
   profileItemRedText: {
     ...fontStyles.fontMedium,
     fontWeight: 'bold',
-    color: statusColorRed
-  }
+    color: statusColorRed,
+  },
 });
 
 type Props = {
-  navigation: NavigationScreenProp<{}>
+  navigation: NavigationScreenProp<{}>,
 };
 
 const ProfileScreen = ({ navigation }: Props) => {
@@ -102,7 +102,12 @@ const ProfileScreen = ({ navigation }: Props) => {
         <ListItem icon>
           <Left>
             <Button style={styles.iconGreenBackground} />
-            <NotificationIcon fill={greenIconColor} height={14} width={12} style={styles.iconStyle} />
+            <NotificationIcon
+              fill={greenIconColor}
+              height={14}
+              width={12}
+              style={styles.iconStyle}
+            />
           </Left>
           <Body>
             <Text style={styles.profileItemText}>Notifications</Text>

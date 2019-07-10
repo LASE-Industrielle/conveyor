@@ -6,10 +6,8 @@ import {
   KeyboardAvoidingView,
   View,
   TextInput,
-  Button,
   StyleSheet,
   TouchableOpacity,
-  Platform
 } from 'react-native';
 import { NavigationActions, NavigationScreenProp, StackActions } from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -17,27 +15,26 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';
 
-import { AppPath, ScannerAnalyticsPath } from '../navigation/Paths';
+import { AppPath } from '../navigation/Paths';
 import fontStyles from '../utils/FontUtils';
 import { greenIconColor, white } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
-import { LinearGradient } from 'react-native-svg';
 
 const appAction = StackActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: AppPath })]
+  actions: [NavigationActions.navigate({ routeName: AppPath })],
 });
 
 const styles = StyleSheet.create({
   loginText: {
     ...fontStyles.fontMedium,
     color: '#AAA9A9',
-    fontSize: 24
+    fontSize: 24,
   },
   credentialsText: {
     ...fontStyles.fontMedium,
     color: '#AAA9A9',
-    marginTop: 20
+    marginTop: 20,
   },
   credentialsTextInput: {
     borderRadius: 10,
@@ -45,31 +42,31 @@ const styles = StyleSheet.create({
     borderColor: '#AAA9A9',
     marginTop: 10,
     paddingHorizontal: 15,
-    paddingVertical: Platform.OS === 'ios' ? 15 : 10
+    paddingVertical: Platform.OS === 'ios' ? 15 : 10,
   },
   forgotPasswordText: {
     marginTop: 15,
     alignSelf: 'flex-end',
     flexDirection: 'row',
-    color: '#02A04E'
+    color: '#02A04E',
   },
   loginButton: {
     color: white,
     fontSize: 14,
-    ...fontStyles.fontMedium
+    ...fontStyles.fontMedium,
   },
   dontHaveAccountText: {
     marginTop: 30,
     alignSelf: 'center',
-    color: '#AAA9A9'
+    color: '#AAA9A9',
   },
   signUpText: {
-    color: '#02A04E'
-  }
+    color: '#02A04E',
+  },
 });
 
 type Props = {
-  navigation: NavigationScreenProp<{}>
+  navigation: NavigationScreenProp<{}>,
 };
 
 const LoginScreen = ({ navigation }: Props) => {
@@ -106,10 +103,10 @@ const LoginScreen = ({ navigation }: Props) => {
             text: 'OK',
             onPress: () => {
               auth.errorMessage = '';
-            }
-          }
+            },
+          },
         ],
-        { cancelable: false }
+        { cancelable: false },
       );
     }
   }, [auth.errorMessage]);
@@ -119,7 +116,14 @@ const LoginScreen = ({ navigation }: Props) => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', backgroundColor: 'transparent' }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+      }}
+    >
       <KeyboardAvoidingView
         style={{
           height: 440,
@@ -128,11 +132,19 @@ const LoginScreen = ({ navigation }: Props) => {
           margin: 50,
           marginBottom: 20,
           borderRadius: 15,
-          padding: 20
+          padding: 20,
         }}
       >
         <LinearGradient
-          style={{ flex: 1, zIndex: 2, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+          style={{
+            flex: 1,
+            zIndex: 2,
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+          }}
           colors={['#83CEA7', '#3A7F78']}
         />
         <Text style={styles.loginText}>Log In</Text>
@@ -164,7 +176,7 @@ const LoginScreen = ({ navigation }: Props) => {
             padding: 15,
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 5
+            borderRadius: 5,
           }}
           onPress={login}
         >
