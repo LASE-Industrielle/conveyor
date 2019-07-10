@@ -7,7 +7,7 @@ const storeReducer = ({ auth, profile, conveyors, conveyor }, action) => ({
   auth: authReducer(auth, action),
   profile: profileReducer(profile, action),
   conveyors: conveyorsReducer(conveyors, action),
-  conveyor: conveyorReducer(conveyor, action)
+  conveyor: conveyorReducer(conveyor, action),
 });
 
 export default storeReducer;

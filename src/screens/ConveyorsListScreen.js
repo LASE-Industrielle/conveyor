@@ -1,8 +1,7 @@
 // @flow
 import React, { useEffect } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { NavigationScreenProp } from 'react-navigation';
-import { Text } from 'native-base';
 
 import { getConveyors } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
@@ -17,7 +16,7 @@ import { ConveyorDetailsPath } from '../navigation/Paths';
 const styles = StyleSheet.create({
   flatList: {
     zIndex: 2,
-    bottom: 32
+    bottom: 32,
   },
   listItemView: {
     flex: 1,
@@ -27,43 +26,43 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     zIndex: 3,
     marginBottom: 5,
-    ...elevationShadowStyle(2)
+    ...elevationShadowStyle(2),
   },
   touchableOpacityPadding: {
-    paddingBottom: 16
+    paddingBottom: 16,
   },
   statusCircle: {
     alignSelf: 'flex-end',
     marginTop: 10,
-    marginRight: 10
+    marginRight: 10,
   },
   conveyorNameText: {
     marginTop: -5,
     marginLeft: 18,
     ...fontStyles.fontBold,
-    fontSize: 13
+    fontSize: 13,
   },
   conveyorStatusText: {
     marginLeft: 18,
     marginTop: 4,
     color: greyText,
     ...fontStyles.fontMedium,
-    fontSize: 13
+    fontSize: 13,
   },
   conveyorStatusGreenText: {
     color: statusColorGreen,
     ...fontStyles.fontMedium,
-    fontSize: 13
+    fontSize: 13,
   },
   conveyorStatusRedText: {
     color: statusColorRed,
     ...fontStyles.fontMedium,
-    fontSize: 13
-  }
+    fontSize: 13,
+  },
 });
 
 type Props = {
-  navigation: NavigationScreenProp<{}>
+  navigation: NavigationScreenProp<{}>,
 };
 
 type ListItemProps = {
@@ -71,9 +70,9 @@ type ListItemProps = {
     id: string,
     name: string,
     latest_measurement: {
-      scanner_status: string
-    }
-  }
+      scanner_status: string,
+    },
+  },
 };
 
 const ConveyorsListScreen = ({ navigation }: Props) => {
@@ -94,21 +93,29 @@ const ConveyorsListScreen = ({ navigation }: Props) => {
         onPress={() =>
           navigation.navigate(ConveyorDetailsPath, {
             id: item.id,
-            title: item.name
+            title: item.name,
           })
         }
       >
         <ConveyorStatusSvgCircle
           style={styles.statusCircle}
-          fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
+          fill={
+            item.latest_measurement.scanner_status.toUpperCase() === 'OK'
+              ? statusColorGreen
+              : statusColorRed
+          }
         />
         <Text style={styles.conveyorNameText}>{item.name.toUpperCase()}</Text>
         <Text style={styles.conveyorStatusText}>
           Status:{' '}
           {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
-            <Text style={styles.conveyorStatusGreenText}>{item.latest_measurement.scanner_status}</Text>
+            <Text style={styles.conveyorStatusGreenText}>
+              {item.latest_measurement.scanner_status}
+            </Text>
           ) : (
-            <Text style={styles.conveyorStatusRedText}>{item.latest_measurement.scanner_status}</Text>
+            <Text style={styles.conveyorStatusRedText}>
+              {item.latest_measurement.scanner_status}
+            </Text>
           )}
         </Text>
       </TouchableOpacity>
