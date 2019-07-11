@@ -35,7 +35,7 @@ const GraphComponent = props => {
             style={{
               axis: { stroke: bgColor },
               ticks: { stroke: bgColor },
-              grid: { stroke: bgColor }
+              grid: { stroke: bgColor },
             }}
           />
 
@@ -46,7 +46,7 @@ const GraphComponent = props => {
             style={{
               axis: { stroke: bgColor },
               ticks: { stroke: 'none' },
-              grid: { stroke: 'none' }
+              grid: { stroke: 'none' },
             }}
           />
 

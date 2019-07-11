@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 4,
     zIndex: 2,
-    bottom: 32
+    bottom: 32,
   },
   volumeStreamWrapperView: {
     paddingHorizontal: 5,
@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
     ...elevationShadowStyle(2),
     marginBottom: 4,
     paddingVertical: 15,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   analyticsView: {
     backgroundColor: white,
     flex: 0.17,
     justifyContent: 'center',
     flexDirection: 'column',
-    zIndex: 2
+    zIndex: 2,
   },
   analyticsTouchableOpacity: {
     margin: 22,
@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     borderRadius: 5,
-    ...elevationShadowStyle(2)
+    ...elevationShadowStyle(2),
   },
   analyticsText: {
     color: white,
-    ...fontStyles.fontMedium
-  }
+    ...fontStyles.fontMedium,
+  },
 });
 
 type Conveyor = {

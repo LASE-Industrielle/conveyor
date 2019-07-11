@@ -50,5 +50,5 @@ export {
   whiteBorder,
   greyText,
   bgGradientStartLogin,
-  transparentColor
+  transparentColor,
 };

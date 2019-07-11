@@ -6,7 +6,7 @@ import {
   CONVEYOR_LOAD_SUCCESS,
   CONVEYORS_LOAD_ERROR,
   CONVEYORS_LOAD_START,
-  CONVEYORS_LOAD_SUCCESS
+  CONVEYORS_LOAD_SUCCESS,
 } from '../reducers/Actions';
 import { conveyorsUrl } from '../Urls';
 

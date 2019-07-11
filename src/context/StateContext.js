@@ -13,25 +13,25 @@ const initialState = {
   auth: {
     token: '',
     errorMessage: '',
-    loading: false
+    loading: false,
   },
   profile: {
-    username: ''
+    username: '',
   },
   conveyors: {
     data: [],
     errorMessage: '',
-    loading: false
+    loading: false,
   },
   conveyor: {
     details: {
       material: {},
       customer: {},
-      latest_measurement: {}
+      latest_measurement: {},
     },
     loading: false,
-    errorMessage: ''
-  }
+    errorMessage: '',
+  },
 };
 
 export { StateContext, StateProvider, useStore, initialState };

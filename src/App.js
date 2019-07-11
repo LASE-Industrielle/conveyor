@@ -7,8 +7,8 @@ import storeReducer from './reducers/StoreReducer';
 
 const style = StyleSheet.create({
   globalFont: {
-    fontFamily: 'HelveticaNeue'
-  }
+    fontFamily: 'HelveticaNeue',
+  },
 });
 
 const App = () => (

@@ -22,8 +22,8 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 11.861 13.861'
-  }
+    viewBox: '0 0 11.861 13.861',
+  },
 };
 
 type Props = {

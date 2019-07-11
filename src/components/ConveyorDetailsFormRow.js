@@ -8,21 +8,21 @@ const styles = StyleSheet.create({
   wholeFormRowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 10
+    margin: 10,
   },
   orangeLine: {
     flex: 0.1,
     borderLeftWidth: 1,
-    borderLeftColor: orange
+    borderLeftColor: orange,
   },
   titleStyle: { flex: 1 },
   rightFormRowContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   rightFormRowLeftTextColor: { color: bottomBorder },
-  rightFormRowRightTextColor: { color: inactiveText }
+  rightFormRowRightTextColor: { color: inactiveText },
 });
 
 type Props = {

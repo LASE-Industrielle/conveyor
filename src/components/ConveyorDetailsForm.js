@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 16,
     backgroundColor: white,
-    ...elevationShadowStyle(2)
+    ...elevationShadowStyle(2),
   },
   scrollView: {
     zIndex: 2,
-    paddingVertical: 30
-  }
+    paddingVertical: 30,
+  },
 });
 
 type Props = {

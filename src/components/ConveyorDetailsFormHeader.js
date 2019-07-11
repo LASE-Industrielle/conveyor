@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
   headerWrapper: {
     margin: 10,
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   textStyle: {
     color: black,
-    ...fontStyles.fontBold
-  }
+    ...fontStyles.fontBold,
+  },
 });
 
 type Props = {

@@ -28,61 +28,61 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 13,
     bottom: 32,
-    ...elevationShadowStyle(2, 0.12)
+    ...elevationShadowStyle(2, 0.12),
   },
   profileImage: {
     alignSelf: 'center',
     width: 80,
     height: 80,
     borderRadius: 80 / 2,
-    marginTop: 30
+    marginTop: 30,
   },
   profileUsernameText: {
     paddingBottom: 15,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   iconGreenBackground: {
     backgroundColor: greenIconColor,
-    opacity: 0.08
+    opacity: 0.08,
   },
   iconRedbackground: {
     backgroundColor: statusColorRed,
-    opacity: 0.1
+    opacity: 0.1,
   },
   iconStyle: {
     opacity: 1,
     zIndex: 100,
     position: 'absolute',
-    left: 8
+    left: 8,
   },
   profileItemText: {
     alignSelf: 'center',
     ...fontStyles.fontMedium,
-    color: blackTextColor
+    color: blackTextColor,
   },
   profileItemRedText: {
     ...fontStyles.fontMedium,
     fontWeight: 'bold',
-    color: statusColorRed
+    color: statusColorRed,
   },
   list: {
-    flex: 1
+    flex: 1,
   },
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10
+    padding: 10,
   },
   profileListItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
   },
   iconTextWrapper: { flexDirection: 'row' },
   icon: { padding: 7, margin: 7, borderRadius: 5, alignSelf: 'center' },
   switch: {
-    alignSelf: 'flex-end'
-  }
+    alignSelf: 'flex-end',
+  },
 });
 
 type Props = {
