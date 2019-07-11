@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  navigation: NavigationScreenProp<{}>
+  navigation: NavigationScreenProp<{}>,
 };
 
 const SplashScreen = ({ navigation }: Props) => {
@@ -25,6 +25,8 @@ const SplashScreen = ({ navigation }: Props) => {
     if (token !== null) {
       axios.defaults.headers.common.Authorization = `Token ${token}`;
       navigation.dispatch(resetAction(AppPath));
+    } else {
+      navigation.dispatch(resetAction(LoginPath));
     }
   };
 
