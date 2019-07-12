@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
   line: {
     marginHorizontal: 15,
     borderBottomColor: whiteBorder,
-    borderBottomWidth: 0.4,
-  },
+    borderBottomWidth: 0.4
+  }
 });
 
 const FormLineComponent = () => <View style={styles.line} />;

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     flex: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: white,
     zIndex: 2,
     fontSize: 13,
@@ -21,10 +22,10 @@ const styles = StyleSheet.create({
     margin: 10,
     marginTop: 0,
     ...fontStyles.fontMedium,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(2)
   },
   statusCircle: { alignSelf: 'center', marginLeft: 10, marginRight: 12 },
-  statusText: { flex: 1, color: greyText },
+  statusText: { flex: 1, color: greyText }
 });
 
 const ConveyorStatusForm = ({ status }: { status: string }) => {

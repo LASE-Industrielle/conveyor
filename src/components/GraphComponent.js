@@ -36,7 +36,7 @@ const GraphComponent = props => {
             style={{
               axis: { stroke: bgColor },
               ticks: { stroke: bgColor },
-              grid: { stroke: bgColor },
+              grid: { stroke: bgColor }
             }}
           />
 
@@ -47,15 +47,11 @@ const GraphComponent = props => {
             style={{
               axis: { stroke: bgColor },
               ticks: { stroke: 'none' },
-              grid: { stroke: 'none' },
+              grid: { stroke: 'none' }
             }}
           />
 
-          <VictoryLine
-            style={{ data: { stroke: lineColor } }}
-            data={data}
-            interpolation="catmullRom"
-          />
+          <VictoryLine style={{ data: { stroke: lineColor } }} data={data} interpolation="catmullRom" />
         </VictoryChart>
       ) : (
         <View style={{ height: 300, alignItems: 'center', justifyContent: 'center' }}>

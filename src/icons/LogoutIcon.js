@@ -22,12 +22,12 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 12.866 12.825',
-  },
+    viewBox: '0 0 12.866 12.825'
+  }
 };
 
 type Props = {
-  children: Object,
+  children: Object
 };
 
 const LogoutIcon = (props: Props) => {

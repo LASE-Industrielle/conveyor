@@ -4,9 +4,7 @@ const StateContext = createContext('');
 
 // eslint-disable-next-line react/prop-types
 const StateProvider = ({ reducer, initialState, children }) => (
-  <StateContext.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </StateContext.Provider>
+  <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>
 );
 
 const useStore = () => useContext(StateContext);
@@ -15,25 +13,25 @@ const initialState = {
   auth: {
     token: '',
     errorMessage: '',
-    loading: false,
+    loading: false
   },
   profile: {
-    username: '',
+    username: ''
   },
   conveyors: {
     data: [],
     errorMessage: '',
-    loading: false,
+    loading: false
   },
   conveyor: {
     details: {
       material: {},
       customer: {},
-      latest_measurement: {},
+      latest_measurement: {}
     },
     loading: false,
-    errorMessage: '',
-  },
+    errorMessage: ''
+  }
 };
 
 export { StateContext, StateProvider, useStore, initialState };

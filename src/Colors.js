@@ -28,6 +28,8 @@ const statusColorRed = '#F19B93';
 const bottomBorder = '#3A7F78';
 const whiteBorder = '#E8E6EA';
 
+const transparentColor = 'transparent';
+
 export {
   white,
   primary,
@@ -50,6 +52,7 @@ export {
   whiteBorder,
   greyText,
   bgGradientStartLogin,
+  transparentColor,
   graphGreyText,
   inactiveDotGrey
 };

@@ -6,7 +6,7 @@ import { bgColor, black, statusColorGreen, statusColorRed } from '../Colors';
 type Props = {
   percentage: number,
   upperLimit: number,
-  lowerLimit: number,
+  lowerLimit: number
 };
 
 const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) => (
@@ -15,7 +15,7 @@ const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) =>
       <ClipPath id="prefix__a">
         <Rect
           data-name="Rectangle 1526"
-          width={((percentage ==-1? 0: percentage) * 296) / 100}
+          width={((percentage > 0 ? percentage : 0) * 296) / 100}
           height={8}
           rx={4}
           transform="translate(32 174)"
@@ -80,14 +80,7 @@ const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) =>
       </G>
       <G data-name="Group 315">
         <G data-name="Group 313">
-          <Rect
-            data-name="Rectangle 1488"
-            width={296}
-            height={8}
-            rx={4}
-            transform="translate(0 46)"
-            fill={bgColor}
-          />
+          <Rect data-name="Rectangle 1488" width={296} height={8} rx={4} transform="translate(0 46)" fill={bgColor} />
         </G>
         <G data-name="Mask Group 9" clipPath="url(#prefix__a)" transform="translate(-32 -128)">
           <Rect
@@ -101,12 +94,7 @@ const VolumeStreamComponent = ({ percentage, upperLimit, lowerLimit }: Props) =>
         </G>
       </G>
       <G data-name="Group 302">
-        <G
-          data-name="Group 301"
-          fill="#656565"
-          fontSize={12}
-          fontFamily="HelveticaNeue, Helvetica Neue"
-        >
+        <G data-name="Group 301" fill="#656565" fontSize={12} fontFamily="HelveticaNeue, Helvetica Neue">
           <Text data-name="Upper limit 7500" transform="translate(0 116)">
             <TSpan x={0} y={0} letterSpacing=".02em">
               {'Upper limit '}

@@ -25,12 +25,10 @@ const icon = {
         </G>
       </G>
     ),
-    viewBox: '0 0 17.188 20',
-  },
+    viewBox: '0 0 17.188 20'
+  }
 };
 
-const ProfileIcon = () => (
-  <SvgIcon fill={iconColor} height={20} width={20} name="icon" svgs={icon} />
-);
+const ProfileIcon = () => <SvgIcon fill={iconColor} height={20} width={20} name="icon" svgs={icon} />;
 
 export default ProfileIcon;

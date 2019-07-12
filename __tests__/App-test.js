@@ -20,7 +20,7 @@ describe('ConveyorDetailsFormRow', () => {
       wrapper
         .childAt(0)
         .childAt(0)
-        .text(),
+        .text()
     ).toEqual(title);
   });
 });
