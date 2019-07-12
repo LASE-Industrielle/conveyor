@@ -17,6 +17,7 @@
     "react-native-linear-gradient": "^2.5.4",
     "react-native-svg": "^9.5.1",
     "react-native-svg-icon": "^0.8.1",
+    "react-native-swiper": "^1.6.0-nightly.2",
     "react-navigation": "^3.11.0",
     "victory-native": "^32.0.2"
   },

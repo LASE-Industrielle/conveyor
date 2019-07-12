@@ -6,6 +6,8 @@ const inactiveText = '#C5C5C5';
 const white = '#FFFFFF';
 const blackTextColor = '#797979';
 const greyText = '#AAA9A9';
+const graphGreyText = '#656565';
+const inactiveDotGrey = '#E0E0E0';
 
 const iconColor = '#FFF';
 const greenIconColor = '#02A04E';
@@ -47,5 +49,7 @@ export {
   bottomBorder,
   whiteBorder,
   greyText,
-  bgGradientStartLogin
+  bgGradientStartLogin,
+  graphGreyText,
+  inactiveDotGrey
 };
