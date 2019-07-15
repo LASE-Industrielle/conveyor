@@ -4,8 +4,14 @@ import { VictoryAxis, VictoryChart, VictoryLine, VictoryTheme } from 'victory-na
 import { bgColor } from '../Colors';
 
 const GraphComponent = props => {
-  const { label, lineColor, data, ticks, value, units } = props;
+  const { label, lineColor, ticks, value, units } = props;
+  let {data} = props
   const [loader, setLoader] = useState(false);
+
+  if (data.length ===1){
+    // fix bug in charts when only one value needs to be shown
+    data = [...data, {x:1, y: data[0].y}]
+  }
 
   // hack chart drawing to be done in background
   useEffect(() => {

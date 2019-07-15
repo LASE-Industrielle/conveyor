@@ -126,7 +126,7 @@ const ConveyorDetailsScreen = ({ navigation }: Props) => {
           <TouchableOpacity
             style={styles.analyticsTouchableOpacity}
             onPress={() => {
-              navigation.navigate(ScannerAnalyticsPath);
+              navigation.navigate(ScannerAnalyticsPath, {id:navigation.getParam('id', '')});
             }}
           >
             <Text style={styles.analyticsText}>ANALYTICS</Text>
