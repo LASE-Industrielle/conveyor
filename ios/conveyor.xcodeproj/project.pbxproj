@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -26,6 +27,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		19883B7B61004686ADE8ACB3 /* HelveticaNeue-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 853E7BE661AB4B3184FC817A /* HelveticaNeue-Heavy.otf */; };
+		1AC185B371755A953113ADB1 /* libPods-conveyor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AFBE41DB85A66A1D23CFDF /* libPods-conveyor.a */; };
 		221EC188040A483A978234EB /* HelveticaNeue-ThinExtObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = A28343CDB59442909CB43CE4 /* HelveticaNeue-ThinExtObl.otf */; };
 		22E36AA1E2F248058355DE5D /* HelveticaNeue-UltraLigCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = B49101D15372430AAB0F40A4 /* HelveticaNeue-UltraLigCond.otf */; };
 		25730ECC74D94F5FBE4562D7 /* HelveticaNeue-MediumCondObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9ADC9CB9FD8473F8232ED9A /* HelveticaNeue-MediumCondObl.otf */; };
@@ -46,7 +48,10 @@
 		2F5E6DC4DB974D718D5D4A73 /* HelveticaNeueUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7462080F66994A448F677249 /* HelveticaNeueUltraLight.ttf */; };
 		3BE19027A060464B84F58146 /* HelveticaNeue-ExtendedObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8DD86133F168425189632A46 /* HelveticaNeue-ExtendedObl.otf */; };
 		3F7B6643421A46E2955B0B18 /* HelveticaNeue-BlackExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1177CAB232C43469EF6A541 /* HelveticaNeue-BlackExt.otf */; };
+		40871E283211472FA18CDAB0 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3506A7F33F04FF3BBD31E7F /* libRNFirebase.a */; };
+		449854A3524D58C9D22BA947 /* libPods-conveyor-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429EE5E46D0F49545E97C275 /* libPods-conveyor-tvOSTests.a */; };
 		4590F26774C04A8BB3C92755 /* HelveticaNeue-Condensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8845E4E3BD04448EBB889B62 /* HelveticaNeue-Condensed.otf */; };
+		4DCC43418D7E184DBF767403 /* libPods-conveyorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0281D7DAB601EF49322FF00 /* libPods-conveyorTests.a */; };
 		4FF5418B91E34A4CB42E8469 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8228944BD044E05A0915D5D /* libRNSVG.a */; };
 		521CE440EA74409C860E89E5 /* HelveticaNeueUltraLightItal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 603870C9C6274206B761D043 /* HelveticaNeueUltraLightItal.ttf */; };
 		5AC44068424841548689C915 /* HelveticaNeue-LightExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = A394705735FC44718C22FFE9 /* HelveticaNeue-LightExt.otf */; };
@@ -83,16 +88,18 @@
 		D432E431AF934BEFA6F91341 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12560144E7BB4208B8ED8C87 /* libRNSVG-tvOS.a */; };
 		D66CF8C7071A43EEB712B5AD /* HelveticaNeueItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE32BEAADC814E849DEE097A /* HelveticaNeueItalic.ttf */; };
 		D74BCA01B6A74FB5839FF923 /* HelveticaNeueLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4225D086D6CE4E67B53B3620 /* HelveticaNeueLightItalic.ttf */; };
+		D8754682696231EF8AE8A325 /* Pods_conveyor_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FCD2F7E5107B6DB90D8701 /* Pods_conveyor_tvOS.framework */; };
 		D8A12C534F6A40E4B27EFEAC /* HelveticaNeue-Extended.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04808DCE494E4DCE88E8A7D5 /* HelveticaNeue-Extended.otf */; };
 		D9A675E6FFB94D7EA223454F /* HelveticaNeueLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7339B94E1D4D42A5B112BE8A /* HelveticaNeueLight.ttf */; };
 		DE66BAF8CA3C4851A36ABBC0 /* HelveticaNeue-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7998B49838494D23B24CAA9D /* HelveticaNeue-Black.otf */; };
+		E3823E3A22DDC4920001E2AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3823E3922DDC4920001E2AF /* GoogleService-Info.plist */; };
 		E67FA6F8D06B49708B42C3E7 /* HelveticaNeue-ExtBlackCondObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9EE49F65AF440C7A16BD066 /* HelveticaNeue-ExtBlackCondObl.otf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		EDB21AB11E9C41F28B895639 /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA36EE323E441C8B9136DB6 /* libRNCAsyncStorage.a */; };
 		F3791E0E14634BA49D891229 /* HelveticaNeueCondensedBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBEB54FC87454A4887AF01D5 /* HelveticaNeueCondensedBlack.ttf */; };
 		FCD710160D074726B039BBD0 /* HelveticaNeue-BoldCondObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD0E9B3992224D4F8753E91D /* HelveticaNeue-BoldCondObl.otf */; };
 		FDADDDEE65944D5C97B043AA /* HelveticaNeue-ExtBlackCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3686B12837B1426DAF9ACEA0 /* HelveticaNeue-ExtBlackCond.otf */; };
-		EDB21AB11E9C41F28B895639 /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA36EE323E441C8B9136DB6 /* libRNCAsyncStorage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,6 +418,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		E3044E2E22DDC87700522047 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59F82256BB3D4BAE9998FFB6 /* RNFirebase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFirebase;
+		};
+		E3823E3722DDC3FC0001E2AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B791DD0FA3E140C281D54C23 /* RNCAsyncStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCAsyncStorage;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -424,8 +445,10 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* conveyorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = conveyorTests.m; sourceTree = "<group>"; };
 		030FF20DD3EE4F44A40380CB /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
+		042AD81B6165453FE08C0B53 /* Pods-conveyor-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-conveyor-tvOSTests/Pods-conveyor-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		04808DCE494E4DCE88E8A7D5 /* HelveticaNeue-Extended.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Extended.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Extended.otf"; sourceTree = "<group>"; };
 		06A7D99B8E5647C991CD99A2 /* HelveticaNeue-LightExtObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-LightExtObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-LightExtObl.otf"; sourceTree = "<group>"; };
+		0B9DF9EB3CBFC3FB00291C4A /* Pods-conveyor-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-conveyor-tvOSTests/Pods-conveyor-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		0CD2B72115134E449132AD06 /* HelveticaNeueCondensedBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueCondensedBold.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueCondensedBold.ttf; sourceTree = "<group>"; };
 		0D0D28A7D5294C12A31EC88F /* HelveticaNeue-Roman.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Roman.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Roman.otf"; sourceTree = "<group>"; };
 		0D30A7A199544F6890B66C1F /* HelveticaNeue-BoldExtObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BoldExtObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BoldExtObl.otf"; sourceTree = "<group>"; };
@@ -453,11 +476,15 @@
 		3686B12837B1426DAF9ACEA0 /* HelveticaNeue-ExtBlackCond.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-ExtBlackCond.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-ExtBlackCond.otf"; sourceTree = "<group>"; };
 		398738C26C0B40008A685831 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueBold.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueBold.ttf; sourceTree = "<group>"; };
 		3B9F0F02BFC74B40B0B941C9 /* HelveticaNeue-MediumCond.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-MediumCond.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-MediumCond.otf"; sourceTree = "<group>"; };
+		3C59DF92CFFE9F2E167FA6EF /* Pods-conveyor-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor-tvOS.release.xcconfig"; path = "Target Support Files/Pods-conveyor-tvOS/Pods-conveyor-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		407EA1D3C7B9483E9DE99E86 /* HelveticaNeue-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Light.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Light.otf"; sourceTree = "<group>"; };
 		4225D086D6CE4E67B53B3620 /* HelveticaNeueLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueLightItalic.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueLightItalic.ttf; sourceTree = "<group>"; };
+		429EE5E46D0F49545E97C275 /* libPods-conveyor-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-conveyor-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1985BFCA17429AA45064A1 /* HelveticaNeue-BlackExtObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BlackExtObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BlackExtObl.otf"; sourceTree = "<group>"; };
 		4E4A416C614D444FBADD9E91 /* HelveticaNeue-HeavyItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-HeavyItalic.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-HeavyItalic.otf"; sourceTree = "<group>"; };
+		522062EC7B11F56B6C3CDB5F /* Pods-conveyorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyorTests.release.xcconfig"; path = "Target Support Files/Pods-conveyorTests/Pods-conveyorTests.release.xcconfig"; sourceTree = "<group>"; };
 		5250E0F8387E4D88B93B27E8 /* HelveticaNeue-BlackCondObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BlackCondObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BlackCondObl.otf"; sourceTree = "<group>"; };
+		59F82256BB3D4BAE9998FFB6 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		5E1677D1C092406FB33A0637 /* HelveticaNeue-HeavyExt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-HeavyExt.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-HeavyExt.otf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		603870C9C6274206B761D043 /* HelveticaNeueUltraLightItal.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueUltraLightItal.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueUltraLightItal.ttf; sourceTree = "<group>"; };
@@ -468,15 +495,19 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7998B49838494D23B24CAA9D /* HelveticaNeue-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Black.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Black.otf"; sourceTree = "<group>"; };
 		7D9DD9AEDF6D4DFA8E8CBEA8 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		7FA36EE323E441C8B9136DB6 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
+		82FCD2F7E5107B6DB90D8701 /* Pods_conveyor_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_conveyor_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		853E7BE661AB4B3184FC817A /* HelveticaNeue-Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Heavy.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Heavy.otf"; sourceTree = "<group>"; };
 		8845E4E3BD04448EBB889B62 /* HelveticaNeue-Condensed.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Condensed.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Condensed.otf"; sourceTree = "<group>"; };
 		8873E88EBD7046BCB0B6E011 /* HelveticaNeue-MediumExt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-MediumExt.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-MediumExt.otf"; sourceTree = "<group>"; };
 		8DD86133F168425189632A46 /* HelveticaNeue-ExtendedObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-ExtendedObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-ExtendedObl.otf"; sourceTree = "<group>"; };
+		9254A1E57078DFF4CE9800DD /* Pods-conveyor-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-conveyor-tvOS/Pods-conveyor-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		93C78FF7399B42BB97A9B44F /* HelveticaNeue-HeavyCond.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-HeavyCond.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-HeavyCond.otf"; sourceTree = "<group>"; };
 		980F0A105F944C11A9F93E53 /* HelveticaNeue-UltraLigExt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-UltraLigExt.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-UltraLigExt.otf"; sourceTree = "<group>"; };
 		991248AD513C451496B8802E /* HelveticaNeue-BlackCond.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BlackCond.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BlackCond.otf"; sourceTree = "<group>"; };
 		9FA503ABA7694B58A6D541F9 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		A0281D7DAB601EF49322FF00 /* libPods-conveyorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-conveyorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28343CDB59442909CB43CE4 /* HelveticaNeue-ThinExtObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-ThinExtObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-ThinExtObl.otf"; sourceTree = "<group>"; };
 		A394705735FC44718C22FFE9 /* HelveticaNeue-LightExt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-LightExt.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-LightExt.otf"; sourceTree = "<group>"; };
 		A4DBE32DFC594A40A3510F5D /* HelveticaNeue-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Thin.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Thin.otf"; sourceTree = "<group>"; };
@@ -487,19 +518,25 @@
 		B1DAA4528B634EBFA437D629 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		B21AE7A5964A450BBE30E4D9 /* HelveticaNeue-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-Medium.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-Medium.otf"; sourceTree = "<group>"; };
 		B49101D15372430AAB0F40A4 /* HelveticaNeue-UltraLigCond.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-UltraLigCond.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-UltraLigCond.otf"; sourceTree = "<group>"; };
+		B55EF24627C191D0FB00E463 /* Pods-conveyorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyorTests.debug.xcconfig"; path = "Target Support Files/Pods-conveyorTests/Pods-conveyorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B791DD0FA3E140C281D54C23 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
 		CD0E9B3992224D4F8753E91D /* HelveticaNeue-BoldCondObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BoldCondObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BoldCondObl.otf"; sourceTree = "<group>"; };
 		CE32BEAADC814E849DEE097A /* HelveticaNeueItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueItalic.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueItalic.ttf; sourceTree = "<group>"; };
 		CF066E107F5944A9933B0109 /* HelveticaNeue-HeavyExtObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-HeavyExtObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-HeavyExtObl.otf"; sourceTree = "<group>"; };
 		CF07D5B581C948FDA8D8E1D5 /* HelveticaNeue-LightCondObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-LightCondObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-LightCondObl.otf"; sourceTree = "<group>"; };
+		D3506A7F33F04FF3BBD31E7F /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		D5593CCBFE4842CAAD84DB0D /* HelveticaNeue-ThinCondObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-ThinCondObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-ThinCondObl.otf"; sourceTree = "<group>"; };
+		D732BD4DA8167EDB7B44A760 /* Pods-conveyor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor.debug.xcconfig"; path = "Target Support Files/Pods-conveyor/Pods-conveyor.debug.xcconfig"; sourceTree = "<group>"; };
 		D8228944BD044E05A0915D5D /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
+		E344240422DDD5A900B0E963 /* conveyor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = conveyor.entitlements; path = conveyor/conveyor.entitlements; sourceTree = "<group>"; };
+		E3823E3922DDC4920001E2AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "conveyor/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3EBD57B28AE2FAD0A4F630C /* Pods-conveyor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conveyor.release.xcconfig"; path = "Target Support Files/Pods-conveyor/Pods-conveyor.release.xcconfig"; sourceTree = "<group>"; };
 		E9ADC9CB9FD8473F8232ED9A /* HelveticaNeue-MediumCondObl.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-MediumCondObl.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-MediumCondObl.otf"; sourceTree = "<group>"; };
 		EBEB54FC87454A4887AF01D5 /* HelveticaNeueCondensedBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeueCondensedBlack.ttf; path = ../assets/fonts/HelveticaNeue/HelveticaNeueCondensedBlack.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F1177CAB232C43469EF6A541 /* HelveticaNeue-BlackExt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HelveticaNeue-BlackExt.otf"; path = "../assets/fonts/HelveticaNeue/HelveticaNeue-BlackExt.otf"; sourceTree = "<group>"; };
-		B791DD0FA3E140C281D54C23 /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; name = "RNCAsyncStorage.xcodeproj"; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		7FA36EE323E441C8B9136DB6 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; name = "libRNCAsyncStorage.a"; path = "libRNCAsyncStorage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		F3AFBE41DB85A66A1D23CFDF /* libPods-conveyor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-conveyor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				4DCC43418D7E184DBF767403 /* libPods-conveyorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +570,8 @@
 				4FF5418B91E34A4CB42E8469 /* libRNSVG.a in Frameworks */,
 				97669832C7494734AD847EA0 /* libBVLinearGradient.a in Frameworks */,
 				EDB21AB11E9C41F28B895639 /* libRNCAsyncStorage.a in Frameworks */,
+				40871E283211472FA18CDAB0 /* libRNFirebase.a in Frameworks */,
+				1AC185B371755A953113ADB1 /* libPods-conveyor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +590,7 @@
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				0202B6E9EAC945C19F1A4796 /* libRNGestureHandler-tvOS.a in Frameworks */,
 				D432E431AF934BEFA6F91341 /* libRNSVG-tvOS.a in Frameworks */,
+				D8754682696231EF8AE8A325 /* Pods_conveyor_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				449854A3524D58C9D22BA947 /* libPods-conveyor-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +688,8 @@
 		13B07FAE1A68108700A75B9A /* conveyor */ = {
 			isa = PBXGroup;
 			children = (
+				E344240422DDD5A900B0E963 /* conveyor.entitlements */,
+				E3823E3922DDC4920001E2AF /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -741,6 +785,10 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				82FCD2F7E5107B6DB90D8701 /* Pods_conveyor_tvOS.framework */,
+				F3AFBE41DB85A66A1D23CFDF /* libPods-conveyor.a */,
+				429EE5E46D0F49545E97C275 /* libPods-conveyor-tvOSTests.a */,
+				A0281D7DAB601EF49322FF00 /* libPods-conveyorTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -762,6 +810,8 @@
 				D8228944BD044E05A0915D5D /* libRNSVG.a */,
 				AC35E4CDAFEB4C91AF752299 /* libBVLinearGradient.a */,
 				12560144E7BB4208B8ED8C87 /* libRNSVG-tvOS.a */,
+				7FA36EE323E441C8B9136DB6 /* libRNCAsyncStorage.a */,
+				D3506A7F33F04FF3BBD31E7F /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -784,6 +834,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		81B6528FF8CB9DAAA2AA51E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D732BD4DA8167EDB7B44A760 /* Pods-conveyor.debug.xcconfig */,
+				E3EBD57B28AE2FAD0A4F630C /* Pods-conveyor.release.xcconfig */,
+				9254A1E57078DFF4CE9800DD /* Pods-conveyor-tvOS.debug.xcconfig */,
+				3C59DF92CFFE9F2E167FA6EF /* Pods-conveyor-tvOS.release.xcconfig */,
+				042AD81B6165453FE08C0B53 /* Pods-conveyor-tvOSTests.debug.xcconfig */,
+				0B9DF9EB3CBFC3FB00291C4A /* Pods-conveyor-tvOSTests.release.xcconfig */,
+				B55EF24627C191D0FB00E463 /* Pods-conveyorTests.debug.xcconfig */,
+				522062EC7B11F56B6C3CDB5F /* Pods-conveyorTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +868,7 @@
 				9FA503ABA7694B58A6D541F9 /* RNSVG.xcodeproj */,
 				B1DAA4528B634EBFA437D629 /* BVLinearGradient.xcodeproj */,
 				B791DD0FA3E140C281D54C23 /* RNCAsyncStorage.xcodeproj */,
+				59F82256BB3D4BAE9998FFB6 /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -826,6 +892,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				1D3584D549A247F1B38CA1DC /* Resources */,
 				6F8E544822BB775200C77875 /* Recovered References */,
+				81B6528FF8CB9DAAA2AA51E3 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -870,6 +937,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E3044E0322DDC87600522047 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3044E2F22DDC87700522047 /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3823E3422DDC3FB0001E2AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3823E3822DDC3FC0001E2AF /* libRNCAsyncStorage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -877,6 +960,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "conveyorTests" */;
 			buildPhases = (
+				4E23F241090B2B944E0B85F2 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -895,6 +979,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "conveyor" */;
 			buildPhases = (
+				A833B9C2DFC67FC614F15702 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -913,6 +998,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "conveyor-tvOS" */;
 			buildPhases = (
+				00972E153FEA9C6679CAC945 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -931,6 +1017,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "conveyor-tvOSTests" */;
 			buildPhases = (
+				4EAC4A4FF29E47AF9295AFED /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -961,6 +1048,14 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = FTEXX6B66Q;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1037,6 +1132,14 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = E3823E3422DDC3FB0001E2AF /* Products */;
+					ProjectRef = B791DD0FA3E140C281D54C23 /* RNCAsyncStorage.xcodeproj */;
+				},
+				{
+					ProductGroup = E3044E0322DDC87600522047 /* Products */;
+					ProjectRef = 59F82256BB3D4BAE9998FFB6 /* RNFirebase.xcodeproj */;
 				},
 				{
 					ProductGroup = 6F8E547622BB775600C77875 /* Products */;
@@ -1359,6 +1462,20 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E3044E2F22DDC87700522047 /* libRNFirebase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFirebase.a;
+			remoteRef = E3044E2E22DDC87700522047 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3823E3822DDC3FC0001E2AF /* libRNCAsyncStorage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCAsyncStorage.a;
+			remoteRef = E3823E3722DDC3FC0001E2AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1402,6 +1519,7 @@
 				C9D518D124B14755A94976DF /* HelveticaNeue-Medium.otf in Resources */,
 				5CA3891C26B04B449C4B36C9 /* HelveticaNeue-MediumCond.otf in Resources */,
 				25730ECC74D94F5FBE4562D7 /* HelveticaNeue-MediumCondObl.otf in Resources */,
+				E3823E3A22DDC4920001E2AF /* GoogleService-Info.plist in Resources */,
 				715452B925194197B67FF2AB /* HelveticaNeue-MediumExt.otf in Resources */,
 				A3E3A1F4541A42BDB0DA52C5 /* HelveticaNeue-MediumExtObl.otf in Resources */,
 				013E119D3AF34950B51408B4 /* HelveticaNeue-Roman.otf in Resources */,
@@ -1444,6 +1562,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00972E153FEA9C6679CAC945 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-conveyor-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1471,6 +1611,72 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4E23F241090B2B944E0B85F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-conveyorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EAC4A4FF29E47AF9295AFED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-conveyor-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A833B9C2DFC67FC614F15702 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-conveyor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1539,6 +1745,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B55EF24627C191D0FB00E463 /* Pods-conveyorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1551,12 +1758,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = conveyorTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1576,6 +1785,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 522062EC7B11F56B6C3CDB5F /* Pods-conveyorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1585,12 +1795,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = conveyorTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1610,8 +1822,10 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D732BD4DA8167EDB7B44A760 /* Pods-conveyor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = conveyor/conveyor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1623,6 +1837,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = conveyor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1640,8 +1855,10 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EBD57B28AE2FAD0A4F630C /* Pods-conveyor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = conveyor/conveyor.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1652,6 +1869,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = conveyor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1669,6 +1887,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9254A1E57078DFF4CE9800DD /* Pods-conveyor-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1685,11 +1904,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "conveyor-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1711,6 +1932,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C59DF92CFFE9F2E167FA6EF /* Pods-conveyor-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1727,11 +1949,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "conveyor-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1753,6 +1977,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 042AD81B6165453FE08C0B53 /* Pods-conveyor-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1768,11 +1993,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "conveyor-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1794,6 +2021,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B9DF9EB3CBFC3FB00291C4A /* Pods-conveyor-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1809,11 +2037,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "conveyor-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "525648336613",
+    "firebase_url": "https://conveyor-56433.firebaseio.com",
+    "project_id": "conveyor-56433",
+    "storage_bucket": "conveyor-56433.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525648336613:android:b350d92a9307d49c",
+        "android_client_info": {
+          "package_name": "com.conveyor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525648336613-0fl3cdt1n1r2ekak1f5006slrpc9jrll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDqcFtvtR4TTWmxnr_yR9T0ETySM_PvOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525648336613-0fl3cdt1n1r2ekak1f5006slrpc9jrll.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "525648336613-6ggi4hlcoo0mv0v6t3etkb50tlrtr0e6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "de.codecentric.labs.conveyor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

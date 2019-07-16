@@ -5,6 +5,9 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.BV.LinearGradient.LinearGradientPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 import com.horcrux.svg.SvgPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -29,6 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new AsyncStoragePackage(),
             new LinearGradientPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseMessagingPackage(),
+            new RNFirebaseNotificationsPackage(),
             new SvgPackage(),
             new RNGestureHandlerPackage()
       );
