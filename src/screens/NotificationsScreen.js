@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 2,
+    zIndex: 2
   },
   greyText: {
-    color: greyText,
-  },
+    color: greyText
+  }
 });
 
 const NotificationsScreen = () => {

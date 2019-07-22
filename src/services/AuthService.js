@@ -8,12 +8,12 @@ const authCall = async (dispatch, loginUsername, loginPassword) => {
     method: 'post',
     url: loginUrl,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     data: {
       username: loginUsername,
-      password: loginPassword,
-    },
+      password: loginPassword
+    }
   };
   dispatch({ type: AUTH_START });
   const response = await axios(authCallConfig).catch(err => dispatch({ type: AUTH_ERROR, payload: err }));

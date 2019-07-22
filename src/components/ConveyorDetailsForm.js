@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 16,
     backgroundColor: white,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(2)
   },
   scrollView: {
     zIndex: 2,
-    paddingVertical: 30,
-  },
+    paddingVertical: 30
+  }
 });
 
 type Props = {
@@ -54,8 +54,6 @@ const ConveyorDetailsForm = ({ conveyor }: Props) => {
           <ConveyorDetailsFormHeader formHeader={`Conveyor Mac Address: ${conveyor.mac_address}`} />
           <FormLineComponent />
           <ConveyorDetailsFormRow title="Material Name" item1={conveyor.material.name} item2="" />
-          <FormLineComponent />
-          <ConveyorDetailsFormRow title="Material Density" item1="1.866" item2={'t\u00B3/s'} />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Bulk Density"

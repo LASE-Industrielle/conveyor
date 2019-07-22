@@ -1,7 +1,6 @@
-// @flow
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Platform, RefreshControl, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { NavigationScreenProp } from 'react-navigation';
+import { useNavigation, useNavigationEvents } from 'react-navigation-hooks';
 
 import ConveyorDetailsForm from '../components/ConveyorDetailsForm';
 import VolumeStreamComponent from '../components/VolumeStreamComponent';
@@ -13,12 +12,13 @@ import { greenIconColor, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 import fontStyles from '../utils/FontUtils';
 import { ScannerAnalyticsPath } from '../navigation/Paths';
+import { CONVEYOR_LOAD_START } from '../reducers/Actions';
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 4,
     zIndex: 2,
-    bottom: 32,
+    bottom: 32
   },
   volumeStreamWrapperView: {
     paddingHorizontal: 5,
@@ -28,17 +28,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     marginTop: 0,
     backgroundColor: white,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(Platform.OS === 'ios' ? 2 : 5),
     marginBottom: 4,
     paddingVertical: 15,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   analyticsView: {
     backgroundColor: white,
     flex: 0.17,
     justifyContent: 'center',
     flexDirection: 'column',
-    zIndex: 2,
+    zIndex: 2
   },
   analyticsTouchableOpacity: {
     margin: 22,
@@ -49,54 +49,51 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     borderRadius: 5,
-    ...elevationShadowStyle(2),
+    ...elevationShadowStyle(2)
   },
   analyticsText: {
     color: white,
-    ...fontStyles.fontMedium,
-  },
+    ...fontStyles.fontMedium
+  }
 });
 
-type Conveyor = {
-  conveyor: {
-    loading: boolean,
-    details: {
-      latest_measurement: {
-        percentage_full: number,
-        upper_limit_flow: number,
-        lower_limit_flow: number
-      }
-    }
-  }
-};
-
-type Props = {
-  navigation: NavigationScreenProp<{}>,
-  conveyor: Conveyor
-};
-
-const ConveyorDetailsScreen = ({ navigation }: Props) => {
+const ConveyorDetailsScreen = () => {
+  const navigation = useNavigation();
   const [{ conveyor }, dispatch] = useStore();
-
-  useEffect(() => {
-    getConveyorById(dispatch, navigation.getParam('id', ''), true);
-
-    const timer = setInterval(() => getConveyorById(dispatch, navigation.getParam('id', ''), false), 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const [removeTimer, setRemoveTimer] = useState(null);
+  const [refresh, setRefresh] = useState(true);
 
   const reload = () => {
-    getConveyorById(dispatch, navigation.getParam('id', ''), true);
+    getConveyorById(dispatch, navigation.getParam('id', ''), true, setRefresh);
   };
+
+  useNavigationEvents(event => {
+    if (event.type === 'willFocus') {
+      dispatch({ type: CONVEYOR_LOAD_START });
+      setRefresh(true);
+    }
+    if (event.type === 'didFocus') {
+      reload();
+
+      const timer = setInterval(() => getConveyorById(dispatch, navigation.getParam('id', ''), false), 1000);
+      setRemoveTimer({ remove: () => clearInterval(timer) });
+    }
+    if (event.type === 'willBlur' && removeTimer !== null) {
+      removeTimer.remove();
+      dispatch({ type: CONVEYOR_LOAD_START });
+    }
+    if (event.type === 'didBlur') {
+      dispatch({ type: CONVEYOR_LOAD_START });
+      setRefresh(true);
+    }
+  });
 
   return (
     <GradientHeaderComponent>
       <ScrollView
         refreshControl={
           <RefreshControl
-            refreshing={conveyor.loading}
+            refreshing={refresh}
             onRefresh={() => {
               reload();
             }}

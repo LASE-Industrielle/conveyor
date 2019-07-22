@@ -14,8 +14,8 @@ const icon = {
         />
       </G>
     ),
-    viewBox: '0 0 9.365 16',
-  },
+    viewBox: '0 0 9.365 16'
+  }
 };
 
 const BackArrowIcon = () => <SvgIcon fill={iconColor} height={16} width={9.37} name="icon" svgs={icon} />;
