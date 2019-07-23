@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Alert,
-  DatePickerIOS,
-  Dimensions,
-  Modal,
-  Platform,
-  RefreshControl,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { Alert, Dimensions, Platform, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { useNavigation } from 'react-navigation-hooks';
 
 import Swiper from 'react-native-swiper';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import GraphComponent from '../components/GraphComponent';
 import { getConveyorById } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
@@ -22,7 +11,6 @@ import { blue, greyText, inactiveDotGrey, orange, red, white } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 import MeasurementDetailComponent from '../components/MeasurementDetailComponent';
-import { useNavigation } from 'react-navigation-hooks';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -44,19 +32,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const dateConfig = {
-  month: 'short',
-  day: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit'
-};
-
 const ScannerAnalyticsScreen = () => {
-  const [startModalVisible, setStartModalVisible] = useState(false);
-  const [endModalVisible, setEndModalVisible] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-
   const [volumeSumMeasurements, setVolumeSumMeasurements] = useState();
   const [volumeSumMeasurementsTicks, setVolumeSumMeasurementsTicks] = useState();
 
@@ -121,66 +97,8 @@ const ScannerAnalyticsScreen = () => {
     refreshData();
   };
 
-  const showAlert = () => {
-    Alert.alert(
-      'Warning',
-      'End date cannot be earlier than start date',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel'
-        },
-        { text: 'OK' }
-      ],
-      { cancelable: false }
-    );
-  };
-
   return (
     <GradientHeaderComponent>
-      <Modal animationType="slide" transparent={false} visible={startModalVisible}>
-        <View
-          style={{
-            paddingTop: Dimensions.get('window').height / 3
-          }}
-        >
-          <DatePickerIOS date={startDate} onDateChange={setStartDate} />
-          <TouchableOpacity
-            style={{ justifyContent: 'center', alignItems: 'center' }}
-            onPress={() => {
-              if (startDate > endDate) {
-                showAlert();
-              } else {
-                setStartModalVisible(false);
-              }
-            }}
-          >
-            <Text>SET DATE</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
-      <Modal animationType="slide" transparent={false} visible={endModalVisible}>
-        <View
-          style={{
-            paddingTop: Dimensions.get('window').height / 3
-          }}
-        >
-          <DatePickerIOS date={endDate} onDateChange={setEndDate} />
-          <TouchableOpacity
-            style={{ justifyContent: 'center', alignItems: 'center' }}
-            onPress={() => {
-              if (startDate > endDate) {
-                showAlert();
-              } else {
-                setEndModalVisible(false);
-              }
-            }}
-          >
-            <Text>SET DATE</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
       <ScrollView
         refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
         style={styles.scrollView}
@@ -219,38 +137,6 @@ const ScannerAnalyticsScreen = () => {
                   units={'dm\u00B3'}
                 />
               )}
-              <View
-                style={{
-                  borderWidth: 3,
-                  borderColor: orange,
-                  flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  borderRadius: 5,
-                  margin: 10
-                }}
-              >
-                <TouchableOpacity
-                  style={{ margin: 5, borderRadius: 5, padding: 7 }}
-                  onPress={() => {
-                    setStartModalVisible(true);
-                  }}
-                >
-                  <Text style={{ color: orange, fontWeight: 'bold' }}>
-                    {startDate.toLocaleString('en-US', dateConfig)}
-                  </Text>
-                </TouchableOpacity>
-                <Text style={{ alignSelf: 'center', fontWeight: 'bold', color: orange }}>{'>'}</Text>
-                <TouchableOpacity
-                  style={{ margin: 5, borderRadius: 5, padding: 7 }}
-                  onPress={() => {
-                    setEndModalVisible(true);
-                  }}
-                >
-                  <Text style={{ color: orange, fontWeight: 'bold' }}>
-                    {endDate.toLocaleString('en-US', dateConfig)}
-                  </Text>
-                </TouchableOpacity>
-              </View>
             </View>
           </View>
           <View style={{ flex: 1 }}>
