@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Platform, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 
 import GraphComponent from '../components/GraphComponent';
-import { getConveyors } from '../services/ConveyorsService';
+import { getConveyorById } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
 import ConveyorStatusForm from '../components/ConveyorStatusForm';
 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const ScannerAnalyticsScreen = () => {
+const ScannerAnalyticsScreen = props => {
   const [volumeSumMeasurements, setVolumeSumMeasurements] = useState();
   const [volumeSumMeasurementsTicks, setVolumeSumMeasurementsTicks] = useState();
 
@@ -45,7 +45,7 @@ const ScannerAnalyticsScreen = () => {
   const [conveyorSpeed, setConveyorSpeed] = useState();
   const [scannerStatus, setScannerStatus] = useState();
 
-  const [{ conveyors }, dispatch] = useStore();
+  const [{ conveyor }, dispatch] = useStore();
 
   const createTicks = data => {
     const maxValue = Math.max(...data);
@@ -63,8 +63,8 @@ const ScannerAnalyticsScreen = () => {
   };
 
   const refreshData = () => {
-    getConveyors(dispatch);
-    const { latest_measurement: latestMeasurement, chart_data: chartData } = conveyors.data[0];
+    getConveyorById(dispatch, props.navigation.getParam('id', ''));
+    const { latest_measurement: latestMeasurement, chart_data: chartData } = conveyor.details;
 
     setVolumeSum(latestMeasurement.volume_sum);
     setAvgVolumeFlow(latestMeasurement.avg_volume_flow);

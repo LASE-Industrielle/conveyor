@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     ...elevationShadowStyle(2)
   },
   touchableOpacityPadding: {
-    paddingBottom: 16
+    paddingBottom: 16,
+    marginTop: 10
   },
   statusCircle: {
     alignSelf: 'flex-end',
-    marginTop: 10,
     marginRight: 10
   },
   conveyorNameText: {
@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
     color: statusColorRed,
     ...fontStyles.fontMedium,
     fontSize: 13
+  },
+  emptyView: {
+    height: 9
   }
 });
 
@@ -101,17 +104,26 @@ const ConveyorsListScreen = () => {
           })
         }
       >
-        <ConveyorStatusSvgCircle
-          style={styles.statusCircle}
-          fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
-        />
+        {item.latest_measurement ? (
+          <ConveyorStatusSvgCircle
+            style={styles.statusCircle}
+            fill={item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? statusColorGreen : statusColorRed}
+          />
+        ) : (
+          <View style={styles.emptyView} />
+        )}
+
         <Text style={styles.conveyorNameText}>{item.name.toUpperCase()}</Text>
         <Text style={styles.conveyorStatusText}>
           Status:{' '}
-          {item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
-            <Text style={styles.conveyorStatusGreenText}>{item.latest_measurement.scanner_status}</Text>
+          {item.latest_measurement ? (
+            item.latest_measurement.scanner_status.toUpperCase() === 'OK' ? (
+              <Text style={styles.conveyorStatusGreenText}>{item.latest_measurement.scanner_status}</Text>
+            ) : (
+              <Text style={styles.conveyorStatusRedText}>{item.latest_measurement.scanner_status}</Text>
+            )
           ) : (
-            <Text style={styles.conveyorStatusRedText}>{item.latest_measurement.scanner_status}</Text>
+            'No measurements'
           )}
         </Text>
       </TouchableOpacity>

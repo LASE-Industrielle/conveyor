@@ -8,7 +8,7 @@ import { useStore } from '../context/StateContext';
 import { getConveyorById } from '../services/ConveyorsService';
 
 import { elevationShadowStyle } from '../Styles';
-import { greenIconColor, white } from '../Colors';
+import { bgColor, greenIconColor, greyText, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 import fontStyles from '../utils/FontUtils';
 import { ScannerAnalyticsPath } from '../navigation/Paths';
@@ -54,6 +54,17 @@ const styles = StyleSheet.create({
   analyticsText: {
     color: white,
     ...fontStyles.fontMedium
+  },
+  viewGreyBackground: {
+    backgroundColor: bgColor,
+    flex: 1,
+    top: '50%',
+    alignSelf: 'center',
+    zIndex: 2,
+    position: 'absolute'
+  },
+  greyText: {
+    color: greyText
   }
 });
 
@@ -103,7 +114,7 @@ const ConveyorDetailsScreen = () => {
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}
       >
-        {conveyor.loading ? null : (
+        {conveyor.loading || conveyor.details.latest_measurement === null ? null : (
           <View style={styles.volumeStreamWrapperView}>
             <VolumeStreamComponent
               percentage={
@@ -116,20 +127,27 @@ const ConveyorDetailsScreen = () => {
             />
           </View>
         )}
-        {conveyor.loading ? null : <ConveyorDetailsForm conveyor={conveyor.details} />}
+        {conveyor.loading || conveyor.details.latest_measurement === null ? null : (
+          <ConveyorDetailsForm conveyor={conveyor.details} />
+        )}
       </ScrollView>
-      {conveyor.loading ? null : (
+      {conveyor.loading || conveyor.details.latest_measurement === null ? null : (
         <View style={styles.analyticsView}>
           <TouchableOpacity
             style={styles.analyticsTouchableOpacity}
             onPress={() => {
-              navigation.navigate(ScannerAnalyticsPath);
+              navigation.navigate(ScannerAnalyticsPath, { id: navigation.getParam('id', '') });
             }}
           >
             <Text style={styles.analyticsText}>ANALYTICS</Text>
           </TouchableOpacity>
         </View>
       )}
+      {!conveyor.loading && conveyor.details.latest_measurement === null ? (
+        <View style={styles.viewGreyBackground}>
+          <Text style={styles.greyText}>0 measurements recorded</Text>
+        </View>
+      ) : null}
     </GradientHeaderComponent>
   );
 };

@@ -51,9 +51,8 @@ const ConveyorDetailsForm = ({ conveyor }: Props) => {
     <View style={styles.outerView}>
       <ScrollView style={styles.scrollView}>
         <View>
-          <ConveyorDetailsFormHeader formHeader={`Conveyor Mac Address: ${conveyor.mac_address}`} />
+          <ConveyorDetailsFormHeader formHeader={`Conveyor Details`} />
           <FormLineComponent />
-          <ConveyorDetailsFormRow title="Material Name" item1={conveyor.material.name} item2="" />
           <FormLineComponent />
           <ConveyorDetailsFormRow
             title="Bulk Density"

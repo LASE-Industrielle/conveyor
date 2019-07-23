@@ -23,13 +23,15 @@ const getConveyors = async dispatch => {
 const getConveyorById = async (dispatch, id, reloadPage = true, setRefresh) => {
   if (reloadPage) {
     dispatch({ type: CONVEYOR_LOAD_START });
-    setRefresh(true);
+    if (setRefresh) {
+      setRefresh(true);
+    }
   }
   const response = await axios
     .get(`${conveyorsUrl + id}/`)
     .catch(err => handleError(dispatch, err, CONVEYOR_LOAD_ERROR));
   dispatch({ type: CONVEYOR_LOAD_SUCCESS, payload: response.data });
-  if (reloadPage) {
+  if (reloadPage && setRefresh) {
     setRefresh(false);
   }
 };
