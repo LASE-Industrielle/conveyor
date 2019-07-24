@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Switch, View, Text, TouchableOpacity } from 'react-native';
-import { NavigationScreenProp } from 'react-navigation';
+import { Image, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from 'react-navigation-hooks';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { useStore } from '../context/StateContext';
@@ -13,7 +13,7 @@ import NotificationIcon from '../icons/NotificationIcon';
 import SynchronizationIcon from '../icons/SynchronizationIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 import ccLogo from '../../assets/img/cc.jpg';
-import { blackTextColor, greenIconColor, statusColorRed, white, black } from '../Colors';
+import { black, blackTextColor, statusColorRed, white } from '../Colors';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
 import fontStyles from '../utils/FontUtils';
 
@@ -28,68 +28,51 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 13,
     bottom: 32,
-    ...elevationShadowStyle(2, 0.12),
+    ...elevationShadowStyle(2, 0.12)
   },
   profileImage: {
     alignSelf: 'center',
     width: 80,
     height: 80,
     borderRadius: 80 / 2,
-    marginTop: 30,
+    marginTop: 30
   },
   profileUsernameText: {
     paddingBottom: 15,
-    alignSelf: 'center',
-  },
-  iconGreenBackground: {
-    backgroundColor: greenIconColor,
-    opacity: 0.08,
-  },
-  iconRedbackground: {
-    backgroundColor: statusColorRed,
-    opacity: 0.1,
-  },
-  iconStyle: {
-    opacity: 1,
-    zIndex: 100,
-    position: 'absolute',
-    left: 8,
+    alignSelf: 'center'
   },
   profileItemText: {
     alignSelf: 'center',
     ...fontStyles.fontMedium,
-    color: blackTextColor,
+    color: blackTextColor
   },
   profileItemRedText: {
     ...fontStyles.fontMedium,
     fontWeight: 'bold',
-    color: statusColorRed,
+    color: statusColorRed
   },
   list: {
-    flex: 1,
+    flex: 1
   },
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 10
   },
   profileListItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    padding: 10
   },
   iconTextWrapper: { flexDirection: 'row' },
   icon: { padding: 7, margin: 7, borderRadius: 5, alignSelf: 'center' },
   switch: {
-    alignSelf: 'flex-end',
-  },
+    alignSelf: 'flex-end'
+  }
 });
 
-type Props = {
-  navigation: NavigationScreenProp<{}>
-};
-
-const ProfileScreen = ({ navigation }: Props) => {
+const ProfileScreen = () => {
+  const navigation = useNavigation();
   const [{ profile }, dispatch] = useStore();
 
   const [sync1, setSync1] = useState(true);
@@ -110,7 +93,7 @@ const ProfileScreen = ({ navigation }: Props) => {
           <View style={styles.listItem}>
             <View style={styles.iconTextWrapper}>
               <SynchronizationIcon fill={black} height={14} width={14} style={styles.icon} />
-              <Text style={styles.profileItemText}>Syncronization</Text>
+              <Text style={styles.profileItemText}>Synchronization</Text>
             </View>
             <Switch value={sync1} style={styles.switch} onValueChange={() => setSync1(!sync1)} />
           </View>

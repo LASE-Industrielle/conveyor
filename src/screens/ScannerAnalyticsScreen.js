@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Platform, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, Dimensions, Platform, RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
+import { useNavigation } from 'react-navigation-hooks';
 
+import Swiper from 'react-native-swiper';
 import GraphComponent from '../components/GraphComponent';
-import { getConveyors } from '../services/ConveyorsService';
+import { getConveyorById } from '../services/ConveyorsService';
 import { useStore } from '../context/StateContext';
-import ConveyorStatusForm from '../components/ConveyorStatusForm';
 
-import { blue, orange, red, white } from '../Colors';
+import { blue, greyText, inactiveDotGrey, orange, red, white } from '../Colors';
 import { elevationShadowStyle } from '../Styles';
 import GradientHeaderComponent from '../components/GradientHeaderComponent';
+import MeasurementDetailComponent from '../components/MeasurementDetailComponent';
 
 const styles = StyleSheet.create({
   scrollView: {
     zIndex: 2,
-    bottom: 32,
+    bottom: 32
   },
   graphOuterView: {
     paddingHorizontal: 5,
@@ -23,11 +25,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     backgroundColor: white,
     ...elevationShadowStyle(2),
-    marginBottom: 18,
+    marginBottom: 18
   },
   conveyorStatusView: {
-    height: Platform.OS === 'ios' ? 80 : 60,
-  },
+    height: Platform.OS === 'ios' ? 80 : 60
+  }
 });
 
 const ScannerAnalyticsScreen = () => {
@@ -45,7 +47,9 @@ const ScannerAnalyticsScreen = () => {
   const [conveyorSpeed, setConveyorSpeed] = useState();
   const [scannerStatus, setScannerStatus] = useState();
 
-  const [{ conveyors }, dispatch] = useStore();
+  const [{ conveyor }, dispatch] = useStore();
+
+  const navigation = useNavigation();
 
   const createTicks = data => {
     const maxValue = Math.max(...data);
@@ -57,14 +61,14 @@ const ScannerAnalyticsScreen = () => {
       (minValue + midValue) / 2,
       midValue,
       (midValue + maxValue) / 2,
-      maxValue,
+      maxValue
     ];
     return maxValue - minValue === 0 ? generateConstantTicks(minValue) : generateAvgTicks(minValue, midValue, maxValue);
   };
 
   const refreshData = () => {
-    getConveyors(dispatch);
-    const { latest_measurement: latestMeasurement, chart_data: chartData } = conveyors.data[0];
+    getConveyorById(dispatch, navigation.getParam('id', ''));
+    const { latest_measurement: latestMeasurement, chart_data: chartData } = conveyor.details;
 
     setVolumeSum(latestMeasurement.volume_sum);
     setAvgVolumeFlow(latestMeasurement.avg_volume_flow);
@@ -99,47 +103,87 @@ const ScannerAnalyticsScreen = () => {
         refreshControl={<RefreshControl refreshing={false} onRefresh={onRefresh} />}
         style={styles.scrollView}
       >
-        <View pointerEvents="none" style={styles.graphOuterView}>
-          {volumeSumMeasurements && (
-            <GraphComponent
-              lineColor={orange}
-              loading={false}
-              label="Volume Sum"
-              data={volumeSumMeasurements}
-              ticks={volumeSumMeasurementsTicks}
-              value={volumeSum}
-              units={'dm\u00B3'}
-            />
-          )}
-
-          {volumeFlowMeasurements && (
-            <GraphComponent
-              lineColor={blue}
-              loading={false}
-              label="Volume Flow Rate"
-              data={volumeFlowMeasurements}
-              ticks={volumeFlowMeasurementsTicks}
-              value={avgVolumeFlow}
-              units={'dm\u00B3/h'}
-            />
-          )}
-
-          {conveyorSpeedMeasurements && (
-            <GraphComponent
-              lineColor={red}
-              loading={false}
-              label="Conveyor Speed"
-              data={conveyorSpeedMeasurements}
-              ticks={conveyorSpeedMeasurementsTicks}
-              value={conveyorSpeed}
-              units="mm/s"
-            />
-          )}
-        </View>
+        <Swiper
+          style={{ height: Dimensions.get('window').height - 120 }}
+          loadMinimal
+          loadMinimalSize={0}
+          loop={Platform.OS !== 'ios'}
+          activeDotColor={greyText}
+          dotColor={inactiveDotGrey}
+        >
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', paddingBottom: 20 }}>
+              {volumeSumMeasurements && (
+                <MeasurementDetailComponent
+                  lineColor={blue}
+                  label="Volume Flow Rate"
+                  value={avgVolumeFlow}
+                  units={'dm\u00B3/h'}
+                />
+              )}
+              {volumeSumMeasurements && (
+                <MeasurementDetailComponent lineColor={red} label="Conveyor Speed" value={conveyorSpeed} units="mm/s" />
+              )}
+            </View>
+            <View style={styles.graphOuterView}>
+              {volumeSumMeasurements && (
+                <GraphComponent
+                  lineColor={orange}
+                  loading={false}
+                  label="Volume Sum"
+                  data={volumeSumMeasurements}
+                  ticks={volumeSumMeasurementsTicks}
+                  value={volumeSum}
+                  units={'dm\u00B3'}
+                />
+              )}
+            </View>
+          </View>
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', paddingBottom: 20 }}>
+              <MeasurementDetailComponent lineColor={orange} label="Volume Sum" value={volumeSum} units={'dm\u00B3'} />
+              <MeasurementDetailComponent lineColor={red} label="Conveyor Speed" value={conveyorSpeed} units="mm/s" />
+            </View>
+            <View style={styles.graphOuterView}>
+              {volumeFlowMeasurements && (
+                <GraphComponent
+                  lineColor={blue}
+                  loading={false}
+                  label="Volume Flow Rate"
+                  data={volumeFlowMeasurements}
+                  ticks={volumeFlowMeasurementsTicks}
+                  value={avgVolumeFlow}
+                  units={'dm\u00B3/h'}
+                />
+              )}
+            </View>
+          </View>
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', paddingBottom: 20 }}>
+              <MeasurementDetailComponent
+                lineColor={blue}
+                label="Volume Flow Rate"
+                value={avgVolumeFlow}
+                units={'dm\u00B3/h'}
+              />
+              <MeasurementDetailComponent lineColor={orange} label="Volume Sum" value={volumeSum} units={'dm\u00B3'} />
+            </View>
+            <View style={styles.graphOuterView}>
+              {conveyorSpeedMeasurements && (
+                <GraphComponent
+                  lineColor={red}
+                  loading={false}
+                  label="Conveyor Speed"
+                  data={conveyorSpeedMeasurements}
+                  ticks={conveyorSpeedMeasurementsTicks}
+                  value={conveyorSpeed}
+                  units="mm/s"
+                />
+              )}
+            </View>
+          </View>
+        </Swiper>
       </ScrollView>
-      <View style={styles.conveyorStatusView}>
-        <ConveyorStatusForm status={scannerStatus} />
-      </View>
     </GradientHeaderComponent>
   );
 };

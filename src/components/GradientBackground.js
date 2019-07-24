@@ -8,11 +8,11 @@ import { bgColor, bgGradientStartLogin, bottomBorder } from '../Colors';
 const styles = StyleSheet.create({
   outerView: {
     height: '100%',
-    backgroundColor: bgColor,
+    backgroundColor: bgColor
   },
   linearGradientHeight: {
-    height: '100%',
-  },
+    height: '100%'
+  }
 });
 
 type Props = {

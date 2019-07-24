@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { NavigationScreenProp } from 'react-navigation';
+import { useNavigation } from 'react-navigation-hooks';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
@@ -10,14 +10,11 @@ import resetAction from '../navigation/Actions';
 
 const styles = StyleSheet.create({
   splashContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  imageStyle: { width: 100, height: 100 },
+  imageStyle: { width: 100, height: 100 }
 });
 
-type Props = {
-  navigation: NavigationScreenProp<{}>,
-};
-
-const SplashScreen = ({ navigation }: Props) => {
+const SplashScreen = () => {
+  const navigation = useNavigation();
   const checkToken = async () => {
     const token = await AsyncStorage.getItem('token').catch(() => {
       navigation.dispatch(resetAction(LoginPath));

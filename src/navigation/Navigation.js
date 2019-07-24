@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
+import { useNavigationEvents } from 'react-navigation-hooks';
 
 import {
   AppPath,
@@ -10,7 +11,7 @@ import {
   NotificationsPath,
   ProfilePath,
   ScannerAnalyticsPath,
-  SplashPath,
+  SplashPath
 } from './Paths';
 import LoginScreen from '../screens/LoginScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -30,25 +31,25 @@ const styles = StyleSheet.create({
     marginLeft: Platform.OS === 'ios' ? 0 : 26,
     fontFamily: Platform.OS === 'ios' ? 'HelveticaNeue-Medium' : 'HelveticaNeueMedium',
     fontSize: 18,
-    color: iconColor,
+    color: iconColor
   },
   headerRightView: {
     flexDirection: 'row',
-    marginRight: 8,
+    marginRight: 8
   },
   notificationIconPadding: {
     paddingRight: 5,
-    paddingLeft: 14,
+    paddingLeft: 14
   },
   profileIconPadding: {
     paddingRight: 14,
-    paddingLeft: 5,
+    paddingLeft: 5
   },
   backArrowPadding: {
     padding: 20,
     paddingTop: 15,
-    paddingBottom: 15,
-  },
+    paddingBottom: 15
+  }
 });
 
 const navigationOptions = (backArrowExists, title, rightIconsExists) => ({ navigation }) => {
@@ -67,16 +68,16 @@ const navigationOptions = (backArrowExists, title, rightIconsExists) => ({ navig
     headerStyle:
       Platform.OS === 'ios'
         ? {
-          backgroundColor: 'transparent',
-          marginTop: 0,
-          marginBottom: 10,
-          zIndex: -1,
-        }
+            backgroundColor: 'transparent',
+            marginTop: 0,
+            marginBottom: 10,
+            zIndex: -1
+          }
         : {
-          backgroundColor: 'transparent',
-          marginTop: 18,
-          marginBottom: 71,
-        },
+            backgroundColor: 'transparent',
+            marginTop: 18,
+            marginBottom: 71
+          },
     // Heading text color
     headerTintColor: navigation.getParam('HeaderTintColor', iconColor),
     headerRight: rightIconsExists ? (
@@ -94,7 +95,7 @@ const navigationOptions = (backArrowExists, title, rightIconsExists) => ({ navig
         <BackArrowIcon />
       </TouchableOpacity>
     ) : null,
-    headerTransparent: true,
+    headerTransparent: true
   };
 };
 
@@ -103,35 +104,35 @@ const AppStackNavigator = createStackNavigator(
     ConveyorsList: {
       screen: ConveyorsListScreen,
       path: ConveyorDetailsPath,
-      navigationOptions: navigationOptions(false, 'Conveyors', true),
+      navigationOptions: navigationOptions(false, 'Conveyors', true)
     },
     Profile: {
       screen: ProfileScreen,
       path: ProfilePath,
-      navigationOptions: navigationOptions(true, 'Profile', true),
+      navigationOptions: navigationOptions(true, 'Profile', true)
     },
     Notifications: {
       screen: NotificationsScreen,
       path: NotificationsPath,
-      navigationOptions: navigationOptions(true, 'Notifications', true),
+      navigationOptions: navigationOptions(true, 'Notifications', true)
     },
     ConveyorDetails: {
       screen: ConveyorDetailsScreen,
       path: ConveyorDetailsPath,
-      navigationOptions: navigationOptions(true, '', true),
+      navigationOptions: navigationOptions(true, '', true)
     },
     ScannerAnalytics: {
       screen: ScannerAnalyticsScreen,
       path: ScannerAnalyticsPath,
-      navigationOptions: navigationOptions(true, 'Analytics', true),
-    },
+      navigationOptions: navigationOptions(true, 'Analytics', true)
+    }
   },
   {
     tabBarOptions: {
-      showLabel: true,
+      showLabel: true
     },
-    initialRouteName: ConveyorsListPath,
-  },
+    initialRouteName: ConveyorsListPath
+  }
 );
 
 const AppNavigator = createStackNavigator(
@@ -139,22 +140,22 @@ const AppNavigator = createStackNavigator(
     Splash: {
       screen: SplashScreen,
       path: SplashPath,
-      navigationOptions: { header: null },
+      navigationOptions: { header: null }
     },
     Login: {
       screen: LoginScreen,
       path: LoginPath,
-      navigationOptions: navigationOptions(false, '', false),
+      navigationOptions: navigationOptions(false, '', false)
     },
     App: {
       screen: AppStackNavigator,
       path: AppPath,
-      navigationOptions: { header: null },
-    },
+      navigationOptions: { header: null }
+    }
   },
   {
-    initialRouteName: SplashPath,
-  },
+    initialRouteName: SplashPath
+  }
 );
 
 const AppContainer = createAppContainer(AppNavigator);
