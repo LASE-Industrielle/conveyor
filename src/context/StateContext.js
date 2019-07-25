@@ -31,6 +31,11 @@ const initialState = {
     },
     loading: true,
     errorMessage: ''
+  },
+  notifications: {
+    data: [],
+    errorMessage: '',
+    loading: false
   }
 };
 
