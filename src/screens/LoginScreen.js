@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { NavigationActions, StackActions } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
-import { AsyncStorage } from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import { useStore } from '../context/StateContext';
 import authCall from '../services/AuthService';

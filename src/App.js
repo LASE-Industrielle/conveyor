@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Alert, StyleSheet} from 'react-native';
-import {AsyncStorage} from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage'
 import firebase from 'react-native-firebase';
 
 import AppContainer from './navigation/Navigation';
