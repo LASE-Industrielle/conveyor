@@ -1909,7 +1909,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.codecentric.labs.conveyor-app";
 				PRODUCT_NAME = conveyor;
-				PROVISIONING_PROFILE_SPECIFIER = "conveyor profile";
+				PROVISIONING_PROFILE_SPECIFIER = "conveyor ad hoc profile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
